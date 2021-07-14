@@ -1,6 +1,7 @@
 package advertiser
 
 import (
+	"fmt"
 	"net/url"
 	"strconv"
 )
@@ -19,7 +20,7 @@ func (r FundDailyFlowsRequest) Url() string {
 
 func (r FundDailyFlowsRequest) Encode() string {
 	values := url.Values{}
-	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserId, 10))
+	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
 	if r.StartDate != "" {
 		values.Set("start_date", r.StartDate)
 	}
@@ -27,10 +28,10 @@ func (r FundDailyFlowsRequest) Encode() string {
 		values.Set("end_date", r.EndDate)
 	}
 	if r.Page > 0 {
-		values.Set("page", r.Page)
+		values.Set("page", fmt.Sprint(r.Page))
 	}
 	if r.PageSize > 0 {
-		values.Set("page_size", r.PageSize)
+		values.Set("page_size", fmt.Sprint(r.PageSize))
 	}
 	return values.Encode()
 }
