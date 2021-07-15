@@ -8,7 +8,7 @@ type RefreshTokenRequest struct {
 	RefreshToken string `json:"refresh_token,omitempty"` // 最近一次快手返回的refresh_token
 }
 
-func (r RefreshTokenRequest) Url() {
+func (r RefreshTokenRequest) Url() string {
 	return "oauth2/authorize/refresh_token"
 }
 
