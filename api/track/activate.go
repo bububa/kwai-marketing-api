@@ -14,6 +14,9 @@ import (
 func Activate(req *track.ActivateRequest) error {
 	reqUrl := fmt.Sprintf("%s?%s", core.ACTIVATE_URL, req.Encode())
 	httpReq, err := http.NewRequest("GET", reqUrl, nil)
+	if err != nil {
+		return err
+	}
 	httpResp, err := http.DefaultClient.Do(httpReq)
 	if err != nil {
 		return err

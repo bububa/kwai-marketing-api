@@ -8,6 +8,7 @@ import (
 	"log"
 )
 
+// PrintError debug print error
 func PrintError(err error, debug bool) {
 	if !debug {
 		return
@@ -15,6 +16,7 @@ func PrintError(err error, debug bool) {
 	log.Println("[DEBUG] [ERROR]", err)
 }
 
+// PrintStringResponse debug print string response
 func PrintStringResponse(str string, debug bool) {
 	if !debug {
 		return
@@ -22,6 +24,7 @@ func PrintStringResponse(str string, debug bool) {
 	log.Println("[DEBUG] [RESPONSE]", str)
 }
 
+// PrintGetRequest debug print get request
 func PrintGetRequest(url string, debug bool) {
 	if !debug {
 		return
@@ -29,6 +32,7 @@ func PrintGetRequest(url string, debug bool) {
 	log.Println("[DEBUG] [API] GET", url)
 }
 
+// PrintPostJSONRequest debug print post json request
 func PrintPostJSONRequest(url string, body []byte, debug bool) {
 	if !debug {
 		return
@@ -43,6 +47,7 @@ func PrintPostJSONRequest(url string, body []byte, debug bool) {
 	log.Printf(format, url, body)
 }
 
+// PrintPostMultipartRequest debug print post multipart request
 func PrintPostMultipartRequest(url string, body []byte, debug bool) {
 	if !debug {
 		return
@@ -50,6 +55,7 @@ func PrintPostMultipartRequest(url string, body []byte, debug bool) {
 	log.Println("[DEBUG] [API] multipart/form-data POST", url)
 }
 
+// DecodeJSONHttpResponse decode http json response with debug
 func DecodeJSONHttpResponse(r io.Reader, v interface{}, debug bool) error {
 	if !debug {
 		return json.NewDecoder(r).Decode(v)
