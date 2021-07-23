@@ -10,14 +10,14 @@ import (
 	"github.com/bububa/kwai-marketing-api/model"
 )
 
-// sdkclient object
+// SDKClient api client
 type SDKClient struct {
 	appID  int64
 	secret string
 	debug  bool
 }
 
-// init sdk client
+// NewSDKClient init sdk client
 func NewSDKClient(appID int64, secret string) *SDKClient {
 	return &SDKClient{
 		appID:  appID,
@@ -25,30 +25,32 @@ func NewSDKClient(appID int64, secret string) *SDKClient {
 	}
 }
 
-// set debug mode
+// SetDebug set debug mode
 func (c *SDKClient) SetDebug(debug bool) {
 	c.debug = debug
 }
 
-// appID getter
+// AppID appID getter
 func (c *SDKClient) AppID() int64 {
 	return c.appID
 }
 
-// secret getter
+// Secret secret getter
 func (c *SDKClient) Secret() string {
 	return c.secret
 }
 
+// PostUrl post请求地址
 func (c *SDKClient) PostUrl(req model.PostRequest) string {
 	return fmt.Sprintf("%s/%s", BASE_URL, req.Url())
 }
 
+// GetUrl get请求地址
 func (c *SDKClient) GetUrl(req model.GetRequest) string {
 	return fmt.Sprintf("%s/%s?%s", BASE_URL, req.Url(), req.Encode())
 }
 
-// execute post api request
+// Post execute post api request
 func (c *SDKClient) Post(accessToken string, req model.PostRequest, resp interface{}) error {
 	var reqResp model.BaseResponse
 	err := c.post(accessToken, c.PostUrl(req), req.Encode(), &reqResp)
@@ -67,7 +69,7 @@ func (c *SDKClient) Post(accessToken string, req model.PostRequest, resp interfa
 	return nil
 }
 
-// execute get api request
+// Get execute get api request
 func (c *SDKClient) Get(accessToken string, req model.GetRequest, resp interface{}) error {
 	var reqResp model.BaseResponse
 	err := c.get(accessToken, c.GetUrl(req), &reqResp)

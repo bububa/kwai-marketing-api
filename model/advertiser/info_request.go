@@ -1,17 +1,24 @@
 package advertiser
 
-import "net/url"
+import (
+	"net/url"
+	"strconv"
+)
 
+// InfoRequest 获取广告主信息APIRequest
 type InfoRequest struct {
-	AdvertiserID int64 `json:"advertiser_id,omitempty"` // 广告主ID
+	// AdvertiserID 广告主ID
+	AdvertiserID int64 `json:"advertiser_id,omitempty"`
 }
 
+// Url implement GetRequest interface
 func (r InfoRequest) Url() string {
 	return "v1/advertiser/info"
 }
 
+// Encode implement GetRequest interface
 func (r InfoRequest) Encode() string {
 	values := url.Values{}
-	values.Set("advertiser_id", r.AdvertiserID)
+	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
 	return values.Encode()
 }

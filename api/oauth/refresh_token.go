@@ -5,7 +5,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/oauth"
 )
 
-// 刷新tonken
+// RefreshToken 刷新tonken
 // 请求快手服务器，刷新access_token和refresh_token及token过期时间。
 func RefreshToken(clt *core.SDKClient, refreshToken string) (*oauth.AccessTokenResponse, error) {
 	req := &oauth.RefreshTokenRequest{

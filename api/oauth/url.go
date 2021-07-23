@@ -5,7 +5,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/oauth"
 )
 
-// 生成授权链接
+// Url 生成授权链接
 func Url(clt *core.SDKClient, req *oauth.UrlRequest) string {
 	req.AppID = clt.AppID()
 	return clt.GetUrl(req)

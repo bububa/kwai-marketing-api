@@ -5,20 +5,33 @@ import (
 	"strconv"
 )
 
+// ActivateRequest 转化回传APIRequest
 type ActivateRequest struct {
-	Callback               string  `json:"callback,omitempty"`                 // 接口一接收的__CALLBACK__替换后的http地址中的callback参数（参考下方示例中标红处）。
-	EventType              int     `json:"event_type,omitempty"`               // 事件类型，转化事件和参数值的对应关系见下表，建议对接前与快手运营同学沟通确认。
-	EventTime              int64   `json:"event_time,omitempty"`               // 件时间，13位毫秒级时间戳。若请求中携带event_type参数，则必须同时携带event_time参数。
-	PurchaseAmount         float64 `json:"purchase_amount,omitempty"`          // 金额。当event_type为{3,12,13,14,15}，必须同时回传消费金额参数;单位元，可保留两位小数。
-	UserTagsAge            int     `json:"user_tags_age,omitempty"`            // 用户年龄，可选参数，整数，仅限保险行业使用。
-	UserTagsInsurance      *int    `json:"user_tags_insurance,omitempty"`      // 社保情况，可选参数，整数，仅限保险行业使用，取值：0-无社保、1-有社保、2-其他。
-	WeightedPurchaseAmount float64 `json:"weighted_purchase_amount,omitempty"` // 加权付费金额，可选参数，双精度浮点型，仅限保险行业使用。
-	ActionReason           int     `json:"action_reason,omitempty"`            // 行为原因，可选参数，整数，当event_type为{120,121}时强烈建议回传，枚举值见下方表格。
-	KeyActionCategory      int     `json:"key_action_category,omitempty"`      // 关键行为类型，可选参数，整数，当 event_type=143 时强烈建议回传，枚举值见下方表格。
-	KeyActionThreshold     int     `json:"key_action_threshold,omitempty"`     // 关键行为定义对应的次数/数量/等级/金额等信息，可选参数，数字，当 event_type=143 时强烈建议回传，枚举值见下方表格
-	IsDirectMatch          *bool   `json:"is_direct_match,omitempty"`          // 为提升投放效果，快手希望广告主可以将归因至其它渠道的转化数据也回传至快手，帮助优化深度转化模型训练，上报此类转化数据时，需要增加参数“&is_direct_match=false”，表示“该用户看过快手广告，但转化归因到了其它平台”，此类数据不会计入投放报表展现。
+	// Callback 接口一接收的__CALLBACK__替换后的http地址中的callback参数（参考下方示例中标红处）。
+	Callback string `json:"callback,omitempty"`
+	// EventType 事件类型，转化事件和参数值的对应关系见下表，建议对接前与快手运营同学沟通确认。
+	EventType int `json:"event_type,omitempty"`
+	// EventType 事件时间，13位毫秒级时间戳。若请求中携带event_type参数，则必须同时携带event_time参数。
+	EventTime int64 `json:"event_time,omitempty"`
+	// PurchaseAmount 金额。当event_type为{3,12,13,14,15}，必须同时回传消费金额参数;单位元，可保留两位小数。
+	PurchaseAmount float64 `json:"purchase_amount,omitempty"`
+	// UserTagsAge 用户年龄，可选参数，整数，仅限保险行业使用。
+	UserTagsAge int `json:"user_tags_age,omitempty"`
+	// UserTagsInsurance 社保情况，可选参数，整数，仅限保险行业使用，取值：0-无社保、1-有社保、2-其他。
+	UserTagsInsurance *int `json:"user_tags_insurance,omitempty"`
+	// WeightedPurchaseAmount 加权付费金额，可选参数，双精度浮点型，仅限保险行业使用。
+	WeightedPurchaseAmount float64 `json:"weighted_purchase_amount,omitempty"`
+	// ActionReason 行为原因，可选参数，整数，当event_type为{120,121}时强烈建议回传，枚举值见下方表格。
+	ActionReason int `json:"action_reason,omitempty"`
+	// KeyActionCategory 关键行为类型，可选参数，整数，当 event_type=143 时强烈建议回传，枚举值见下方表格。
+	KeyActionCategory int `json:"key_action_category,omitempty"`
+	// KeyActionThreshold 关键行为定义对应的次数/数量/等级/金额等信息，可选参数，数字，当 event_type=143 时强烈建议回传，枚举值见下方表格
+	KeyActionThreshold int `json:"key_action_threshold,omitempty"`
+	// IsDirectMatch 为提升投放效果，快手希望广告主可以将归因至其它渠道的转化数据也回传至快手，帮助优化深度转化模型训练，上报此类转化数据时，需要增加参数“&is_direct_match=false”，表示“该用户看过快手广告，但转化归因到了其它平台”，此类数据不会计入投放报表展现。
+	IsDirectMatch *bool `json:"is_direct_match,omitempty"`
 }
 
+// Encode implement GetRequest interface
 func (r ActivateRequest) Encode() string {
 	values := url.Values{}
 	values.Set("callback", r.Callback)

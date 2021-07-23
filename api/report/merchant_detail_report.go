@@ -5,7 +5,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/report"
 )
 
-// 小店通转化数据报表
+// MerchantDetailReport 小店通转化数据报表
 func MerchantDetailReport(clt *core.SDKClient, accessToken string, req *report.MerchantDetailReportRequest) (*report.MerchantDetailReportResponse, error) {
 	var resp report.MerchantDetailReportResponse
 	err := clt.Post(accessToken, req, &resp)

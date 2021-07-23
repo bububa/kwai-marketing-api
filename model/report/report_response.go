@@ -1,6 +1,9 @@
 package report
 
+// ReportResponse 数据报表APIResponse公用数据
 type ReportResponse struct {
-	TotalCount int    `json:"total_count,omitempty"` // 数据的总行数
-	Details    []Stat `json:"details,omitempty"`     // 数据明细信息
+	// TotalCount 数据的总行数
+	TotalCount int `json:"total_count,omitempty"`
+	// Details 数据明细信息
+	Details []Stat `json:"details,omitempty"`
 }

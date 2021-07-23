@@ -5,7 +5,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/advertiser"
 )
 
-// 获取广告账户余额信息
+// FundGet 获取广告账户余额信息
 func FundGet(clt *core.SDKClient, accessToken string, advertiserID int64) (float64, error) {
 	req := &advertiser.FundGetRequest{
 		AdvertiserID: advertiserID,

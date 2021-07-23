@@ -5,7 +5,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/report"
 )
 
-// 人群分析报表
+// AgentReport 人群分析报表
 func AudienceReport(clt *core.SDKClient, accessToken string, req *report.AudienceReportRequest) (*report.ReportResponse, error) {
 	var resp report.ReportResponse
 	err := clt.Post(accessToken, req, &resp)

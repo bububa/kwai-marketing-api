@@ -10,7 +10,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/track"
 )
 
-// 转化回传API
+// Activate 转化回传API
 func Activate(req *track.ActivateRequest) error {
 	reqUrl := fmt.Sprintf("%s?%s", core.ACTIVATE_URL, req.Encode())
 	httpReq, err := http.NewRequest("GET", reqUrl, nil)

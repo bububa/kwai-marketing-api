@@ -1,5 +1,14 @@
 # 快手磁力引擎MarketingAPI Golang SDK
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/bububa/kwai-marketing-api.svg)](https://pkg.go.dev/github.com/bububa/kwai-marketing-api)
+[![Go](https://github.com/bububa/kwai-marketing-api/actions/workflows/go.yml/badge.svg)](https://github.com/bububa/kwai-marketing-api/actions/workflows/go.yml)
+[![goreleaser](https://github.com/bububa/kwai-marketing-api/actions/workflows/goreleaser.yml/badge.svg)](https://github.com/bububa/kwai-marketing-api/actions/workflows/goreleaser.yml)
+[![GitHub go.mod Go version of a Go module](https://img.shields.io/github/go-mod/go-version/bububa/kwai-marketing-api.svg)](https://github.com/bububa/kwai-marketing-api)
+[![GoReportCard](https://goreportcard.com/badge/github.com/bububa/kwai-marketing-api)](https://goreportcard.com/report/github.com/bububa/kwai-marketing-api)
+[![GitHub license](https://img.shields.io/github/license/bububa/kwai-marketing-api.svg)](https://github.com/bububa/kwai-marketing-api/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/bububa/kwai-marketing-api.svg)](https://GitHub.com/bububa/kwai-marketing-api/releases/)
+
+
 - Oauth2 授权 (api/oauth)
   - 生成授权链接 [ Url(clt *core.SDKClient, req *oauth.UrlRequest) string ]
   - 获取AccessToken [ AccessToken(clt *core.SDKClient, authCode String) (*oauth.AccessTokenResponse, error) ]

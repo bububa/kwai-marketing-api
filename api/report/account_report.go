@@ -5,7 +5,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/report"
 )
 
-// 广告主数据（实时）
+// AccountReport 广告主数据（实时）
 func AccountReport(clt *core.SDKClient, accessToken string, req *report.AccountReportRequest) (*report.ReportResponse, error) {
 	var resp report.ReportResponse
 	err := clt.Post(accessToken, req, &resp)

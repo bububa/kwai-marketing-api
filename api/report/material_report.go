@@ -5,7 +5,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/report"
 )
 
-// 素材报表
+// MaterialReport 素材报表
 func MaterialReport(clt *core.SDKClient, accessToken string, req *report.MaterialReportRequest) (*report.ReportResponse, error) {
 	var resp report.ReportResponse
 	err := clt.Post(accessToken, req, &resp)
