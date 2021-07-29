@@ -18,6 +18,10 @@
     - 获取广告主信息 [ Info(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Info, error) ]
     - 获取广告账户余额信息 [ FundGet(clt *core.SDKClient, accessToken string, advertiserID int64) (float64, error) ]
     - 获取广告主账户流水信息 [ FundDailyFlows(clt *core.SDK, accessToken string, req *advertiser.FundDailyFlowsRequest) (*advertiser.FundDailyFlowsResponse, error) ] 
+- 广告投放
+  - 账户层级
+    - 账户日预算查询 [ advertiser.BudgetGet(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Budget, error) ]
+    - 修改账户预算 [ advertiser.UpdateBudget(clt *core.SDKClient, accessToken string, req *advertiser.UpdateBudgetRequest) error ]
 - 数据报表
   - 广告数据报表 (api/report)
     - 代理商数据 [ AgentReport(clt *core.SDKClient, accessToken string, req *report.AgentReportRequest) (*report.AgentReportResponse, error) ]
