@@ -43,3 +43,4 @@
     - 小店通转化数据 [ MerchantDeatailReport(clt *core.SDKClient, accessToken string, req *report.MerchantDetailReportRequest) (*report.MerchantDetailReportResponse, error) ]
 - 数据上报管理 (api/track)
   - 转化回传 [ Activate(req *track.ActivateRequest) error ]
+  - 点击检测链接 [ Click(baseUrl string, fields []string) string ]
