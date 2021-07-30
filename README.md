@@ -52,6 +52,13 @@
     - 广告素材数据 [ CreativeReport(clt *core.SDKClient, accessToken string, req *report.MaterialReportRequest) (*report.ReportResponse, error) ]
     - 人群分析数据 [ AudienceReport(clt *core.SDKClient, accessToken string, req *report.AudienceReportRequest) (*report.ReportResponse, error) ]
     - 小店通转化数据 [ MerchantDeatailReport(clt *core.SDKClient, accessToken string, req *report.MerchantDetailReportRequest) (*report.MerchantDetailReportResponse, error) ]
+- DMP人群管理(api/dmp)
+  - 人群包上传接口 [ PopulationUpload(clt *core.SDKClient, accessToken string, req *dmp.PopulationUploadRequest) (*dmp.Population, error) ]
+  - 人群包更新接口 [ PopulationUpdate(clt *core.SDKClient, accessToken string, req *dmp.PopulationUpdateRequest) (*dmp.Population, error) ]
+  - 人群列表查询接口 [ PopulationList(clt *core.SDKClient, accessToken string, req *dmp.PopulationListRequest) ([]dmp.Population, error) ]
+  - 人群包删除接口 [ PopulationDelete(clt *core.SDKClient, accessToken string, req *dmp.PopulationDeleteRequest) error ]
+  - 人群包跨账户推送 [ PopulationAccountsPush(clt *core.SDKClient, accessToken string, req *dmp.PopulationAccountsPushRequest) (*dmp.PopulationAccountsPushResponse, error) ]
+  - 人群包上线接口 [ PopulationPush(clt *core.SDKClient, accessToken string, req *dmp.PopulationPushRequest) error ]
 - 数据上报管理 (api/track)
   - 转化回传 [ Activate(req *track.ActivateRequest) error ]
   - 点击检测链接 [ Click(baseUrl string, fields []string) string ]
