@@ -30,6 +30,11 @@
   - 账户层级
     - 账户日预算查询 [ advertiser.BudgetGet(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Budget, error) ]
     - 修改账户预算 [ advertiser.UpdateBudget(clt *core.SDKClient, accessToken string, req *advertiser.UpdateBudgetRequest) error ]
+  - 广告计划(api/campaign)
+    - 创建广告计划 [ Create(clt *core.SDKClient, accessToken string, req *campaign.CreateRequest) (int64, error) ]
+    - 修改广告计划 [ Update(clt *core.SDKClient, accessToken string, req *campaign.UpdateRequest) (int64, error) ]
+    - 修改广告计划预算 [ UpdateBudget(clt *core.SDKClient, accessToken string, req *campaign.UpdateBudgetRequest) error ]
+    - 修改广告计划状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *campaign.UpdateStatusRequest) ([]int64, error) ]
 - 数据报表
   - 广告数据报表 (api/report)
     - 代理商数据 [ AgentReport(clt *core.SDKClient, accessToken string, req *report.AgentReportRequest) (*report.AgentReportResponse, error) ]
