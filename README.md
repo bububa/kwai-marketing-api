@@ -19,6 +19,14 @@
     - 获取广告账户余额信息 [ FundGet(clt *core.SDKClient, accessToken string, advertiserID int64) (float64, error) ]
     - 获取广告主账户流水信息 [ FundDailyFlows(clt *core.SDK, accessToken string, req *advertiser.FundDailyFlowsRequest) (*advertiser.FundDailyFlowsResponse, error) ] 
 - 广告投放
+  - 获取各层级信息
+    - 获取广告计划信息 [ campaign.List(clt *core.SDKClient, accessToken string, req *campaign.ListRequest) (*campaign.ListResponse, error) ]
+    - 获取广告组信息 [ unit.List(clt *core.SDKClient, accessToken string, req *unit.ListRequest) (*unit.ListResponse, error) ]
+    - 获取广告创意信息 [ creative.List(clt *core.SDKClient, accessToken string, req *creative.ListRequest) (*creative.ListResponse, error) ]
+    - 获取程序化创意2.0信息 [ creative.AdvancedProgramList(clt *core.SDKClient, accessToken string, req *creative.AdvancedProgramListRequest) (*creative.AdvancedProgramListResponse, error) ]
+    - 获取程序化创意2.0审核信息 [ creative.AdvancedProgramReviewDetail(clt *core.SDKClient, accessToken string, req *creative.AdvancedProgramReviewDetailRequest) (*creative.AdvancedProgramReviewDetail, error) ]
+    - 账户操作记录信息查询 [ tool.OperationRecordList(clt *core.SDKClient, accessToken string, req *tool.OperationRecordListRequest) (*tool.OperationRecordListResponse, error) ]
+    - 定向人群预估查询 [ tool.AudiencePredict(clt *core.SDKClient, accessToken string, req *tool.AudiencePredictRequest) (int64, error) ]
   - 账户层级
     - 账户日预算查询 [ advertiser.BudgetGet(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Budget, error) ]
     - 修改账户预算 [ advertiser.UpdateBudget(clt *core.SDKClient, accessToken string, req *advertiser.UpdateBudgetRequest) error ]
