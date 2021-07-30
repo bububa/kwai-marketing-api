@@ -35,6 +35,12 @@
     - 修改广告计划 [ Update(clt *core.SDKClient, accessToken string, req *campaign.UpdateRequest) (int64, error) ]
     - 修改广告计划预算 [ UpdateBudget(clt *core.SDKClient, accessToken string, req *campaign.UpdateBudgetRequest) error ]
     - 修改广告计划状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *campaign.UpdateStatusRequest) ([]int64, error) ]
+  - 广告组(api/unit)
+    - 创建广告组 [ Create(clt *core.SDKClient, accessToken string, req *unit.CreateRequest) (int64, error) ]
+    - 修改广告组 [ Update(clt *core.SDKClient, accessToken string, req *unit.UpdateRequest) (int64, error) ]
+    - 修改广告组预算 [ UpdateDayBudget(clt *core.SDKClient, accessToken string, req *unit.UpdateDayBudgetRequest) error ]
+    - 修改广告组状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *unit.UpdateStatusRequest) ([]int64, error) ]
+    - 修改广告组出价 [ UpdateBid(clt *core.SDKClient, accessToken string, req *unit.UpdateBidRequest) error ]
 - 数据报表
   - 广告数据报表 (api/report)
     - 代理商数据 [ AgentReport(clt *core.SDKClient, accessToken string, req *report.AgentReportRequest) (*report.AgentReportResponse, error) ]
