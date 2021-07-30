@@ -1,5 +1,7 @@
 package model
 
+import "io"
+
 // PostRequest request interface for post
 type PostRequest interface {
 	Url() string
@@ -10,4 +12,21 @@ type PostRequest interface {
 type GetRequest interface {
 	Url() string
 	Encode() string
+}
+
+// UploadField multipart/form-data post request field struct
+type UploadField struct {
+	// Key field key
+	Key string
+	// Value field value
+	Value string
+	// Reader upload file reader
+	Reader io.Reader
+}
+
+// UploadRequest multipart/form-data reqeust interface
+type UploadRequest interface {
+	Url() string
+	// Encode encode request to UploadFields
+	Encode() []UploadField
 }
