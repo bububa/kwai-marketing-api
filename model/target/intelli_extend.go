@@ -1,4 +1,4 @@
-package unit
+package target
 
 // IntelliExtend 智能扩量
 type IntelliExtend struct {

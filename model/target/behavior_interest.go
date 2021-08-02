@@ -1,4 +1,4 @@
-package unit
+package target
 
 // BehaviorInterest 行为兴趣定向
 type BehaviorInterest struct {
@@ -19,7 +19,7 @@ type Behavior struct {
 	// StrengthType 行为强度; 0：不限 1：高强度
 	StrengthType int `json:"strength_type,omitempty"`
 	// SceneType 行为场景; 1：社区 2：APP 4：推广
-	SceneType int `json:"scene_type,omitempty"`
+	SceneType []int `json:"scene_type,omitempty"`
 }
 
 // Interest 兴趣定向

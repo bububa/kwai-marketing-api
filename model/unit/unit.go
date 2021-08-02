@@ -1,5 +1,7 @@
 package unit
 
+import "github.com/bububa/kwai-marketing-api/model/target"
+
 // Unit 广告组
 type Unit struct {
 	// CampaignID 广告计划ID
@@ -77,7 +79,7 @@ type Unit struct {
 	// DiverseData 应用信息
 	DiverseData *DiverseData `json:"diverse_data,omitempty"`
 	// Target 定向数据
-	Target *Target `json:"target,omitempty"`
+	Target *target.Target `json:"target,omitempty"`
 	// SiteType 预约广告; 1:IOS预约 缺省为不传或传0
 	SiteType int `json:"site_type,omitempty"`
 	// GiftData 游戏礼包码; 联盟广告暂不支持

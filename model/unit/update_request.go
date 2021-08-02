@@ -1,6 +1,10 @@
 package unit
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/bububa/kwai-marketing-api/model/target"
+)
 
 // UpdateRequest 修改广告组APIRequest
 type UpdateRequest struct {
@@ -101,7 +105,7 @@ type UpdateRequest struct {
 	// IntentionTarget 行为意向-系统优选; 行为意向是否开启系统优选，智能定向和行为意向系统优选不能同时开启
 	IntentionTarget *bool `json:"intention_target,omitempty"`
 	// Target 定向数据
-	Target *Target `json:"target,omitempty"`
+	Target *target.Target `json:"target,omitempty"`
 }
 
 // Url implement PostRequest interface
