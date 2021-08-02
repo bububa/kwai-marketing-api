@@ -37,10 +37,21 @@
     - 修改广告计划状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *campaign.UpdateStatusRequest) ([]int64, error) ]
   - 广告组(api/unit)
     - 创建广告组 [ Create(clt *core.SDKClient, accessToken string, req *unit.CreateRequest) (int64, error) ]
+    - 创建创建联盟定投广告组 [ CreateUnion(clt *core.SDKClient, accessToken string, req *unit.CreateUnionRequest) (int64, error) ]
     - 修改广告组 [ Update(clt *core.SDKClient, accessToken string, req *unit.UpdateRequest) (int64, error) ]
+    - 修改联盟定投广告组 [ UpdateUnion(clt *core.SDKClient, accessToken string, req *unit.UpdateUnionRequest) (int64, error) ]
     - 修改广告组预算 [ UpdateDayBudget(clt *core.SDKClient, accessToken string, req *unit.UpdateDayBudgetRequest) error ]
     - 修改广告组状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *unit.UpdateStatusRequest) ([]int64, error) ]
     - 修改广告组出价 [ UpdateBid(clt *core.SDKClient, accessToken string, req *unit.UpdateBidRequest) error ]
+  - 广告创意(api/creative)
+    - 创建创意 [ Create(clt *core.SDKClient, accessToken string, req *creative.CreateRequest) (int64, error) ]
+    - 创建程序化2.0创意 [ AdvancedProgramCreate(clt *core.SDKClient, accessToken string, req *creative.AdvancedProgramCreateRequest) (int64, error) ]
+    - 批量创建&修改创意 [ BatchUpdate(clt *core.SDKClient, accessToken string, req *creative.BatchUpdateRequest) (*creative.BatchUpdateResponse, error) ]
+    - 修改创意 [ Update(clt *core.SDKClient, accessToken string, req *creative.UpdateRequest) (int64, error) ]
+    - 修改程序化2.0创意 [ AdvancedProgramUpdate(clt *core.SDKClient, accessToken string, req *creative.AdvancedProgramUpdateRequest) error ]
+    - 修改创意状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *creative.UpdateStatusRequest) ([]int64, error) ]
+    - 创意体验 [ Preview(clt *core.SDKClient, accessToken string, req *creative.PreviewRequest) error ]
+    - 创意标签填写建议 [ CreativeTagAdvise(clt *core.SDKClient, accessToken string, req *creative.CreativeTagAdviseRequest) (*creative.CreativeTagAdviseResponse, error) ]
 - 数据报表
   - 广告数据报表 (api/report)
     - 代理商数据 [ AgentReport(clt *core.SDKClient, accessToken string, req *report.AgentReportRequest) (*report.AgentReportResponse, error) ]
