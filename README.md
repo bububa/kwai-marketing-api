@@ -67,6 +67,22 @@
     - 广告素材数据 [ CreativeReport(clt *core.SDKClient, accessToken string, req *report.MaterialReportRequest) (*report.ReportResponse, error) ]
     - 人群分析数据 [ AudienceReport(clt *core.SDKClient, accessToken string, req *report.AudienceReportRequest) (*report.ReportResponse, error) ]
     - 小店通转化数据 [ MerchantDeatailReport(clt *core.SDKClient, accessToken string, req *report.MerchantDetailReportRequest) (*report.MerchantDetailReportResponse, error) ]
+- 素材管理(api/file)
+  - 图片素材
+    - 上传图片v1接口 [ AdImageUploadV1(clt *core.SDKClient, accessToken string, req *file.AdImageUploadRequestV1) (*file.Image, error) ]
+    - 上传图片v2接口 [ AdImageUploadV2(clt *core.SDKClient, accessToken string, req *file.AdImageUploadRequestV2) (*file.Image, error) ]
+    - 查询图片信息get接口 [ AdImageGet(clt *core.SDKClient, accessToken string, req *file.AdImageGetRequest) (*file.Image, error) ]
+    - 查询图片信息list接口 [ AdImageList(clt *core.SDKClient, accessToken string, req *file.AdImageListRequest) (*file.AdImageListResponse, error) ]
+  - 视频素材
+    - 上传视频接口v1 [ AdVideoUploadV1(clt *core.SDKClient, accessToken string, req *file.AdVideoUploadRequestV1) (string, error) ]
+    - 上传视频接口v2 [ AdVideoUploadV2(clt *core.SDKClient, accessToken string, req *file.AdVideoUploadRequestV2) (*file.Video, error) ]
+    - 获取视频信息get接口 [ AdVideoGet(clt *core.SDKClient, accessToken string, req *file.AdVideoGetRequest) ([]file.Video, error) ]
+    - 查询视频信息list接口 [ AdVideoList(clt *core.SDKClient, accessToken string, req *file.AdVideoListRequest) (*file.AdVideoListResponse, error) ]
+  - 视频库
+    - 视频库-推送视频 [ AdVideoShare(clt *core.SDKClient, accessToken string, req *file.AdVideoShareRequest) ([]file.AdVideoShareDetail, error) ]
+    - 视频库-批量更新视频功能 [ AdVideoUpdate(clt *core.SDKClient, accessToken string, req *file.AdVideoUpdateRequest) error ]
+    - 视频库-删除视频标签 [ AdVideoTagDelete(clt *core.SDKClient, accessToken string, req *file.AdVideoTagDeleteRequest) error ]
+    - 视频关联创意数查询 [ AdVideoRelateCreatives(clt *core.SDKClient, accessToken string, req *file.AdVideoRelateCreativesRequest) ([]file.AdVideoRelatedCreatives, error) ]
 - DMP人群管理(api/dmp)
   - 人群包上传接口 [ PopulationUpload(clt *core.SDKClient, accessToken string, req *dmp.PopulationUploadRequest) (*dmp.Population, error) ]
   - 人群包更新接口 [ PopulationUpdate(clt *core.SDKClient, accessToken string, req *dmp.PopulationUpdateRequest) (*dmp.Population, error) ]
