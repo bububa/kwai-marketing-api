@@ -1,6 +1,10 @@
 package unit
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/bububa/kwai-marketing-api/model/target"
+)
 
 // CreateUnionRequest 创建联盟定投广告组APIRequest
 type CreateUnionRequest struct {
@@ -55,7 +59,7 @@ type CreateUnionRequest struct {
 	// PlayableSwitch 试玩广告的开关; 默认值为0；1:关闭；2:开启
 	PlayableSwitch int `json:"playalbe_switch_omitempty"`
 	// Target 定向数据
-	Target *Target `json:"target,omitempty"`
+	Target *target.Target `json:"target,omitempty"`
 }
 
 // Url implement PostRequest interface

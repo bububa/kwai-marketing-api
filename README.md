@@ -104,6 +104,11 @@
     - 创建应用 [ file.AdAppCreate(clt *core.SDKClient, accessToken string, req *file.AdAppCreateRequest) (*file.App, error) ]
     - 修改应用 [ file.AdAppUpdate(clt *core.SDKClient, accessToken string, req *file.AdAppUpdateRequest) (*file.App, error) ]
     - 获取应用列表 [ file.AdAppList(clt *core.SDKClient, accessToken string, req *file.AdAppListRequest) (*file.AdAppListResponse, error) ]
+  - 定向模版
+    - 创建定向模板 [ target.TemplateCreate(clt *core.SDKClient, accessToken string, req *target.TemplateCreateRequest) (*target.Template, error) ]
+    - 查询定向模板接口 [ target.TemplateList(clt *core.SDKClient, accessToken string, req *target.TemplateListRequest) (*target.TemplateListResponse, error) ]
+    - 修改定向模板 [ target.TemplateUpdate(clt *core.SDKClient, accessToken string, req *target.TemplateUpdateRequest) (*target.Template, error) ]
+    - 删除定向模板 [ target.TemplateDelete(clt *core.SDKClient, accessToken string, req *target.TemplateDeleteRequest) error ]
 - DMP人群管理(api/dmp)
   - 人群包上传接口 [ PopulationUpload(clt *core.SDKClient, accessToken string, req *dmp.PopulationUploadRequest) (*dmp.Population, error) ]
   - 人群包更新接口 [ PopulationUpdate(clt *core.SDKClient, accessToken string, req *dmp.PopulationUpdateRequest) (*dmp.Population, error) ]

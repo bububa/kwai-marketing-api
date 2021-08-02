@@ -1,6 +1,10 @@
 package unit
 
-import "encoding/json"
+import (
+	"encoding/json"
+
+	"github.com/bububa/kwai-marketing-api/model/target"
+)
 
 // CreateRequest 创建广告组APIRequest
 type CreateRequest struct {
@@ -103,7 +107,7 @@ type CreateRequest struct {
 	// DpaUnitParam DPA相关商品信息; 当子计划类型为sdpa时必填
 	DpaUnitParam *DpaUnitParam `json:"dpa_unit_param,omitempty"`
 	// BehaviorInterest 行为兴趣定向; behavior.keyword 、behavior.label、interest.lable 其中一个必传，具体传值下方表格
-	BehaviorInterest *BehaviorInterest `json:"behavior_interest,omitempty"`
+	BehaviorInterest *target.BehaviorInterest `json:"behavior_interest,omitempty"`
 }
 
 // Url implement PostRequest interface
