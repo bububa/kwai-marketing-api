@@ -52,6 +52,10 @@
     - 修改创意状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *creative.UpdateStatusRequest) ([]int64, error) ]
     - 创意体验 [ Preview(clt *core.SDKClient, accessToken string, req *creative.PreviewRequest) error ]
     - 创意标签填写建议 [ CreativeTagAdvise(clt *core.SDKClient, accessToken string, req *creative.CreativeTagAdviseRequest) (*creative.CreativeTagAdviseResponse, error) ]
+  - 高级创意(api/asset)
+    - 获取高级创意列表 [ AdvCardList(clt *core.SDKClient, accessToken string, req *asset.AdvCardListRequest) (*asset.AdvCardListResponse, error) ]
+    - 创建高级创意接口 [ AdvCardCreate(clt *core.SDKClient, accessToken string, req *asset.AdvCardCreateRequest) ([]int64, error) ]
+    - 删除高级创意接口 [ AdvCardRemove(clt *core.SDKClient, accessToken string, req *asset.AdvCardRemoveRequest) ([]int64, error) ]
 - 数据报表
   - 广告数据报表 (api/report)
     - 代理商数据 [ AgentReport(clt *core.SDKClient, accessToken string, req *report.AgentReportRequest) (*report.AgentReportResponse, error) ]
