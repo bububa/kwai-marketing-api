@@ -83,20 +83,23 @@
     - 视频库-批量更新视频功能 [ AdVideoUpdate(clt *core.SDKClient, accessToken string, req *file.AdVideoUpdateRequest) error ]
     - 视频库-删除视频标签 [ AdVideoTagDelete(clt *core.SDKClient, accessToken string, req *file.AdVideoTagDeleteRequest) error ]
     - 视频关联创意数查询 [ AdVideoRelateCreatives(clt *core.SDKClient, accessToken string, req *file.AdVideoRelateCreativesRequest) ([]file.AdVideoRelatedCreatives, error) ]
-  - 工具
-    - 查询工具
-      - 获取可选的深度转化目标 [ unit.OcpcConversionInfos(clt *core.SDKClient, accessToken string, req *unit.OcpcConversionInfosRequest) (*unit.OcpcConversionInfosResponse, error) ]
-      - 获取可选的定向标签 [ tool.TargetingTagsList(clt *core.SDKClient, accessToken string, req *tool.TargetingTagsListRequest) (*tool.TargetingTag, error) ]
-      - 获取可选的应用定向 [ tool.AppSearch(clt *core.SDKClient, accessToken string, req *tool.AppSearchRequest) (*tool.TargetingApp, error) ]
-      - 获取可选的推荐封面 [ tool.KeyFrame(clt *core.SDKClient, accessToken string, req *tool.KeyFrameRequest) ([]string, error) ]
-      - 获取可选的动态词包 [ tool.CreativeWordList(clt *core.SDKClient, accessToken string, advertiserID int64) ([]tool.CreativeWord, error) ]
-      - 获取行动号召按钮 [ creative.ActionBarTextList(clt *core.SDKClient, accessToken string, req *creative.ActionBarTextListRequest) ([]string, error) ]
-      - 获取可选的封面贴纸样式 [ tool.CreativeWordStyles(clt *core.SDKClient, accessToken string, advertiserID int64) ([]tool.CreativeWordStyle, error) ]
-      - 获取可用的转化目标 [ tool.ConvertList(clt *core.SDKClient, accessToken string, req *tool.ConvertListRequest) (*tool.ConvertListResponse, error) ]
-      - 获取可选白名单接口 [ advertiser.WhiteList(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.WhiteListResponse, error) ]
-      - 获取地域定向 [ region.List(clt *core.SDKClient, accessToken string) (map[string]region.Region, error) ]
-      - 获取商圈地域定向 [ region.DistrictList(clt *core.SDKClient, accessToken string, advertiserID int64) (map[string]region.District, error) ]
-      - 获取可用咨询组件列表 [ lp.ConsultList(clt *core.SDKClient, accessToken string, req *lp.ConsultListRequest) (*lp.ConsultListResponse, error) ]
+- 工具
+  - 查询工具
+    - 获取可选的深度转化目标 [ unit.OcpcConversionInfos(clt *core.SDKClient, accessToken string, req *unit.OcpcConversionInfosRequest) (*unit.OcpcConversionInfosResponse, error) ]
+    - 获取可选的定向标签 [ tool.TargetingTagsList(clt *core.SDKClient, accessToken string, req *tool.TargetingTagsListRequest) (*tool.TargetingTag, error) ]
+    - 获取可选的应用定向 [ tool.AppSearch(clt *core.SDKClient, accessToken string, req *tool.AppSearchRequest) (*tool.TargetingApp, error) ]
+    - 获取可选的推荐封面 [ tool.KeyFrame(clt *core.SDKClient, accessToken string, req *tool.KeyFrameRequest) ([]string, error) ]
+    - 获取可选的动态词包 [ tool.CreativeWordList(clt *core.SDKClient, accessToken string, advertiserID int64) ([]tool.CreativeWord, error) ]
+    - 获取行动号召按钮 [ creative.ActionBarTextList(clt *core.SDKClient, accessToken string, req *creative.ActionBarTextListRequest) ([]string, error) ]
+    - 获取可选的封面贴纸样式 [ tool.CreativeWordStyles(clt *core.SDKClient, accessToken string, advertiserID int64) ([]tool.CreativeWordStyle, error) ]
+    - 获取可用的转化目标 [ tool.ConvertList(clt *core.SDKClient, accessToken string, req *tool.ConvertListRequest) (*tool.ConvertListResponse, error) ]
+    - 获取可选白名单接口 [ advertiser.WhiteList(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.WhiteListResponse, error) ]
+    - 获取地域定向 [ region.List(clt *core.SDKClient, accessToken string) (map[string]region.Region, error) ]
+    - 获取商圈地域定向 [ region.DistrictList(clt *core.SDKClient, accessToken string, advertiserID int64) (map[string]region.District, error) ]
+    - 获取可用咨询组件列表 [ lp.ConsultList(clt *core.SDKClient, accessToken string, req *lp.ConsultListRequest) (*lp.ConsultListResponse, error) ]
+  - 功能名单
+    - 获取创意分类标签白名单客户 [ advertiser.WhiteList(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.WhiteListResponse, error) ]
+    - 获取联盟投放白名单 [ advertiser.WhiteList(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.WhiteListResponse, error) ]
 - DMP人群管理(api/dmp)
   - 人群包上传接口 [ PopulationUpload(clt *core.SDKClient, accessToken string, req *dmp.PopulationUploadRequest) (*dmp.Population, error) ]
   - 人群包更新接口 [ PopulationUpdate(clt *core.SDKClient, accessToken string, req *dmp.PopulationUpdateRequest) (*dmp.Population, error) ]
