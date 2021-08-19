@@ -15,7 +15,7 @@ type Stat struct {
 	// CreativeName 广告创意名称
 	CreativeName string `json:"creative_name,omitempty"`
 	// PhotoID 视频id
-	PhotoID int64 `json:"photo_id,omitempty"`
+	PhotoID string `json:"photo_id,omitempty"`
 	// PhotoUrl 视频链接
 	PhotoUrl string `json:"photo_url,omitempty"`
 	// ImageToken 封面id
