@@ -109,7 +109,7 @@ type Unit struct {
 	// AdvCardList 高级创意列表
 	AdvCardList []AdvCard `json:"adv_card_list,omitempty"`
 	// BackflowForecast backflow_cv_lower：回流预估值的下限；backflow_cv_upper：回流预估值的上限；backflow_timestamp：本次回流预估数据的时间戳，13位毫秒时间戳
-	BackflowForecast string `json:"backflow_forecast,omitempty"`
+	BackflowForecast *BackflowForecast `json:"backflow_forecast,omitempty"`
 	// MerchandiseID 商品ID，且一旦绑定，不可修改; 此参数用于绑定商品（绑定商品类型受merchandise_type字段控制），与 fiction_id 字段互斥。merchandise_type=2，merchandise_id 为课程ID，仅支持“收集销售线索”计划类型，且一旦绑定不可修改
 	MerchandiseID int64 `json:"merchandise_id,omitempty"`
 	// MerchandiseType 课程类型; 与 merchandise_id 共同使用，merchandise_type=2，merchandise_id 为课程ID，仅支持“收集销售线索”计划类型，且一旦绑定不可修改
