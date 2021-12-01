@@ -8,5 +8,5 @@ type AdvertisersResponse struct {
 type Advertiser struct {
 	CorporationName string `json:"corporation_name,omitempty"`
 	AdvertiserName  string `json:"advertiser_name,omitempty"`
-	AdvertiserId    int    `json:"advertiser_id,omitempty"`
+	AdvertiserId    int64    `json:"advertiser_id,omitempty"`
 }
