@@ -3,7 +3,7 @@ package unit
 import (
 	"encoding/json"
 
-	"github.com/bububa/kwai-marketing-api/model/target"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/target"
 )
 
 // UpdateUnionRequest 修改联盟定投广告组APIRequest

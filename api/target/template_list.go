@@ -1,8 +1,8 @@
 package target
 
 import (
-	"github.com/bububa/kwai-marketing-api/core"
-	"github.com/bububa/kwai-marketing-api/model/target"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/target"
 )
 
 // TemplateList 查询定向模板接口

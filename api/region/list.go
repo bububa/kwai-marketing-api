@@ -1,8 +1,8 @@
 package region
 
 import (
-	"github.com/bububa/kwai-marketing-api/core"
-	"github.com/bububa/kwai-marketing-api/model/region"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/region"
 )
 
 // List 获取地域定向

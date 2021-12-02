@@ -1,6 +1,6 @@
 package report
 
-import "github.com/bububa/kwai-marketing-api/model"
+import "git.gametaptap.com/tapad/github/kwai-marketing-api/model"
 
 // ReportRequest 数据报表APIRequest公用数据
 type ReportRequest struct {

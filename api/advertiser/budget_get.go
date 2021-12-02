@@ -1,8 +1,8 @@
 package advertiser
 
 import (
-	"github.com/bububa/kwai-marketing-api/core"
-	"github.com/bububa/kwai-marketing-api/model/advertiser"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/advertiser"
 )
 
 // BudgetGet 账户日预算查询

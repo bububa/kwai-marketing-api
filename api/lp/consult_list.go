@@ -1,8 +1,8 @@
 package lp
 
 import (
-	"github.com/bububa/kwai-marketing-api/core"
-	"github.com/bububa/kwai-marketing-api/model/lp"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/lp"
 )
 
 // ConsultList 获取可用咨询组件列表

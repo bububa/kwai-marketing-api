@@ -3,7 +3,7 @@ package dmp
 import (
 	"strconv"
 
-	"github.com/bububa/kwai-marketing-api/model"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/model"
 )
 
 // PopulationUpdateRequest 人群包更新接口

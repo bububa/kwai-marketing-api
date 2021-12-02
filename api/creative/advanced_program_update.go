@@ -1,8 +1,8 @@
 package creative
 
 import (
-	"github.com/bububa/kwai-marketing-api/core"
-	"github.com/bububa/kwai-marketing-api/model/creative"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
+	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/creative"
 )
 
 // AdvancedProgramUpdate 修改程序化2.0创意
