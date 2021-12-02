@@ -70,6 +70,15 @@ type Creative struct {
 	CreateTime string `json:"create_time,omitempty"`
 	// UpdateTime 最后修改时间
 	UpdateTime string `json:"update_time,omitempty"`
+
+	ActionbarClickUrl string   `json:"actionbar_click_url"`
+	CreativeCategory  int      `json:"creative_category"`
+	CreativeTag       []string `json:"creative_tag"`
+	MerchantLibraryId int      `json:"merchant_library_id"`
+	MerchantProductId string   `json:"merchant_product_id"`
+	//SplashPictures             []interface{} `json:"splash_pictures"`
+	//SplashPhotos               []interface{} `json:"splash_photos"`
+	AdType int `json:"ad_type"`
 }
 
 type NewExposeTag struct {

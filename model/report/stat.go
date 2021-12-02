@@ -220,4 +220,50 @@ type Stat struct {
 	EventGetThroughCost float64 `json:"event_get_through_cost,omitempty"`
 	// EventGetThroughRatio 智能电话-确认接通率
 	EventGetThroughRatio float64 `json:"event_get_through_ratio,omitempty"`
+
+	AdScene2                         string  `json:"adScene"`
+	PlacementType                    string  `json:"placement_type"`
+	Click1KCost                      float64 `json:"click_1k_cost"`
+	EventCreditGrantLandingRatio     float64 `json:"event_credit_grant_landing_ratio"`
+	EventAppointForm                 int     `json:"event_appoint_form"`
+	EventAppointFormCost             float64 `json:"event_appoint_form_cost"`
+	EventAppointFormRatio            float64 `json:"event_appoint_form_ratio"`
+	EventAppointJumpClick            int     `json:"event_appoint_jump_click"`
+	EventAppointJumpClickCost        float64 `json:"event_appoint_jump_click_cost"`
+	EventAppointJumpClickRatio       float64 `json:"event_appoint_jump_click_ratio"`
+	UnionEventPayPurchaseAmount7D    float64 `json:"union_event_pay_purchase_amount_7d"`
+	UnionEventPayPurchaseAmount7DRoi float64 `json:"union_event_pay_purchase_amount_7d_roi"`
+	EventDspGiftForm                 int     `json:"event_dsp_gift_form"`
+	EventAppInvoked                  int     `json:"event_app_invoked"`
+	EventAppInvokedCost              float64 `json:"event_app_invoked_cost"`
+	EventAppInvokedRatio             float64 `json:"event_app_invoked_ratio"`
+	EventMultiConversion             int     `json:"event_multi_conversion"`
+	EventMultiConversionRatio        float64 `json:"event_multi_conversion_ratio"`
+	EventMultiConversionCost         float64 `json:"event_multi_conversion_cost"`
+	EventWatchAppAd                  int     `json:"event_watch_app_ad"`
+	EventAdWatchTimes                int     `json:"event_ad_watch_times"`
+	EventAdWatchTimesRatio           float64 `json:"event_ad_watch_times_ratio"`
+	EventAdWatchTimesCost            float64 `json:"event_ad_watch_times_cost"`
+	EventAddShoppingCart             int     `json:"event_add_shopping_cart"`
+	EventAddShoppingCartCost         float64 `json:"event_add_shopping_cart_cost"`
+	AdPhotoPlayed75PercentRatio      float64 `json:"ad_photo_played_75percent_ratio"`
+	AdPhotoPlayed10SRatio            float64 `json:"ad_photo_played_10s_ratio"`
+	AdPhotoPlayed2SRatio             float64 `json:"ad_photo_played_2s_ratio"`
+	EventPhoneGetThrough             int     `json:"event_phone_get_through"`
+	EventIntentionConfirmed          int     `json:"event_intention_confirmed"`
+	EventWechatConnected             int     `json:"event_wechat_connected"`
+	EventOrderSuccessed              int     `json:"event_order_successed"`
+	EventPhoneCardActivate           int     `json:"event_phone_card_activate"`
+	EventMeasurementHouse            int     `json:"event_measurement_house"`
+	//AdShow                           interface{} `json:"ad_show"`
+	ActionNewRatio                 float64 `json:"action_new_ratio"`
+	EventOutboundCall              int     `json:"event_outbound_call"`
+	EventOutboundCallCost          float64 `json:"event_outbound_call_cost"`
+	EventOutboundCallRatio         float64 `json:"event_outbound_call_ratio"`
+	KeyAction                      int     `json:"key_action"`
+	KeyActionCost                  float64 `json:"key_action_cost"`
+	KeyActionRatio                 float64 `json:"key_action_ratio"`
+	EventCreditCardRecheck         int     `json:"event_credit_card_recheck"`
+	EventCreditCardRecheckFirstDay int     `json:"event_credit_card_recheck_first_day"`
+	EventNoIntention               int     `json:"event_no_intention"`
 }

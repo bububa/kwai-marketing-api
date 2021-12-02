@@ -18,4 +18,6 @@ type Details struct {
 	CampaignSubType   int     `json:"campaign_sub_type"`
 	CreateTime        string  `json:"create_time"`
 	UpdateTime        string  `json:"update_time"`
+
+	AdType int `json:"ad_type"`
 }
