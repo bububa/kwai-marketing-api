@@ -135,17 +135,17 @@ type Unit struct {
 	// IntentionTarget 行为意向-系统优选; 行为意向是否开启系统优选，智能定向和行为意向系统优选不能同时开启
 	IntentionTarget bool `json:"intention_target,omitempty"`
 
-	CreateTime  string `json:"create_time"`
-	TemplateId  int    `json:"template_id"`
-	SchemaUri   string `json:"schema_uri"`
-	ComponentId int    `json:"component_id"`
+	CreateTime  string `json:"create_time,omitempty"`
+	TemplateId  int    `json:"template_id,omitempty"`
+	SchemaUri   string `json:"schema_uri,omitempty"`
+	ComponentId int    `json:"component_id,omitempty"`
 	//SupportUnitIds      interface{} `json:"support_unit_ids"`
-	UseSka          bool   `json:"use_ska"`
-	PlayableId      int64  `json:"playable_id"`
-	PlayButton      string `json:"play_button"`
-	ProductId       int64  `json:"product_id"`
-	SplashAdSwitch  bool   `json:"splash_ad_switch"`
-	PageGroupDetail string `json:"page_group_detail"`
-	AdType          int    `json:"ad_type"`
+	UseSka          bool   `json:"use_ska,omitempty"`
+	PlayableId      int64  `json:"playable_id,omitempty"`
+	PlayButton      string `json:"play_button,omitempty"`
+	ProductId       int64  `json:"product_id,omitempty"`
+	SplashAdSwitch  bool   `json:"splash_ad_switch,omitempty"`
+	PageGroupDetail string `json:"page_group_detail,omitempty"`
+	AdType          int    `json:"ad_type,omitempty"`
 	//ExtendSearch        interface{} `json:"extend_search"`
 }
