@@ -1,8 +1,8 @@
 package advertiser
 
 import (
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/advertiser"
+	"github.com/Shinku-Chen/kwai-marketing-api/core"
+	"github.com/Shinku-Chen/kwai-marketing-api/model/advertiser"
 )
 
 // FundGet 获取广告账户余额信息

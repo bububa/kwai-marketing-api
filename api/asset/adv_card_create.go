@@ -1,8 +1,8 @@
 package asset
 
 import (
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/asset"
+	"github.com/Shinku-Chen/kwai-marketing-api/core"
+	"github.com/Shinku-Chen/kwai-marketing-api/model/asset"
 )
 
 // AdvCardCreate 创建高级创意接口

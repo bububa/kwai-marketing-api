@@ -1,8 +1,8 @@
 package tool
 
 import (
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/tool"
+	"github.com/Shinku-Chen/kwai-marketing-api/core"
+	"github.com/Shinku-Chen/kwai-marketing-api/model/tool"
 )
 
 // ConvertList 获取可用的转化目标

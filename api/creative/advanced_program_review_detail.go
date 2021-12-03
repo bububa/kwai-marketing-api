@@ -1,8 +1,8 @@
 package creative
 
 import (
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/creative"
+	"github.com/Shinku-Chen/kwai-marketing-api/core"
+	"github.com/Shinku-Chen/kwai-marketing-api/model/creative"
 )
 
 // AdvancedProgramReviewDetail 获取程序化创意2.0审核信息

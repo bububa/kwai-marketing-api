@@ -1,8 +1,8 @@
 package advertiser
 
 import (
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/advertiser"
+	"github.com/Shinku-Chen/kwai-marketing-api/core"
+	"github.com/Shinku-Chen/kwai-marketing-api/model/advertiser"
 )
 
 // UpdateBudget 修改账户预算

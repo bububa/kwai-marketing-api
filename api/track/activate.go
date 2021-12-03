@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/track"
+	"github.com/Shinku-Chen/kwai-marketing-api/core"
+	"github.com/Shinku-Chen/kwai-marketing-api/model/track"
 )
 
 // Activate 转化回传API

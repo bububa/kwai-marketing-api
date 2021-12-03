@@ -3,7 +3,7 @@ package unit
 import (
 	"encoding/json"
 
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/target"
+	"github.com/Shinku-Chen/kwai-marketing-api/model/target"
 )
 
 // CreateRequest 创建广告组APIRequest

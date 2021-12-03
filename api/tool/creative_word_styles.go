@@ -1,8 +1,8 @@
 package tool
 
 import (
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/tool"
+	"github.com/Shinku-Chen/kwai-marketing-api/core"
+	"github.com/Shinku-Chen/kwai-marketing-api/model/tool"
 )
 
 // CreativeWordStyles 获取可选的封面贴纸样式

@@ -1,8 +1,8 @@
 package unit
 
 import (
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/core"
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model/unit"
+	"github.com/Shinku-Chen/kwai-marketing-api/core"
+	"github.com/Shinku-Chen/kwai-marketing-api/model/unit"
 )
 
 // OcpcConversionInfos 获取可选的深度转化目标

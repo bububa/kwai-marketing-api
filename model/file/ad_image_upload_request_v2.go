@@ -3,7 +3,7 @@ package file
 import (
 	"strconv"
 
-	"git.gametaptap.com/tapad/github/kwai-marketing-api/model"
+	"github.com/Shinku-Chen/kwai-marketing-api/model"
 )
 
 // AdImageUploadRequestV2 上传图片v2接口 API Request
