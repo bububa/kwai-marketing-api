@@ -53,7 +53,7 @@ type Creative struct {
 	// ExposeTag 广告标签
 	ExposeTag string `json:"expose_tag,omitempty"`
 	// NewExposeTag 广告标签2期
-	NewExposeTag []string `json:"new_expose_tag,omitempty"`
+	NewExposeTag []NewExposeTag `json:"new_expose_tag,omitempty"`
 	// SiteID 安卓下载中间页ID
 	SiteID int64 `json:"site_id,omitempty"`
 	// ClickTrackUrl 点击监测链接; 若出现与后台显示不一致，以文档为准即可
@@ -70,4 +70,18 @@ type Creative struct {
 	CreateTime string `json:"create_time,omitempty"`
 	// UpdateTime 最后修改时间
 	UpdateTime string `json:"update_time,omitempty"`
+
+	ActionbarClickUrl string   `json:"actionbar_click_url,omitempty"`
+	CreativeCategory  int      `json:"creative_category,omitempty"`
+	CreativeTag       []string `json:"creative_tag,omitempty"`
+	MerchantLibraryId int      `json:"merchant_library_id,omitempty"`
+	MerchantProductId string   `json:"merchant_product_id,omitempty"`
+	//SplashPictures             []interface{} `json:"splash_pictures"`
+	//SplashPhotos               []interface{} `json:"splash_photos"`
+	AdType int `json:"ad_type,omitempty"`
+}
+
+type NewExposeTag struct {
+	Text string `json:"text"`
+	Url  string `json:"url"`
 }
