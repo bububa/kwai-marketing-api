@@ -3,7 +3,7 @@ package file
 import (
 	"strconv"
 
-	"github.com/Shinku-Chen/kwai-marketing-api/model"
+	"github.com/bububa/kwai-marketing-api/model"
 )
 
 // AdImageUploadRequestV2 上传图片v2接口 API Request

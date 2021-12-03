@@ -3,7 +3,7 @@ package file
 import (
 	"strconv"
 
-	"github.com/Shinku-Chen/kwai-marketing-api/model"
+	"github.com/bububa/kwai-marketing-api/model"
 )
 
 // AdAppCreateRequest 创建应用 API Request

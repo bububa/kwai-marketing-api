@@ -3,7 +3,7 @@ package unit
 import (
 	"encoding/json"
 
-	"github.com/Shinku-Chen/kwai-marketing-api/model/target"
+	"github.com/bububa/kwai-marketing-api/model/target"
 )
 
 // UpdateUnionRequest 修改联盟定投广告组APIRequest

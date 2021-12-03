@@ -1,8 +1,8 @@
 package creative
 
 import (
-	"github.com/Shinku-Chen/kwai-marketing-api/core"
-	"github.com/Shinku-Chen/kwai-marketing-api/model/creative"
+	"github.com/bububa/kwai-marketing-api/core"
+	"github.com/bububa/kwai-marketing-api/model/creative"
 )
 
 // CreativeTagAdvise 创意标签填写建议

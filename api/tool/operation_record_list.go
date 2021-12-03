@@ -1,8 +1,8 @@
 package tool
 
 import (
-	"github.com/Shinku-Chen/kwai-marketing-api/core"
-	"github.com/Shinku-Chen/kwai-marketing-api/model/tool"
+	"github.com/bububa/kwai-marketing-api/core"
+	"github.com/bububa/kwai-marketing-api/model/tool"
 )
 
 // OperationRecordList 账户操作记录信息查询

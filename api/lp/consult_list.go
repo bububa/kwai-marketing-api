@@ -1,8 +1,8 @@
 package lp
 
 import (
-	"github.com/Shinku-Chen/kwai-marketing-api/core"
-	"github.com/Shinku-Chen/kwai-marketing-api/model/lp"
+	"github.com/bububa/kwai-marketing-api/core"
+	"github.com/bububa/kwai-marketing-api/model/lp"
 )
 
 // ConsultList 获取可用咨询组件列表

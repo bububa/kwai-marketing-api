@@ -1,8 +1,8 @@
 package dmp
 
 import (
-	"github.com/Shinku-Chen/kwai-marketing-api/core"
-	"github.com/Shinku-Chen/kwai-marketing-api/model/dmp"
+	"github.com/bububa/kwai-marketing-api/core"
+	"github.com/bububa/kwai-marketing-api/model/dmp"
 )
 
 // PopulationDelete 人群包删除接口

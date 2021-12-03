@@ -1,8 +1,8 @@
 package unit
 
 import (
-	"github.com/Shinku-Chen/kwai-marketing-api/core"
-	"github.com/Shinku-Chen/kwai-marketing-api/model/unit"
+	"github.com/bububa/kwai-marketing-api/core"
+	"github.com/bububa/kwai-marketing-api/model/unit"
 )
 
 // UpdateStatus 修改广告组状态

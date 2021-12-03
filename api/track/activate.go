@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/Shinku-Chen/kwai-marketing-api/core"
-	"github.com/Shinku-Chen/kwai-marketing-api/model/track"
+	"github.com/bububa/kwai-marketing-api/core"
+	"github.com/bububa/kwai-marketing-api/model/track"
 )
 
 // Activate 转化回传API

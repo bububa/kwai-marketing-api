@@ -1,8 +1,8 @@
 package oauth
 
 import (
-	"github.com/Shinku-Chen/kwai-marketing-api/core"
-	"github.com/Shinku-Chen/kwai-marketing-api/model/oauth"
+	"github.com/bububa/kwai-marketing-api/core"
+	"github.com/bububa/kwai-marketing-api/model/oauth"
 )
 
 // RefreshToken 刷新tonken

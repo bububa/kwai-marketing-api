@@ -1,8 +1,8 @@
 package report
 
 import (
-	"github.com/Shinku-Chen/kwai-marketing-api/core"
-	"github.com/Shinku-Chen/kwai-marketing-api/model/report"
+	"github.com/bububa/kwai-marketing-api/core"
+	"github.com/bububa/kwai-marketing-api/model/report"
 )
 
 // ProgramCreativeReport 程序化创意2.0数据

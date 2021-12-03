@@ -3,7 +3,7 @@ package dmp
 import (
 	"strconv"
 
-	"github.com/Shinku-Chen/kwai-marketing-api/model"
+	"github.com/bububa/kwai-marketing-api/model"
 )
 
 // PopulationUploadRequest 人群包上传接口

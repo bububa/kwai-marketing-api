@@ -1,8 +1,8 @@
 package creative
 
 import (
-	"github.com/Shinku-Chen/kwai-marketing-api/core"
-	"github.com/Shinku-Chen/kwai-marketing-api/model/creative"
+	"github.com/bububa/kwai-marketing-api/core"
+	"github.com/bububa/kwai-marketing-api/model/creative"
 )
 
 // AdvancedProgramReviewDetail 获取程序化创意2.0审核信息
