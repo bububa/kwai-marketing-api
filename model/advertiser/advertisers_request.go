@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 )
 
-// FundDailyFlowsRequest 广告主账号流水信息APIRequest
+// AdvertisersRequest 广告罗盘请求信息
 type AdvertisersRequest struct {
 	// AdvertiserID 广告主ID
 	AdvertiserID int64 `json:"advertiser_id,omitempty"`
