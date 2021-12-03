@@ -7,7 +7,6 @@
 [![GoReportCard](https://goreportcard.com/badge/github.com/bububa/kwai-marketing-api)](https://goreportcard.com/report/github.com/bububa/kwai-marketing-api)
 [![GitHub license](https://img.shields.io/github/license/bububa/kwai-marketing-api.svg)](https://github.com/bububa/kwai-marketing-api/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/bububa/kwai-marketing-api.svg)](https://GitHub.com/bububa/kwai-marketing-api/releases/)
-# Kwai Marketing Api
 
 
 - Oauth2 授权 (api/oauth)
@@ -121,4 +120,3 @@
   - 转化回传 [ Activate(req *track.ActivateRequest) error ]
   - 点击检测链接 [ Click(baseUrl string, fields []string) string ]
 
-快手广告接口
