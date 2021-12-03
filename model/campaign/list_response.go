@@ -21,5 +21,5 @@ type Details struct {
  
 
 	AdType int `json:"ad_type"`
- 
+  
 }
