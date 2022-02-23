@@ -59,6 +59,10 @@ func (r AdVideoUploadRequestV2) Encode() []model.UploadField {
 			Value: shieldBackwardSwitch,
 		},
 		{
+			Key:   "signature",
+			Value: r.Signature,
+		},
+		{
 			Key:    "file",
 			Value:  fileName,
 			Reader: r.File.Reader,
