@@ -10,12 +10,10 @@ import (
 type AdAppUpdateRequest struct {
 	// AdvertiserID 广告主ID
 	AdvertiserID int64 `json:"advertiser_id,omitempty"`
-	// AppID 应用ID
-	AppID int64 `json:"app_id,omitempty"`
 	// File 应用安装包（apk）; 包体限制：1G 以内；当platform为1时，可自行选择上传apk，如果同时传了url，以file字段值为主
 	File *model.UploadField
-	// URL 应用地址
-	URL string `json:"url,omitempty"`
+	// AppID 应用ID
+	AppID int64 `json:"app_id,omitempty"`
 	// AppVersion 应用标记; 不能超过100字符，同一账户下应用标记不能重复；样例：快影-3.0.0.0103
 	AppVersion string `json:"app_version,omitempty"`
 	// AppName 应用名称; 不能超过100字符
@@ -24,10 +22,20 @@ type AdAppUpdateRequest struct {
 	ImageToken string `json:"image_token,omitempty"`
 	// PacakgeName 应用包名; platform为1（Android应用下载）必填，其它类型不用填写，不能超过 100 字符
 	PackageName string `json:"package_name,omitempty"`
+	// URL 应用地址
+	URL string `json:"url,omitempty"`
 	// UseSDK 是否接入快手广告监测SDK; 0：未接入，1：已接入
 	UseSDK *int `json:"use_sdk"`
 	// AppPrivacyUrl app隐私政策链接，需与app相关，该字段会经过审核; 安卓类应用必填
 	AppPrivacyUrl string `json:"app_privacy_url,omitempty"`
+	// PermissionInformation 权限信息，请通过应用权限信息列表接口获取信息
+	PermissionInformation string `json:"permission_information,omitempty"`
+	// RealAppVersion 真实版本号
+	RealAppVersion string `json:"real_app_version,omitempty"`
+	// AppIconUrl 应用包大小
+	PackageSize int64 `json:"package_size,omitempty"`
+	// AppDetailImageToken app应用详情图片
+	AppDetailImageToken string `json:"app_detail_image_token,omitempty"`
 }
 
 // Url implement UploadRequest interface
@@ -47,6 +55,7 @@ func (r AdAppUpdateRequest) Encode() []model.UploadField {
 			Value: strconv.FormatInt(r.AppID, 10),
 		},
 	}
+
 	if r.File != nil {
 		filename := r.File.Value
 		if filename == "" {
@@ -56,12 +65,6 @@ func (r AdAppUpdateRequest) Encode() []model.UploadField {
 			Key:    "file",
 			Value:  filename,
 			Reader: r.File.Reader,
-		})
-	}
-	if r.URL != "" {
-		fields = append(fields, model.UploadField{
-			Key:   "url",
-			Value: r.URL,
 		})
 	}
 	if r.AppVersion != "" {
@@ -88,6 +91,12 @@ func (r AdAppUpdateRequest) Encode() []model.UploadField {
 			Value: r.PackageName,
 		})
 	}
+	if r.URL != "" {
+		fields = append(fields, model.UploadField{
+			Key:   "url",
+			Value: r.URL,
+		})
+	}
 	if r.UseSDK != nil {
 		fields = append(fields, model.UploadField{
 			Key:   "use_sdk",
@@ -98,6 +107,30 @@ func (r AdAppUpdateRequest) Encode() []model.UploadField {
 		fields = append(fields, model.UploadField{
 			Key:   "app_privacy_url",
 			Value: r.AppPrivacyUrl,
+		})
+	}
+	if r.PermissionInformation != "" {
+		fields = append(fields, model.UploadField{
+			Key:   "permission_information",
+			Value: r.PermissionInformation,
+		})
+	}
+	if r.RealAppVersion != "" {
+		fields = append(fields, model.UploadField{
+			Key:   "real_app_version",
+			Value: r.RealAppVersion,
+		})
+	}
+	if r.PackageSize != 0 {
+		fields = append(fields, model.UploadField{
+			Key:   "package_size",
+			Value: strconv.FormatInt(r.PackageSize, 10),
+		})
+	}
+	if r.AppDetailImageToken != "" {
+		fields = append(fields, model.UploadField{
+			Key:   "app_detail_image_token",
+			Value: r.AppDetailImageToken,
 		})
 	}
 	return fields
