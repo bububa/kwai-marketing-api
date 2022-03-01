@@ -1,8 +1,7 @@
 package dmp
 
 import (
-	"net/url"
-	"strconv"
+	"encoding/json"
 )
 
 // PopulationListRequest 人群列表查询接口 API Request
@@ -15,6 +14,8 @@ type PopulationListRequest struct {
 	Page int `json:"page,omitempty"`
 	// PageSize 页数，默认 20
 	PageSize int `json:"page_size,omitempty"`
+	//OrientationIds 人群包ID列表
+	OrientationIds []int64 `json:"orientation_ids,omitempty"`
 }
 
 // Url implement GetRequest interface
@@ -23,17 +24,8 @@ func (r PopulationListRequest) Url() string {
 }
 
 // Encode implement GetRequest interface
-func (r PopulationListRequest) Encode() string {
-	values := &url.Values{}
-	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
-	if r.Status != nil {
-		values.Set("status", strconv.Itoa(*r.Status))
-	}
-	if r.Page > 0 {
-		values.Set("page", strconv.Itoa(r.Page))
-	}
-	if r.PageSize > 0 {
-		values.Set("page_size", strconv.Itoa(r.PageSize))
-	}
-	return values.Encode()
+
+func (r PopulationListRequest) Encode() []byte {
+	ret, _ := json.Marshal(r)
+	return ret
 }

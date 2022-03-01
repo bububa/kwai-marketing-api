@@ -6,9 +6,9 @@ import (
 )
 
 // PopulationList 人群列表查询接口
-func PopulationList(clt *core.SDKClient, accessToken string, req *dmp.PopulationListRequest) ([]dmp.Population, error) {
-	var resp []dmp.Population
-	err := clt.Get(accessToken, req, &resp)
+func PopulationList(clt *core.SDKClient, accessToken string, req *dmp.PopulationListRequest) (*dmp.PopulationListResponse, error) {
+	var resp *dmp.PopulationListResponse
+	err := clt.Post(accessToken, req, &resp)
 	if err != nil {
 		return nil, err
 	}
