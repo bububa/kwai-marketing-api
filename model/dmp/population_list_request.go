@@ -15,6 +15,8 @@ type PopulationListRequest struct {
 	Page int `json:"page,omitempty"`
 	// PageSize 页数，默认 20
 	PageSize int `json:"page_size,omitempty"`
+	//OrientationIds 人群包ID列表
+	OrientationIds []int64 `json:"orientation_ids,omitempty"`
 }
 
 // Url implement GetRequest interface
