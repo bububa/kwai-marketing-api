@@ -15,4 +15,3 @@ func CreateAdvanced(clt *core.SDKClient, accessToken string, req *creative.Creat
 	}
 	return resp.UnitId, nil
 }
-
