@@ -1,7 +1,7 @@
 package creative
 
 // CreateResponse 创建创意 API Response
-type CreateResponse struct {
-	// CreativeID 创意ID
-	CreativeID int64 `json:"creative_id,omitempty"`
+type CreateAdvancedResponse struct {
+	// UnitId 创意ID
+	UnitId int64 `json:"unit_id,omitempty"`
 }
