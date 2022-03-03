@@ -27,7 +27,7 @@ type App struct {
 	// ScanStatus 应用安全扫描状态; 1-扫描中，2-成功，3-失败，4-失败重试中
 	ScanStatus int `json:"scan_status,omitempty"`
 	// PermissionInformation 权限信息，请通过应用权限信息列表接口获取信息
-	PermissionInformation string `json:"permission_information,omitempty"`
+	PermissionInformation []int `json:"permission_information,omitempty"`
 	// RealAppVersion 真实版本号
 	RealAppVersion string `json:"real_app_version,omitempty"`
 	// PackageSize 应用包大小
