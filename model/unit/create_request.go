@@ -108,6 +108,8 @@ type CreateRequest struct {
 	DpaUnitParam *DpaUnitParam `json:"dpa_unit_param,omitempty"`
 	// BehaviorInterest 行为兴趣定向; behavior.keyword 、behavior.label、interest.lable 其中一个必传，具体传值下方表格
 	BehaviorInterest *target.BehaviorInterest `json:"behavior_interest,omitempty"`
+	// Target 定向数据 必填
+	Target *target.Target `json:"target"`
 }
 
 // Url implement PostRequest interface
