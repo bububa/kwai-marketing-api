@@ -96,6 +96,24 @@ func (c *SDKClient) Get(accessToken string, req model.GetRequest, resp interface
 	return nil
 }
 
+func (c *SDKClient) GetOnBody(accessToken string, req model.PostRequest, resp interface{}) error {
+	var reqResp model.BaseResponse
+	err := c.getOnBody(accessToken, c.PostUrl(req), req.Encode(), &reqResp)
+	if err != nil {
+		return err
+	}
+	if reqResp.IsError() {
+		return reqResp
+	}
+	if resp != nil {
+		err = json.Unmarshal(reqResp.Data, resp)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 // Upload multipart/form-data post
 func (c *SDKClient) Upload(accessToken string, req model.UploadRequest, resp interface{}) error {
 	var buf bytes.Buffer
@@ -123,7 +141,6 @@ func (c *SDKClient) Upload(accessToken string, req model.UploadRequest, resp int
 		}
 		if _, err = io.Copy(fw, r); err != nil {
 			return err
-
 		}
 	}
 	mw.Close()
@@ -189,6 +206,29 @@ func (c *SDKClient) post(accessToken string, reqUrl string, reqBytes []byte, res
 func (c *SDKClient) get(accessToken string, reqUrl string, resp interface{}) error {
 	debug.PrintGetRequest(reqUrl, c.debug)
 	httpReq, err := http.NewRequest("GET", reqUrl, nil)
+	if err != nil {
+		return err
+	}
+	if accessToken != "" {
+		httpReq.Header.Add("Access-Token", accessToken)
+	}
+	httpReq.Header.Add("Content-Type", "application/json")
+	httpResp, err := http.DefaultClient.Do(httpReq)
+	if err != nil {
+		return err
+	}
+	defer httpResp.Body.Close()
+	err = debug.DecodeJSONHttpResponse(httpResp.Body, resp, c.debug)
+	if err != nil {
+		debug.PrintError(err, c.debug)
+		return err
+	}
+	return nil
+}
+
+func (c *SDKClient) getOnBody(accessToken string, reqUrl string, reqBytes []byte, resp interface{}) error {
+	debug.PrintGetRequest(reqUrl, c.debug)
+	httpReq, err := http.NewRequest("GET", reqUrl, bytes.NewReader(reqBytes))
 	if err != nil {
 		return err
 	}

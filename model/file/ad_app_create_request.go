@@ -18,7 +18,7 @@ type AdAppCreateRequest struct {
 	AppName string `json:"app_name,omitempty"`
 	// ImageToken 应用图标的image_token; 图片token，可通过上传图片接口获取；platform为1/3时必填，请上传png/jpg/jpeg图片，尺寸450*450，小于100KB
 	ImageToken string `json:"image_token,omitempty"`
-	// PacakgeName 应用包名; platform为1（Android应用下载）必填，其它类型不用填写，不能超过 100 字符
+	// PackageName 应用包名; platform为1（Android应用下载）必填，其它类型不用填写，不能超过 100 字符
 	PackageName string `json:"package_name,omitempty"`
 	// Platform 应用类型; 1：Android应用下载，2：Android网页游戏，3：iOS应用下载，4：iOS网页游戏
 	Platform int `json:"platform,omitempty"`
@@ -59,16 +59,12 @@ func (r AdAppCreateRequest) Encode() []model.UploadField {
 			Value: r.AppName,
 		},
 		{
-			Key:   "plarform",
+			Key:   "platform",
 			Value: strconv.Itoa(r.Platform),
 		},
 		{
 			Key:   "use_sdk",
 			Value: strconv.Itoa(r.UseSDK),
-		},
-		{
-			Key:   "app_privacy_url",
-			Value: r.AppPrivacyUrl,
 		},
 	}
 	if r.File != nil {
@@ -124,10 +120,10 @@ func (r AdAppCreateRequest) Encode() []model.UploadField {
 			Value: strconv.FormatInt(r.PackageSize, 10),
 		})
 	}
-	if r.AppDetailImageToken != "" {
+	if r.PackageName != "" {
 		fields = append(fields, model.UploadField{
-			Key:   "app_detail_image_token",
-			Value: r.AppDetailImageToken,
+			Key:   "package_name",
+			Value: r.PackageName,
 		})
 	}
 
