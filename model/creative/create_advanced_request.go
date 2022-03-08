@@ -40,7 +40,7 @@ type PhotoItem struct {
 	// PhotoID 视频作品ID
 	PhotoID string `json:"photo_id,omitempty"`
 	// CoverImageTokens 封面图片cover_image_token
-	CoverImageTokens []string `json:"cover_image_tokens,omitempty"`
+	CoverImageTokens string `json:"cover_image_tokens,omitempty"`
 }
 
 // Url implement PostRequest interface
