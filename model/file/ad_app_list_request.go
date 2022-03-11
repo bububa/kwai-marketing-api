@@ -9,7 +9,7 @@ type AdAppListRequest struct {
 	// AdvertiserID 广告主ID
 	AdvertiserID int64 `json:"advertiser_id"`
 	// AppIDS 应用ID
-	AppIDS string `json:"app_ids,omitempty"`
+	AppIDS []int64 `json:"app_ids,omitempty"`
 	// Page 页码，默认 1
 	Page int `json:"page,omitempty"`
 	// PageSize 页数，默认 20
