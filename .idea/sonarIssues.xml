@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/conf/config-dev.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/conf/k8s-config-prd.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/conf/k8s-config-stg.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/internal/bootstrap/global/config/config.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/internal/bootstrap/machinery.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/internal/controllers/auto/ad/ad_create.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/internal/controllers/material/image/upload.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/internal/controllers/material/video/upload.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/internal/routers/routers.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/internal/service/ad_batch_create/extend_package_handler.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/internal/service/ad_create/extend_package_handler.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-auto-adserver/internal/service/advconf/advconf_service.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-dmp/conf/config-dev.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-dmp/conf/k8s-config-stg.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-dmp/internal/bootstrap/bootstrap.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-dmp/internal/bootstrap/dataset.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-dmp/internal/bootstrap/global/config/config.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-dmp/internal/bootstrap/global/variable/variable.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-dmp/internal/controllers/dmp/tencent/custom_audience_file_add/job.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-dmp/internal/routers/routers.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-dmp/internal/service/tencentad/custom_audience_file/job.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-material/conf/config-dev.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-material/internal/bootstrap/bootstrap.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-material/internal/bootstrap/config/config.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-material/internal/bootstrap/global/config/config.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-material/internal/controllers/material/get.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-material/internal/models/material.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-material/internal/routers/routers.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-material/internal/service/material.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-pkg/kuaishou/api/ad/create/request.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task-management/templates/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/conf/config-dev.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/conf/k8s-config-prd.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/conf/k8s-config-stg.yaml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/go.mod">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/bootstrap/bootstrap.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/bootstrap/dataset.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/bootstrap/global/config/config.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/bootstrap/machinery.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/ad_chain/ad_chain.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/ad_unit/ad_unit.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/ad_unit/ad_unit_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/campaign/campagin.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/campaign/campagin_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/chain/ad_chain.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/chain/ad_chain_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/channel/channel.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/chian/ad_chain.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/creative/creative.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/creative/creative_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/population/dmp_push.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/population/population.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/population/population_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/video_share/video_share.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/kuaishou/video_share/video_share_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/tencent/campaign/campaign.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/tencent/chain/ad_chain.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/ad/tencent/creative/creative.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/channel_package/create.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/channel_package/kuaishou/kuaishou.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/tasks/video/upload_async.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/Code/rta-task/internal/util/init.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/api/creative/create_advanced.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/api/creative/create_v2.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/model/creative/create_advanced_request.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/model/creative/create_advanced_response.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/model/creative/create_response.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/model/creative/creative_advanced.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/model/file/ad_video_share_response.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/model/file/ad_video_upload_request_v2.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/model/response.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/model/unit/create_request.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../machinery/README_CN.md">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../machinery/v1/log/log.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/study/demo/demo/cmd/root.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/study/demo/demo/imp/imp.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/study/demo/demo/imp/imp_test.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/study/demo/demo/main.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/study/new/demo/imp/imp.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/study/new/demo/main.go">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
