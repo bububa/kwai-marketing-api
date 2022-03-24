@@ -1,8 +1,7 @@
 package advertiser
 
 import (
-	"net/url"
-	"strconv"
+	"encoding/json"
 )
 
 // InfoRequest 获取广告主信息APIRequest
@@ -16,9 +15,7 @@ func (r InfoRequest) Url() string {
 	return "v1/advertiser/info"
 }
 
-// Encode implement GetRequest interface
-func (r InfoRequest) Encode() string {
-	values := url.Values{}
-	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
-	return values.Encode()
+func (r InfoRequest) Encode() []byte {
+	ret, _ := json.Marshal(r)
+	return ret
 }
