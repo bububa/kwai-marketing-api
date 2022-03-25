@@ -1,8 +1,7 @@
 package advertiser
 
 import (
-	"net/url"
-	"strconv"
+	"encoding/json"
 )
 
 // FundGetRequest 获取广告主账户余额APIRequest
@@ -17,8 +16,7 @@ func (r FundGetRequest) Url() string {
 }
 
 // Encode implement GetRequest interface
-func (r FundGetRequest) Encode() string {
-	values := url.Values{}
-	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
-	return values.Encode()
+func (r FundGetRequest) Encode() []byte {
+	buf, _ := json.Marshal(r)
+	return buf
 }

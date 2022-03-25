@@ -11,7 +11,7 @@ func FundGet(clt *core.SDKClient, accessToken string, advertiserID int64) (float
 		AdvertiserID: advertiserID,
 	}
 	var resp advertiser.FundGetResponse
-	err := clt.Get(accessToken, req, &resp)
+	err := clt.Post(accessToken, req, &resp)
 	if err != nil {
 		return 0, err
 	}
