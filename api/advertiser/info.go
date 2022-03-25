@@ -11,7 +11,7 @@ func Info(clt *core.SDKClient, accessToken string, advertiserID int64) (*adverti
 		AdvertiserID: advertiserID,
 	}
 	var resp advertiser.Info
-	err := clt.Get(accessToken, req, &resp)
+	err := clt.Post(accessToken, req, &resp)
 	if err != nil {
 		return nil, err
 	}

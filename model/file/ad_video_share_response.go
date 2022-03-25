@@ -11,7 +11,7 @@ type AdVideoShareDetail struct {
 	// AdvertiserID 账号ID
 	AdvertiserID int64 `json:"advertiser_id,omitempty"`
 	// PhotoID 分享生成新的photoId
-	PhotoID int64 `json:"photo_id,omitempty"`
+	PhotoID string `json:"photo_id,omitempty"`
 	// OriginalPhotoID 原始photoId
-	OriginalPhotoID int64 `json:"original_photo_id,omitempty"`
+	OriginalPhotoID string `json:"original_photo_id,omitempty"`
 }
