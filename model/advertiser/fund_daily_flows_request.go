@@ -1,8 +1,7 @@
 package advertiser
 
 import (
-	"net/url"
-	"strconv"
+	"encoding/json"
 )
 
 // FundDailyFlowsRequest 广告主账号流水信息APIRequest
@@ -25,20 +24,8 @@ func (r FundDailyFlowsRequest) Url() string {
 }
 
 // Encode implement GetRequest interface
-func (r FundDailyFlowsRequest) Encode() string {
-	values := url.Values{}
-	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
-	if r.StartDate != "" {
-		values.Set("start_date", r.StartDate)
-	}
-	if r.EndDate != "" {
-		values.Set("end_date", r.EndDate)
-	}
-	if r.Page > 0 {
-		values.Set("page", strconv.Itoa(r.Page))
-	}
-	if r.PageSize > 0 {
-		values.Set("page_size", strconv.Itoa(r.PageSize))
-	}
-	return values.Encode()
+// Encode implement GetRequest interface
+func (r FundDailyFlowsRequest) Encode() []byte {
+	buf, _ := json.Marshal(r)
+	return buf
 }
