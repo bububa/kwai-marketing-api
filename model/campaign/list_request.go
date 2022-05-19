@@ -5,15 +5,15 @@ import "encoding/json"
 // ListRequest 获取广告计划信息 API Request
 type ListRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// CampaignID 广告计划ID; 过滤筛选条件，若不传或传空则视为无限制条件
-	CampaignID int64 `json:"campaign_id,omitempty"`
+	CampaignID uint64 `json:"campaign_id,omitempty"`
 	// UnitID 广告组ID; 过滤筛选条件，若不传或传空则视为无限制条件
-	UnitID int64 `json:"unit_id,omitempty"`
+	UnitID uint64 `json:"unit_id,omitempty"`
 	// UnitName 广告组名称
 	UnitName string `json:"unit_name,omitempty"`
 	// UnitIDs 广告组ID集
-	UnitIDs []int64 `json:"unit_ids,omitempty"`
+	UnitIDs []uint64 `json:"unit_ids,omitempty"`
 	// Status 广告组状态;过滤筛选条件；-2：所有包含已删除 10：只包含已删除 不传：所有不包含已删除 其他值无效
 	Status int `json:"status,omitempty"`
 	// StartDate 开始时间;与end_date同时传或同时不传；过滤筛选条件，格式为"yyyy-MM-dd"，参数值对应update_time信息

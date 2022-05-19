@@ -5,7 +5,7 @@ import "github.com/bububa/kwai-marketing-api/model"
 // ReportRequest 数据报表APIRequest公用数据
 type ReportRequest struct {
 	// AdvertiserID 广告主ID（注：非账户快手ID），在获取accessToken时返回
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// StartDateMin 增量拉取过滤筛选条件，格式【yyyy-MM-dd HH:mm】可选时间范围参见文档上方说明
 	StartDateMin string `json:"start_date_min,omitempty"`
 	// EndDateMin 增量拉取过滤筛选条件，格式【yyyy-MM-dd HH:mm】可选时间范围参见文档上方说明

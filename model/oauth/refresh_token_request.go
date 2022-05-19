@@ -5,7 +5,7 @@ import "encoding/json"
 // RefreshTokenRequest 刷新Token APIRequest
 type RefreshTokenRequest struct {
 	// AppID 应用ID
-	AppID int64 `json:"app_id,omitempty"`
+	AppID uint64 `json:"app_id,omitempty"`
 	// Secret 应用密钥
 	Secret string `json:"secret,omitempty"`
 	// RefreshToken 最近一次快手返回的refresh_token

@@ -5,9 +5,9 @@ import "encoding/json"
 // UpdateRequest 修改创意API Request
 type UpdateRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// CreativeID 广告创意ID
-	CreativeID int64 `json:"creative_id,omitempty"`
+	CreativeID uint64 `json:"creative_id,omitempty"`
 	// CreativeName 创意名称; 长度为1-100字符，同一个广告组下名称不能重复
 	CreativeName string `json:"creative_name,omitempty"`
 	// PhotoID 视频ID
@@ -31,7 +31,7 @@ type UpdateRequest struct {
 	// NewExposeTag 广告标签2期; 与老的expose_tag兼容, 逐渐将老的expose_tag替换掉。可以按照相关格式传递两个推荐理由 举例{“text”:""},{"text":""}
 	NewExposeTag []string `json:"new_expose_tag,omitempty"`
 	// SiteID 安卓下载中间页ID; 可从下方「获取已发布的下载页」接口获取（老建站6.30下线） 或通过「rest/openapi/v2/lp/page/list」获取新建站落地页（魔力建站"view_comps":7） 1.仅支持下载类广告 2.广告组选择的应用类型要为安卓 3.下载页对应的app_id要与广告组选择的app_id一致
-	SiteID int64 `json:"site_id,omitempty"`
+	SiteID uint64 `json:"site_id,omitempty"`
 	// ClickTrackUrl 第三方点击检测链接; 仅当广告组scene_id为1、2、6、7、10时，可选填； 广告组优化目标为激活时，该字段必填（下载类广告投放的应用集成快手Android SDK时除外） 使用Marketing API创建时，监测链接使用以该文档为准
 	ClickTrackUrl string `json:"click_track_url,omitempty"`
 	// ImpressionUrl 第三方开始播放监测链接; 仅当广告组scene_id为3时，可选填； 广告组优化目标为激活时，该字段必填（下载类广告投放的应用集成快手Android SDK时除外） 使用Marketing API创建时，监测链接使用以该文档为准

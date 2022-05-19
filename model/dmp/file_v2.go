@@ -16,5 +16,5 @@ type FileV2 struct {
 	// Md5 文件摘要标识
 	Md5 string `json:"md5,omitempty"`
 	// AdvertiserId 广告主ID
-	AdvertiserId int64 `json:"advertiser_id,omitempty"`
+	AdvertiserId uint64 `json:"advertiser_id,omitempty"`
 }

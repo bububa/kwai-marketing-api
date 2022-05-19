@@ -5,9 +5,9 @@ import "encoding/json"
 // TemplateUpdateRequest 修改定向模板 API Request
 type TemplateUpdateRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// TemplateID 定向模板id
-	TemplateID int64 `json:"template_id,omitempty"`
+	TemplateID uint64 `json:"template_id,omitempty"`
 	// TemplateName 定向模板名称; 名字需要唯一
 	TemplateName string `json:"template_name,omitempty"`
 	// Target 定向信息

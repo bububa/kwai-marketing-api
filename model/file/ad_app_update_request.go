@@ -9,7 +9,7 @@ import (
 // AdAppUpdateRequest 修改应用 API Request
 type AdAppUpdateRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// File 应用安装包（apk）; 包体限制：1G 以内；当platform为1时，可自行选择上传apk，如果同时传了url，以file字段值为主
 	File *model.UploadField
 	// AppID 应用ID
@@ -48,7 +48,7 @@ func (r AdAppUpdateRequest) Encode() []model.UploadField {
 	fields := []model.UploadField{
 		{
 			Key:   "advertiser_id",
-			Value: strconv.FormatInt(r.AdvertiserID, 10),
+			Value: strconv.FormatUint(r.AdvertiserID, 10),
 		},
 		{
 			Key:   "app_id",

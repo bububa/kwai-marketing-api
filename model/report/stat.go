@@ -220,9 +220,11 @@ type Stat struct {
 	EventGetThroughCost float64 `json:"event_get_through_cost,omitempty"`
 	// EventGetThroughRatio 智能电话-确认接通率
 	EventGetThroughRatio float64 `json:"event_get_through_ratio,omitempty"`
-
-	AdScene2                         string  `json:"adScene,omitempty"`
-	PlacementType                    string  `json:"placement_type,omitempty"`
+	// AdScene2 .
+	AdScene2 string `json:"adScene,omitempty"`
+	// PlacementType 广告范围
+	PlacementType string `json:"placement_type,omitempty"`
+	// Click1KCost 平均千次素材曝光花费(元)
 	Click1KCost                      float64 `json:"click_1k_cost,omitempty"`
 	EventCreditGrantLandingRatio     float64 `json:"event_credit_grant_landing_ratio,omitempty"`
 	EventAppointForm                 int     `json:"event_appoint_form,omitempty"`

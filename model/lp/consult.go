@@ -3,7 +3,7 @@ package lp
 // Consult 咨询组件
 type Consult struct {
 	// ID 唯一 id，unit 创建参数 consult_id
-	ID int64 `json:"id,omitempty"`
+	ID uint64 `json:"id,omitempty"`
 	// Title 客服名称
 	Title string `json:"title,omitempty"`
 	// CreateTime 创建时间

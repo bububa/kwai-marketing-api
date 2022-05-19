@@ -3,11 +3,11 @@ package creative
 // Creative 广告创意
 type Creative struct {
 	// CampaignID 广告计划ID
-	CampaignID int64 `json:"campaign_id,omitempty"`
+	CampaignID uint64 `json:"campaign_id,omitempty"`
 	// UnitID 广告组ID
-	Unit int64 `json:"unit_id,omitempty"`
+	Unit uint64 `json:"unit_id,omitempty"`
 	// CreativeID 广告创意ID
-	CreativeID int64 `json:"creative_id,omitempty"`
+	CreativeID uint64 `json:"creative_id,omitempty"`
 	// CreativeName 广告创意名称
 	CreativeName string `json:"creative_name,omitempty"`
 	// CreativeMaterialType 素材类型; 0：历史创意未作区分 1：竖版视频2：横版视频3：后贴片单图图片创意（历史类型，已下线）4：便利贴单图图片创意

@@ -11,7 +11,7 @@ type AccessTokenResponse struct {
 	// RefreshTokenExpiresIn refresh_token剩余有效时间，单位：秒
 	RefreshTokenExpiresIn int64 `json:"refresh_token_expires_in,omitempty"`
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// AdvertiserIDs 已授权账户所有的account_id
-	AdvertiserIDs []int64 `json:"advertiser_ids,omitempty"`
+	AdvertiserIDs []uint64 `json:"advertiser_ids,omitempty"`
 }

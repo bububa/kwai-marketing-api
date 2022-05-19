@@ -6,9 +6,9 @@ import "encoding/json"
 // 注：该接口可实现创意的批量创建&更新，上传creative_id为更新，不上传creative_id则为创建。
 type BatchUpdateRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// UnitID 广告组ID; 一个unit最多创建15个创意
-	UnitID int64 `json:"unit_id,omitempty"`
+	UnitID uint64 `json:"unit_id,omitempty"`
 	// ClickTrackUrl 第三方点击检测链接; 仅当广告组scene_id为1、2、6、7时，可选填； 广告组优化目标为激活时，该字段必填（下载类广告投放的应用集成快手Android SDK时除外） 使用Marketing API创建时，监测链接使用以该文档为准
 	ClickTrackUrl string `json:"click_track_url,omitempty"`
 	// ImpressionUrl 第三方开始播放监测链接; 仅当广告组scene_id为3时，可选填； 广告组优化目标为激活时，该字段必填（下载类广告投放的应用集成快手Android SDK时除外） 使用Marketing API创建时，监测链接使用以该文档为准

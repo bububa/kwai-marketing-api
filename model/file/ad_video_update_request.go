@@ -5,7 +5,7 @@ import "encoding/json"
 // AdVideoUpdateRequest 视频库-批量更新视频功能 API Request
 type AdVideoUpdateRequest struct {
 	// AdvertiserID 广告主 id
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// PhotoIDs 视频 ids，不超过 100 个
 	PhotoIDs []string `json:"photo_ids,omitempty"`
 	// PhotoName 视频名称; photo_name 和 photo_tags 填其一即可。photo_name长度不得超过100字符

@@ -5,7 +5,7 @@ import "encoding/json"
 // AdvCardListRequest 获取高级创意列表
 type AdvCardListRequest struct {
 	// AdvertiserID 广告主 id
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// CardType 卡片类型; 100:图片卡片 101:多利益卡-图文 102：多利益卡-多标签 103：电商促销样式
 	CardType int `json:"card_type,omitempty"`
 	// Page 查询的页码数

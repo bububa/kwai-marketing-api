@@ -7,7 +7,7 @@ import (
 // AdvertisersRequest 广告罗盘请求信息
 type AdvertisersRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
 // Url implement GetRequest interface

@@ -6,7 +6,7 @@ import (
 )
 
 // BudgetGet 账户日预算查询
-func BudgetGet(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Budget, error) {
+func BudgetGet(clt *core.SDKClient, accessToken string, advertiserID uint64) (*advertiser.Budget, error) {
 	req := &advertiser.BudgetGetRequest{
 		AdvertiserID: advertiserID,
 	}

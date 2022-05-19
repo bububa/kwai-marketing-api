@@ -5,7 +5,7 @@ import "encoding/json"
 // AgentReportRequest 代理商数据APIRequest
 type AgentReportRequest struct {
 	// AgentID 代理商ID（注：非账户快手ID），在获取accessToken时返回
-	AgentID int64 `json:"agent_id,omitempty"`
+	AgentID uint64 `json:"agent_id,omitempty"`
 	// StartDate  过滤筛选条件，格式yyyy-MM-dd 可选时间范围参见文档上方说明
 	StartDate string `json:"start_date,omitempty"`
 	// EndDate 过滤筛选条件，格式yyyy-MM-dd 可选时间范围参见文档上方说明

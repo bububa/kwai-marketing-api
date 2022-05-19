@@ -8,7 +8,7 @@ import (
 // ConvertListRequest 获取可用的转化目标 API Request
 type ConvertListRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// Type 转化目标类型; 1：JS布玛 2：Xpath 3：应用-SDK 7：应用-API
 	Type int `json:"type,omitempty"`
 	// Page 页码
@@ -25,7 +25,7 @@ func (r ConvertListRequest) Url() string {
 // Encode implement GetRequest interface
 func (r ConvertListRequest) Encode() string {
 	values := &url.Values{}
-	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
+	values.Set("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
 	values.Set("type", strconv.Itoa(r.Type))
 	if r.Page > 0 {
 		values.Set("page", strconv.Itoa(r.Page))

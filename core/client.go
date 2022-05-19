@@ -15,13 +15,13 @@ import (
 
 // SDKClient api client
 type SDKClient struct {
-	appID  int64
+	appID  uint64
 	secret string
 	debug  bool
 }
 
 // NewSDKClient init sdk client
-func NewSDKClient(appID int64, secret string) *SDKClient {
+func NewSDKClient(appID uint64, secret string) *SDKClient {
 	return &SDKClient{
 		appID:  appID,
 		secret: secret,
@@ -34,7 +34,7 @@ func (c *SDKClient) SetDebug(debug bool) {
 }
 
 // AppID appID getter
-func (c *SDKClient) AppID() int64 {
+func (c *SDKClient) AppID() uint64 {
 	return c.appID
 }
 

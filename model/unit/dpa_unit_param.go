@@ -3,7 +3,7 @@ package unit
 // DpaUnitParam DPA相关商品信息
 type DpaUnitParam struct {
 	// LibraryID 商品库ID; 当子计划类型为sdpa时必填
-	LibraryID int64 `json:"library_id,omitempty"`
+	LibraryID uint64 `json:"library_id,omitempty"`
 	// OuterID 外部商品ID
 	OuterID string `json:"outer_id,omitempty"`
 	// DetailUnitType 商品链接类型; 0：app下载，1：H5跳转，2：Deeplink唤起，当计划类型为sdpa时必填

@@ -6,7 +6,7 @@ import (
 )
 
 // Info 获取广告账户信息
-func Info(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Info, error) {
+func Info(clt *core.SDKClient, accessToken string, advertiserID uint64) (*advertiser.Info, error) {
 	req := &advertiser.InfoRequest{
 		AdvertiserID: advertiserID,
 	}

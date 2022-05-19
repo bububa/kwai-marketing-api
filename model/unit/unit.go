@@ -5,9 +5,9 @@ import "github.com/bububa/kwai-marketing-api/model/target"
 // Unit 广告组
 type Unit struct {
 	// CampaignID 广告计划ID
-	CampaignID int64 `json:"campaign_id,omitempty"`
+	CampaignID uint64 `json:"campaign_id,omitempty"`
 	// UnitID 广告组ID
-	Unit int64 `json:"unit_id,omitempty"`
+	UnitID uint64 `json:"unit_id,omitempty"`
 	// UnitName 广告组名称
 	UnitName string `json:"unit_name,omitempty"`
 	// Status 广告组状态（优先看看这个状态，计算结果）; -1：不限，1：计划已暂停，3：计划超预算，6：余额不足，，11：审核中，12：审核未通过，14：已结束，15：已暂停，17：组超预算，19：未达投放时间，20：有效
@@ -73,7 +73,7 @@ type Unit struct {
 	// SchemaUrl 调起链接; 提升应用活跃营销目标的调起链接
 	SchemaUrl string `json:"schema_url,omitempty"`
 	// AppID 应用ID
-	AppID int64 `json:"app_id,omitempty"`
+	AppID uint64 `json:"app_id,omitempty"`
 	// AppIconUrl APP图标存储地址
 	AppIconUrl string `json:"app_icon_url,omitempty"`
 	// DiverseData 应用信息
@@ -97,9 +97,9 @@ type Unit struct {
 	// UpdateTime 最后修改时间
 	UpdateTime string `json:"update_time,omitempty"`
 	// ItemID 电商关联Id (小店通); 1. merchantItemType为0时表示小店商品id; 2. merchantItemType为2时表示快手id
-	ItemID int64 `json:"item_id,omitempty"`
+	ItemID uint64 `json:"item_id,omitempty"`
 	// FictionID 小说ID; 仅支持“提升应用安装”、“收集销售线索”以及“提高应用活跃”三种计划类型，且一旦绑定，不可修改。此参数仅是绑定小说，并非自动关联小说生成的落地页，如需推广小说生成的落地页，请使用小说ID获取其生成的建站落地页后将落地页ID一并传入即可（落地页ID传参与之前建站落地页ID字段一致）
-	FictionID int64 `json:"fiction_id,omitempty"`
+	FictionID uint64 `json:"fiction_id,omitempty"`
 	// MerchantItemPutType 电商广告投放类型（小店通）; 0: 商品; 2: 个人主页
 	MerchantItemPutType int `json:"merchant_item_put_type,omitempty"`
 	// ConsultID 是否使用了咨询组件; 0=未使用，1=使用；注，咨询组件仅在收集销售线索计划(campaign_type=5)下可用，且使用了咨询组件后，可用的行动号召按钮限于接口返回内容
@@ -111,7 +111,7 @@ type Unit struct {
 	// BackflowForecast backflow_cv_lower：回流预估值的下限；backflow_cv_upper：回流预估值的上限；backflow_timestamp：本次回流预估数据的时间戳，13位毫秒时间戳
 	BackflowForecast *BackflowForecast `json:"backflow_forecast,omitempty"`
 	// MerchandiseID 商品ID，且一旦绑定，不可修改; 此参数用于绑定商品（绑定商品类型受merchandise_type字段控制），与 fiction_id 字段互斥。merchandise_type=2，merchandise_id 为课程ID，仅支持“收集销售线索”计划类型，且一旦绑定不可修改
-	MerchandiseID int64 `json:"merchandise_id,omitempty"`
+	MerchandiseID uint64 `json:"merchandise_id,omitempty"`
 	// MerchandiseType 课程类型; 与 merchandise_id 共同使用，merchandise_type=2，merchandise_id 为课程ID，仅支持“收集销售线索”计划类型，且一旦绑定不可修改
 	MerchandiseType int `json:"merchandise_type,omitempty"`
 	// PlayableOrientation 试玩素材的横竖适配; 默认值为-1；0:横竖均可；1:竖屏；2:横屏
@@ -123,7 +123,7 @@ type Unit struct {
 	// PlayableSwitch 试玩广告的开关; 默认值为0；1:关闭；2:开启
 	PlayableSwitch int `json:"playable_switch,omitempty"`
 	// LibraryID 商品库ID; sdpa类型广告组才会存在
-	LibraryID int64 `json:"library_id,omitempty"`
+	LibraryID uint64 `json:"library_id,omitempty"`
 	// OuterID 商品ID; sdpa类型广告组才会存在
 	OuterID string `json:"outer_id,omitempty"`
 	// ProductName 商品名称; sdpa类型广告组才会存在
@@ -141,9 +141,9 @@ type Unit struct {
 	ComponentId int    `json:"component_id,omitempty"`
 	//SupportUnitIds      interface{} `json:"support_unit_ids"`
 	UseSka          bool   `json:"use_ska,omitempty"`
-	PlayableId      int64  `json:"playable_id,omitempty"`
+	PlayableId      uint64 `json:"playable_id,omitempty"`
 	PlayButton      string `json:"play_button,omitempty"`
-	ProductId       int64  `json:"product_id,omitempty"`
+	ProductId       uint64 `json:"product_id,omitempty"`
 	SplashAdSwitch  bool   `json:"splash_ad_switch,omitempty"`
 	PageGroupDetail string `json:"page_group_detail,omitempty"`
 	AdType          int    `json:"ad_type,omitempty"`

@@ -8,7 +8,7 @@ import (
 // AdImageListRequest 查询图片接口list接口API Request
 type AdImageListRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// StartDate 开始时间; 与end_date同时传或同时不传；
 	StartDate string `json:"start_date,omitempty"`
 	// EndDate 结束时间
@@ -27,7 +27,7 @@ func (r AdImageListRequest) Url() string {
 // Encode implement GetRequest interface
 func (r AdImageListRequest) Encode() string {
 	values := &url.Values{}
-	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
+	values.Set("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
 	if r.StartDate != "" && r.EndDate != "" {
 		values.Set("start_date", r.StartDate)
 		values.Set("end_date", r.EndDate)

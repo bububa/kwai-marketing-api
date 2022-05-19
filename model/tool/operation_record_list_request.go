@@ -5,7 +5,7 @@ import "encoding/json"
 // OperationRecordListRequest 账户操作记录信息查询 API Request
 type OperationRecordListRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// OperationType 操作类型; 1：新增2：修改删除（可通过content_log： "update_data": "删除"查看）
 	OperationType int `json:"operation_type,omitempty"`
 	// OperationTarget 操作目标类型; 目前只支持：1:账户2：计划3：广告组4：创意5：视频6：app应用7：人群包

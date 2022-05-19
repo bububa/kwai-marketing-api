@@ -8,7 +8,7 @@ type ListResponse struct {
 
 type Details struct {
 	Status            int     `json:"status"`
-	CampaignId        int     `json:"campaign_id"`
+	CampaignId        uint64  `json:"campaign_id"`
 	CampaignName      string  `json:"campaign_name"`
 	PutStatus         int     `json:"put_status"`
 	CreateChannel     int     `json:"create_channel"`
@@ -18,8 +18,6 @@ type Details struct {
 	CampaignSubType   int     `json:"campaign_sub_type"`
 	CreateTime        string  `json:"create_time"`
 	UpdateTime        string  `json:"update_time"`
- 
 
 	AdType int `json:"ad_type"`
-  
 }

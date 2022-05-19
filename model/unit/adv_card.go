@@ -3,7 +3,7 @@ package unit
 // AdvCard 高级创意
 type AdvCard struct {
 	// ID 卡片id
-	ID int64 `json:"adv_card_id,omitempty"`
+	ID uint64 `json:"adv_card_id,omitempty"`
 	// CardType 卡片类型; 100:图片卡片 101:多利益卡-图文 102：多利益卡-多标签 103：电商促销样式
 	CardType int `json:"card_type,omitempty"`
 	// Url 图片url

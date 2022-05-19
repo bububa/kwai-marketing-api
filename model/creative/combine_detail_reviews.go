@@ -3,9 +3,9 @@ package creative
 // CombineDetailView 审核不通过和正在审核的创意组合
 type CombineDetailView struct {
 	// ID 创意id
-	ID int64 `json:"id,omitempty"`
+	ID uint64 `json:"id,omitempty"`
 	// PhotoID 视频id; 已加密
-	PhotoID int64 `json:"photo_id,omitempty"`
+	PhotoID uint64 `json:"photo_id,omitempty"`
 	// CoverUrl 封面url
 	CoverUrl string `json:"cover_url,omitempty"`
 	// Caption 作品广告语
