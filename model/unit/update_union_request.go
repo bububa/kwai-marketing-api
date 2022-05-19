@@ -9,9 +9,9 @@ import (
 // UpdateUnionRequest 修改联盟定投广告组APIRequest
 type UpdateUnionRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// UnitID 广告组ID
-	UnionID int64 `json:"union_id,omitempty"`
+	UnionID uint64 `json:"union_id,omitempty"`
 	// UnitName 广告组名称; 长度为1-100个字符，同一个计划下的广告组名称不能重复
 	UnitName string `json:"unit_name,omitempty"`
 	// BidType 优化目标出价类型; 1: CPM 2: CPC 10:OCPM 4: CPA只有计划类型为3，url_type=4才支持，而且ocpx_action_type只能为表单提交53)
@@ -33,7 +33,7 @@ type UpdateUnionRequest struct {
 	// URL 投放链接; 当计划类型是3/4/5时必填；长度不超过1000字符；计划类型是3（获取电商下单）：金牛商品ID（必须为数字）；计划类型是4（推广品牌活动）：落地页URL；计划类型是5（收集销售线索）：落地页URL；计划类型是5（收集销售线索）：建站ID，通过/rest/openapi/v2/lp/page/list获取。「房地产」「家装建材」「招商加盟」三个二级行业【收集销售线索】目标下隐藏客户自有链接填写入口。
 	URL string `json:"url,omitempty"`
 	// AppID 应用ID; 当计划类型为2时必填，可通过应用列表接口获取应用ID；为9时且detail_unit_type为0、2时必填
-	AppID int64 `json:"app_id,omitempty"`
+	AppID uint64 `json:"app_id,omitempty"`
 	// ShowMode 创意展现方式; 1 - 轮播；2 - 优选
 	ShowMode int `json:"show_mode,omitempty"`
 	// Speed 投放方式; 1 - 加速投放；2 - 平滑投放；3-优先低成本（投放时间范围只可为全天；预算不可为不限或空）

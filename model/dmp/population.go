@@ -3,7 +3,7 @@ package dmp
 // Population 人群包
 type Population struct {
 	// OrientationID 人群包ID
-	OrientationID int64 `json:"orientation_id,omitempty"`
+	OrientationID uint64 `json:"orientation_id,omitempty"`
 	// OrientationName 人群包名称
 	OrientationName string `json:"orientation_name,omitempty"`
 	// Type 人群数据类型; 1：IMEI；2：IDFA；3：IMEI_MD5；4：IDFA_MD5；5：手机号-MD5；7：OAID；8：OAID_MD5
@@ -21,7 +21,7 @@ type Population struct {
 	// CreateTime 创建时间; 格式：13位毫秒级时间戳
 	CreateTime int64 `json:"create_time,omitempty"`
 	// ThirdPlatformCode 付费人群包-第3方平台code
-	ThirdPlatformCode int `json:"third_platform_code,omitempty"`
+	ThirdPlatformCode uint64 `json:"third_platform_code,omitempty"`
 	// ThirdPlatformName 付费人群包第三方供应商名称
 	ThirdPlatformName string `json:"third_platform_name,omitempty"`
 }

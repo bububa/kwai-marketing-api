@@ -6,7 +6,7 @@ import (
 )
 
 // UpdateStatus 修改广告组状态
-func UpdateStatus(clt *core.SDKClient, accessToken string, req *unit.UpdateStatusRequest) ([]int64, error) {
+func UpdateStatus(clt *core.SDKClient, accessToken string, req *unit.UpdateStatusRequest) ([]uint64, error) {
 	var resp unit.UpdateStatusResponse
 	err := clt.Post(accessToken, req, &resp)
 	if err != nil {

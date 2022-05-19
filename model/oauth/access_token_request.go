@@ -4,7 +4,7 @@ import "encoding/json"
 
 // AccessTokenRequest 获取AccessToken APIRequest
 type AccessTokenRequest struct {
-	AppID    int64  `json:"app_id,omitempty"`
+	AppID    uint64 `json:"app_id,omitempty"`
 	Secret   string `json:"secret,omitempty"`
 	AuthCode string `json:"auth_code,omitempty"`
 }

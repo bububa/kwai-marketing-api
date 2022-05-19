@@ -6,7 +6,7 @@ import (
 )
 
 // Update 修改广告组
-func Update(clt *core.SDKClient, accessToken string, req *unit.UpdateRequest) (int64, error) {
+func Update(clt *core.SDKClient, accessToken string, req *unit.UpdateRequest) (uint64, error) {
 	var resp unit.UpdateResponse
 	err := clt.Post(accessToken, req, &resp)
 	if err != nil {

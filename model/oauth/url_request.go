@@ -10,7 +10,7 @@ import (
 // UrlRequest 生成授权链接APIRequest
 type UrlRequest struct {
 	// AppID 应用ID
-	AppID int64 `json:"app_id,omitempty"`
+	AppID uint64 `json:"app_id,omitempty"`
 	// Scope 授权scope
 	Scope []string `json:"scope,omitempty"`
 	// RedirectUri 申请应用时开发者提供的回调地址，使用时需要UrlEncode一次
@@ -24,7 +24,7 @@ type UrlRequest struct {
 // Encode implement GetRequest interface
 func (r UrlRequest) Encode() string {
 	values := url.Values{}
-	values.Set("app_id", strconv.FormatInt(r.AppID, 10))
+	values.Set("app_id", strconv.FormatUint(r.AppID, 10))
 	values.Set("redirect_uri", r.RedirectUri)
 	if len(r.Scope) > 0 {
 		var scopes []string

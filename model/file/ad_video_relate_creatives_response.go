@@ -19,7 +19,7 @@ type AdVideoRelatedCreatives struct {
 // AdVideoRelatedCreative
 type AdVideoRelatedCreative struct {
 	// CreativeID 创意id
-	CreativeID int64 `json:"creative_id,omitempty"`
+	CreativeID uint64 `json:"creative_id,omitempty"`
 	// CreativeName 创意名称
 	CreativeName string `json:"creative_name,omitempty"`
 }

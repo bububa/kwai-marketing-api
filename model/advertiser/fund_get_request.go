@@ -7,7 +7,7 @@ import (
 // FundGetRequest 获取广告主账户余额APIRequest
 type FundGetRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
 // Url implement GetRequest interface

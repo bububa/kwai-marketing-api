@@ -3,7 +3,7 @@ package file
 // App 应用
 type App struct {
 	// AppID 应用ID
-	AppID int64 `json:"app_id,omitempty"`
+	AppID uint64 `json:"app_id,omitempty"`
 	// URL 应用地址
 	URL string `json:"url,omitempty"`
 	// AppVersion 应用标记

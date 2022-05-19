@@ -9,7 +9,7 @@ import (
 // AdAppCreateRequest 创建应用 API Request
 type AdAppCreateRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// File 应用安装包（apk）; 包体限制：1G 以内；当platform为1时，可自行选择上传apk，如果同时传了url，以file字段值为主
 	File *model.UploadField
 	// AppVersion 应用标记; 不能超过100字符，同一账户下应用标记不能重复；样例：快影-3.0.0.0103
@@ -48,7 +48,7 @@ func (r AdAppCreateRequest) Encode() []model.UploadField {
 	fields := []model.UploadField{
 		{
 			Key:   "advertiser_id",
-			Value: strconv.FormatInt(r.AdvertiserID, 10),
+			Value: strconv.FormatUint(r.AdvertiserID, 10),
 		},
 		{
 			Key:   "app_version",

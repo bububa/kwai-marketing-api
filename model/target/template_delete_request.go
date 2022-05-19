@@ -5,7 +5,7 @@ import "encoding/json"
 // TemplateDeleteRequest 删除定向模板
 type TemplateDeleteRequest struct {
 	// AdvertiserID 广告主 ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// TemplateID 定向模板id
 	TemplateID string `json:"template_id,omitempty"`
 }

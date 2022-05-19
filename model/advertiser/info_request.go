@@ -7,7 +7,7 @@ import (
 // InfoRequest 获取广告主信息APIRequest
 type InfoRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
 // Url implement GetRequest interface
@@ -19,3 +19,5 @@ func (r InfoRequest) Encode() []byte {
 	ret, _ := json.Marshal(r)
 	return ret
 }
+
+

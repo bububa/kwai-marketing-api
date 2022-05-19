@@ -6,7 +6,7 @@ import (
 )
 
 // AdvertisersGet   获取罗盘绑定广告主列
-func AdvertisersGet(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.AdvertisersResponse, error) {
+func AdvertisersGet(clt *core.SDKClient, accessToken string, advertiserID uint64) (*advertiser.AdvertisersResponse, error) {
 	req := &advertiser.AdvertisersRequest{
 		AdvertiserID: advertiserID,
 	}

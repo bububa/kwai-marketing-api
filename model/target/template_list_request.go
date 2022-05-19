@@ -8,7 +8,7 @@ import (
 // TemplateListRequest 查询定向模板接口 API Request
 type TemplateListRequest struct {
 	// AdvertiserID 广告主 ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// Page 请求的页码，默认为 1
 	Page int `json:"page,omitempty"`
 	// PageSize 每页行数，默认 20
@@ -23,7 +23,7 @@ func (r TemplateListRequest) Url() string {
 // Encode implement GetRequest interface
 func (r TemplateListRequest) Encode() string {
 	values := &url.Values{}
-	values.Set("advertiser_id", strconv.FormatInt(r.AdvertiserID, 10))
+	values.Set("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
 	if r.Page > 0 {
 		values.Set("page", strconv.Itoa(r.Page))
 	}

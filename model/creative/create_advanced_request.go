@@ -5,13 +5,13 @@ import "encoding/json"
 // CreateAdvancedRequest 创建程序化2.0创意 API Request
 type CreateAdvancedRequest struct {
 	// AdvertiserId 广告主ID
-	AdvertiserId int64 `json:"advertiser_id,omitempty"`
+	AdvertiserId uint64 `json:"advertiser_id,omitempty"`
 	// UnitID 广告组ID
-	Unit int64 `json:"unit_id,omitempty"`
+	Unit uint64 `json:"unit_id,omitempty"`
 	//PackageName 程序化创意名称
 	PackageName string `json:"package_name"`
 	// SiteID 安卓下载中间页ID
-	SiteID int64 `json:"site_id,omitempty"`
+	SiteID uint64 `json:"site_id,omitempty"`
 	// StickerStyles 封面贴纸
 	StickerStyles []int `json:"sticker_styles,omitempty"`
 	// CoverSlogans 封面广告语

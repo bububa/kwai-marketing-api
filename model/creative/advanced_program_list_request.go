@@ -5,9 +5,9 @@ import "encoding/json"
 // AdvancedProgramListRequest 获取程序化创意2.0信息 API Request
 type AdvancedProgramListRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// UnitIDs 广告组ID;不超过一百个，当unit_ids参数不为空时，返回值total_count为0
-	UnitIDs []int64 `json:"unit_ids,omitempty"`
+	UnitIDs []uint64 `json:"unit_ids,omitempty"`
 	// PackageName 程序化创意包名称; 非空，0到100字符
 	PackageName string `json:"package_name,omitempty"`
 	// Status 程序化创意状态; -2：所有（包含已删除）、40：只包含已删除 不传：所有（不包含已删除）

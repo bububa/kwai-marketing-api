@@ -3,7 +3,7 @@ package asset
 // AdvCard 高级创意
 type AdvCard struct {
 	// AdvCardID 卡片 id
-	AdvCardID int64 `json:"adv_card_id,omitempty"`
+	AdvCardID uint64 `json:"adv_card_id,omitempty"`
 	// TemplateName 模版名
 	TemplateName string `json:"template_name,omitempty"`
 	// UnitCount 关联广告组数

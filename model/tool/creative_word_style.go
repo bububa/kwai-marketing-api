@@ -3,7 +3,7 @@ package tool
 // CreativeWordStyle 封面贴纸样式
 type CreativeWordStyle struct {
 	// StickerStyleID 贴纸样式ID
-	StickerStyleID int `json:"sticker_style_id,omitempty"`
+	StickerStyleID uint `json:"sticker_style_id,omitempty"`
 	// StickerStyles 贴纸样式列表
 	StickerStyles []StickerStyle `json:"sticker_styles,omitempty"`
 }

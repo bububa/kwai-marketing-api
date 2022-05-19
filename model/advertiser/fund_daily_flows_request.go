@@ -7,7 +7,7 @@ import (
 // FundDailyFlowsRequest 广告主账号流水信息APIRequest
 type FundDailyFlowsRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// StartDate 开始日期
 	StartDate string `json:"start_date,omitempty"`
 	// EndDate 结束日期
@@ -23,7 +23,6 @@ func (r FundDailyFlowsRequest) Url() string {
 	return "v1/advertiser/fund/daily_flows"
 }
 
-// Encode implement GetRequest interface
 // Encode implement GetRequest interface
 func (r FundDailyFlowsRequest) Encode() []byte {
 	buf, _ := json.Marshal(r)

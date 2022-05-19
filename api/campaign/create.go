@@ -6,7 +6,7 @@ import (
 )
 
 // Create 创建广告计划
-func Create(clt *core.SDKClient, accessToken string, req *campaign.CreateRequest) (int64, error) {
+func Create(clt *core.SDKClient, accessToken string, req *campaign.CreateRequest) (uint64, error) {
 	var resp campaign.CreateResponse
 	err := clt.Post(accessToken, req, &resp)
 	if err != nil {

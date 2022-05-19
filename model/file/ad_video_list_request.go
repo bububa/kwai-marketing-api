@@ -5,7 +5,7 @@ import "encoding/json"
 // AdVideoListRequest 查询视频接口list接口API Request
 type AdVideoListRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// PhotoIDs 视频 id列表，不超过 100 个 id
 	PhotoIDs []string `json:"photo_ids,omitempty"`
 	// NewStatus 视频状态s; 0：删除， -1：全部数据，包含删除 不传默认返回不含删除的数据

@@ -3,7 +3,7 @@ package target
 // Template 定向模板
 type Template struct {
 	// TemplateID 定向模板 ID
-	TemplateID int64 `json:"template_id,omitempty"`
+	TemplateID uint64 `json:"template_id,omitempty"`
 	// TemplateName 定向模板名称
 	TemplateName string `json:"template_name,omitempty"`
 	// CreateTime 定向模板创建时间，"2019-06-11 15:17:25"

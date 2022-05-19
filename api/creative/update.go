@@ -7,7 +7,7 @@ import (
 
 // Update 修改创意
 //【注】联盟广告不支持便利贴图片素材。
-func Update(clt *core.SDKClient, accessToken string, req *creative.UpdateRequest) (int64, error) {
+func Update(clt *core.SDKClient, accessToken string, req *creative.UpdateRequest) (uint64, error) {
 	var resp creative.UpdateResponse
 	err := clt.Post(accessToken, req, &resp)
 	if err != nil {

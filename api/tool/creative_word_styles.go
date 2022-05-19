@@ -6,7 +6,7 @@ import (
 )
 
 // CreativeWordStyles 获取可选的封面贴纸样式
-func CreativeWordStyles(clt *core.SDKClient, accessToken string, advertiserID int64) ([]tool.CreativeWordStyle, error) {
+func CreativeWordStyles(clt *core.SDKClient, accessToken string, advertiserID uint64) ([]tool.CreativeWordStyle, error) {
 	req := &tool.CreativeWordStylesRequest{
 		AdvertiserID: advertiserID,
 	}

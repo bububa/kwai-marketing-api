@@ -6,7 +6,7 @@ import (
 )
 
 // DistrictList 获取商圈地域定向
-func DistrictList(clt *core.SDKClient, accessToken string, advertiserID int64) (map[string]region.District, error) {
+func DistrictList(clt *core.SDKClient, accessToken string, advertiserID uint64) (map[string]region.District, error) {
 	req := &region.DistrictListRequest{
 		AdvertiserID: advertiserID,
 	}

@@ -5,7 +5,7 @@ import "encoding/json"
 // CreateRequest 创建广告计划 API Request
 type CreateRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// CampaignName 广告计划名称; 长度为1-100个字符，计划名称不能重复
 	CampaignName string `json:"campaign_name,omitempty"`
 	// Type 计划类型; 2：提升应用安装 3：获取电商下单 4：推广品牌活动 5：收集销售线索 7：提高应用活跃 9：商品库推广 13：小店商品推广 14：直播推广

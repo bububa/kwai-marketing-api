@@ -5,7 +5,7 @@ import "encoding/json"
 // AdVideoTagDeleteRequest 视频库-删除视频标签 API Request
 type AdVideoTagDeleteRequest struct {
 	// AdvertiserID 广告主 id
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// PhotoIDs 视频 ids，不超过 10 个
 	PhotoIDs []string `json:"photo_ids,omitempty"`
 	// PhotoTag 视频标签 单个标签长度不能超过 10，只支持一个标签

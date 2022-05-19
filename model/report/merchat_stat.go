@@ -11,15 +11,15 @@ type MerchantStat struct {
 	// CampaignName 计划名称
 	CampaignName string `json:"campaign_name,omitempty"`
 	// CampaignID 计划 ID
-	CampaignID int64 `json:"campaign_id,omitempty"`
+	CampaignID uint64 `json:"campaign_id,omitempty"`
 	// UnitName 广告组名称
 	UnitName string `json:"unit_name,omitempty"`
 	// UnitID 广告组 ID
-	UnitID int64 `json:"unit_id,omitempty"`
+	UnitID uint64 `json:"unit_id,omitempty"`
 	// CreativeName 创意名称
 	CreativeName string `json:"creative_name,omitempty"`
 	// CreativeID 创意 id
-	CreativeID int64 `json:"creative_id,omitempty"`
+	CreativeID uint64 `json:"creative_id,omitempty"`
 	// CostTotal 花费
 	CostTotal int64 `json:"cost_total,omitempty"`
 	// Impression 封面曝光数

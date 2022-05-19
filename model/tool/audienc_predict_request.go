@@ -5,9 +5,9 @@ import "encoding/json"
 // AudiencePredictRequest 定向人群预估查询 API Request
 type AudiencePredictRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// Region 地域
-	Region []int64 `json:"region,omitempty"`
+	Region []uint64 `json:"region,omitempty"`
 	// AgesRange 固定年龄段; 18：表示18-23岁】【24：表示24-30岁】【31：表示31-40岁】【41：表示41-49岁】【50：表示50-100岁】
 	AgesRange []int `json:"ages_range,omitempty"`
 	// Gender 性别; 1：女性, 2：男性，0表示不限
@@ -31,15 +31,15 @@ type AudiencePredictRequest struct {
 	// FansStar 网红粉丝
 	FansStar []int64 `json:"fans_star,omitempty"`
 	// InterestVideo 兴趣视频用户
-	InterestVideo []int64 `json:"interest_video,omitempty"`
+	InterestVideo []uint64 `json:"interest_video,omitempty"`
 	// AppInterest APP行为-按分类
-	AppInterest []int64 `json:"app_interest,omitempty"`
+	AppInterest []uint64 `json:"app_interest,omitempty"`
 	// AppIDs APP行为-按APP名称
-	AppIDs []int64 `json:"app_ids,omitempty"`
+	AppIDs []uint64 `json:"app_ids,omitempty"`
 	// Population 人群包定向
-	Population []int64 `json:"population,omitempty"`
+	Population []uint64 `json:"population,omitempty"`
 	// ExcludePopulation 人群包排除
-	ExcludePopulation []int64 `json:"exclude_population,omitempty"`
+	ExcludePopulation []uint64 `json:"exclude_population,omitempty"`
 }
 
 // Url implement PostRequest interface

@@ -9,15 +9,15 @@ import (
 // UpdateRequest 修改广告组APIRequest
 type UpdateRequest struct {
 	// AdvertiserID 广告主ID
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// CampaignID 广告计划ID
-	CampaignID int64 `json:"campaign_id,omitempty"`
+	CampaignID uint64 `json:"campaign_id,omitempty"`
 	// UnitName 广告组名称; 长度为1-100个字符，同一个计划下的广告组名称不能重复
 	UnitName string `json:"unit_name,omitempty"`
 	// PutStatus 广告组的投放状态; 不填时，创建的广告组为投放状态；填2时，创建的广告组为暂停状态，其他值非法
 	PutStatus int `json:"put_status,omitempty"`
 	// TemplateID 定向模板id
-	TemplateID int64 `json:"template_id,omitempty"`
+	TemplateID uint64 `json:"template_id,omitempty"`
 	// BidType 优化目标出价类型; 1: CPM 2: CPC 10:OCPM 4: CPA只有计划类型为3，url_type=4才支持，而且ocpx_action_type只能为表单提交53)
 	BidType int `json:"bid_type"`
 	// UseAppMarket 优先从系统应用商店下载; 下载模式：允许值：0，1；1：优先从系统应用商店下载使用，默认0。仅提升应用安装计划类型且选择的app为安卓才支持。
@@ -65,7 +65,7 @@ type UpdateRequest struct {
 	// SchemaUrl 调起链接; 提升应用活跃营销目标的调起链接；应用推广下在已经安装app的用户手机上可以拉起app（需要运营加白）
 	SchemaUrl string `json:"schema_url,omitempty"`
 	// AppID 应用ID; 当计划类型为2时必填，可通过应用列表接口获取应用ID；为9时且detail_unit_type为0、2时必填
-	AppID int64 `json:"app_id,omitempty"`
+	AppID uint64 `json:"app_id,omitempty"`
 	// ShowMode 创意展现方式; 1 - 轮播；2 - 优选
 	ShowMode int `json:"show_mode,omitempty"`
 	// Speed 投放方式; 1 - 加速投放；2 - 平滑投放；3-优先低成本（投放时间范围只可为全天；预算不可为不限或空）
@@ -81,25 +81,25 @@ type UpdateRequest struct {
 	// AutoCreatePhoto 是否开启自动生成视频; 加白使用
 	AutoCreatePhoto *bool `json:"auto_create_photo,omitempty"`
 	// ItemID 电商关联Id (小店通); 1. merchantItemType为0时填写小店商品id 2. merchantItemType为2时不用填写，系统补充
-	ItemID int64 `json:"item_id,omitempty"`
+	ItemID uint64 `json:"item_id,omitempty"`
 	// MerchantItemPutType 电商广告投放类型（小店通）; 0: 商品 2: 个人主页
 	MerchantItemPutType *int `json:"merchant_item_put_type,omitempty"`
 	// FictionID 小说ID; 仅支持“提升应用安装”、“收集销售线索”以及“提高应用活跃”三种计划类型，且一旦绑定，不可修改。此参数仅是绑定小说，并非自动关联小说生成的落地页，如需推广小说生成的落地页，请使用小说ID获取其生成的建站落地页后将落地页ID一并传入即可（落地页ID传参与之前建站落地页ID字段一致）
-	FictionID int64 `json:"fiction_id,omitempty"`
+	FictionID uint64 `json:"fiction_id,omitempty"`
 	// SmartCover 程序化创意2.0智能抽帧; 是否开启智能抽帧; unit_type=7选填
 	SmartCover *bool `json:"smart_cover,omitempty"`
 	// AssetMining 程序化创意2.0素材挖掘; 是否开启历史素材挖掘
 	AssetMining *bool `json:"asset_mining,omitempty"`
 	// ConsultID 咨询组件id; 1、仅可被用于线索类计划下的unit；2、仅当落地页使用了建站落地页时可使用；3、注意本字段不可被更新；4、本属性不可与附加表单组件(component_id)同时使用
-	ConsultID int64 `json:"consult_id,omitempty"`
+	ConsultID uint64 `json:"consult_id,omitempty"`
 	// AdvCardOption 高级创意开关; 0：关闭 1:开启
 	AdvCardOption *int `json:"adv_card_option,omitempty"`
 	// AdvCardList 绑定卡片id; card_type=100为1个；card_type=101为3个；card_type=102为3个；card_type=103为1个
-	AdvCardList []int64 `json:"adv_card_list,omitempty"`
+	AdvCardList []uint64 `json:"adv_card_list,omitempty"`
 	// CardType 卡片类型; 100:图片卡片 101:多利益卡-图文 102：多利益卡-多标签 103：电商促销样式 104：快捷评论卡
 	CardType int `json:"card_type,omitempty"`
 	// MerchandiseID 商品ID，且一旦绑定，不可修改; 此参数用于绑定商品（绑定商品类型受merchandise_type字段控制），与 fiction_id 字段互斥。merchandise_type=2，merchandise_id 为课程ID，仅支持“收集销售线索”计划类型，且一旦绑定不可修改
-	MerchandiseID int64 `json:"merchandise_id,omitempty"`
+	MerchandiseID uint64 `json:"merchandise_id,omitempty"`
 	// MerchandiseType 选填; 与 merchandise_id 共同使用，merchandise_type=2，merchandise_id 为课程ID，仅支持“收集销售线索”计划类型，且一旦绑定不可修改
 	MerchandiseType int `json:"merchandise_type,omitempty"`
 	// IntentionTarget 行为意向-系统优选; 行为意向是否开启系统优选，智能定向和行为意向系统优选不能同时开启

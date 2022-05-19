@@ -6,7 +6,7 @@ import (
 )
 
 // WhiteList 获取可选白名单接口
-func WhiteList(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.WhiteListResponse, error) {
+func WhiteList(clt *core.SDKClient, accessToken string, advertiserID uint64) (*advertiser.WhiteListResponse, error) {
 	req := &advertiser.WhiteListRequest{
 		AdvertiserID: advertiserID,
 	}

@@ -5,9 +5,9 @@ type AgentStat struct {
 	// DateTime 数据日期，格式：YYYY-MM-DD
 	DateTime string `json:"date_time,omitempty"`
 	// AccountID 广告主ID
-	AccountID int64 `json:"account_id,omitempty"`
+	AccountID uint64 `json:"account_id,omitempty"`
 	// UserID 快手id
-	UserID int64 `json:"user_id,omitempty"`
+	UserID uint64 `json:"user_id,omitempty"`
 	// AccountName 广告主名称
 	AccountName string `json:"account_name,omitempty"`
 	// TotalChargedInYuan 总消耗（元）

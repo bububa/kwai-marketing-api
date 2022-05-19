@@ -21,7 +21,7 @@ type Convert struct {
 	// CreateTime 创建时间
 	CreateTime string `json:"create_time,omitempty"`
 	// AppID 应用id; type为3、7时返回
-	AppID int64 `json:"app_id,omitempty"`
+	AppID uint64 `json:"app_id,omitempty"`
 	// AppName 应用名称
 	AppName string `json:"app_name,omitempty"`
 	// ClickUrl 第三方点击按钮监测链接

@@ -3,7 +3,7 @@ package creative
 // AdvancedProgramCreative 获取程序化创意2.0信息
 type AdvancedProgramCreative struct {
 	// UnitID 广告组ID
-	Unit int64 `json:"unit_id,omitempty"`
+	Unit uint64 `json:"unit_id,omitempty"`
 	// PackageName 程序化创意包名称，1-100 字符，
 	PackageName string `json:"package_name,omitempty"`
 	// HorizontalPhotoIDs 横版视频 id list; 横版视频和竖版视频加起来只能 1-5 个
@@ -15,7 +15,7 @@ type AdvancedProgramCreative struct {
 	// CoverImageUrls 封面链接地址
 	CoverImageUrls []string `json:"cover_image_urls,omitempty"`
 	// SiteID 建站 id
-	SiteID int64 `json:"site_id,omitempty"`
+	SiteID uint64 `json:"site_id,omitempty"`
 	// StickerStyles 封面贴纸
 	StickerStyles []int `json:"sticker_styles,omitempty"`
 	// CoverSlogans 封面广告语
