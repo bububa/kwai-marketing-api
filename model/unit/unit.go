@@ -70,8 +70,8 @@ type Unit struct {
 	WebUriType int `json:"web_uri_type,omitempty"`
 	// Url 落地页链接; 计划类型是 2（提升应用安装）：返回应用下载地址；计划类型是 3（获取电商下单）：根据url_type返回相应信息；计划类型是 4（推广品牌活动）：返回落地页url计划类型是 5（收集销售线索）：返回落地页url计划类型是5（收集销售线索）：建站idl
 	Url string `json:"url,omitempty"`
-	// SchemaUrl 调起链接; 提升应用活跃营销目标的调起链接
-	SchemaUrl string `json:"schema_url,omitempty"`
+	// SchemaUri 调起链接; 提升应用活跃营销目标的调起链接
+	SchemaUri string `json:"schema_uri,omitempty"`
 	// AppID 应用ID
 	AppID uint64 `json:"app_id,omitempty"`
 	// AppIconUrl APP图标存储地址
@@ -122,10 +122,16 @@ type Unit struct {
 	PlayableFileName string `json:"playable_file_name,omitempty"`
 	// PlayableSwitch 试玩广告的开关; 默认值为0；1:关闭；2:开启
 	PlayableSwitch int `json:"playable_switch,omitempty"`
+	// PlayableID 试玩 ID; 可选字段，开启试玩时存在，否则不存在。当用户上传试玩素材成功时返回，用于之后对于广告组中试玩创意的编辑操作。
+	PlayableID uint64 `json:"playable_id,omitempty"`
+	// PlayButton 试玩按钮文字内容; 开启试玩时存在，否则不存在，示例按钮内容如下：1：立即试玩；2：试玩一下；3：立即体验；4：免装试玩；5：免装体验。启用试玩时：默认“立即试玩”，未启用试玩时：内容为空。
+	PlayButton string `json:"play_button,omitempty"`
 	// LibraryID 商品库ID; sdpa类型广告组才会存在
 	LibraryID uint64 `json:"library_id,omitempty"`
 	// OuterID 商品ID; sdpa类型广告组才会存在
 	OuterID string `json:"outer_id,omitempty"`
+	// ProductID 商品ID; sdpa类型广告组才会存在
+	ProductID uint64 `json:"product_id,omitempty"`
 	// ProductName 商品名称; sdpa类型广告组才会存在
 	ProductName string `json:"product_name,omitempty"`
 	// ProductPrice 商品价格; 单位：元，sdpa类型广告组才会存在
@@ -134,18 +140,23 @@ type Unit struct {
 	ProductImage string `json:"product_image,omitempty"`
 	// IntentionTarget 行为意向-系统优选; 行为意向是否开启系统优选，智能定向和行为意向系统优选不能同时开启
 	IntentionTarget bool `json:"intention_target,omitempty"`
-
-	CreateTime  string `json:"create_time,omitempty"`
-	TemplateId  int    `json:"template_id,omitempty"`
-	SchemaUri   string `json:"schema_uri,omitempty"`
-	ComponentId int    `json:"component_id,omitempty"`
-	//SupportUnitIds      interface{} `json:"support_unit_ids"`
-	UseSka          bool   `json:"use_ska,omitempty"`
-	PlayableId      uint64 `json:"playable_id,omitempty"`
-	PlayButton      string `json:"play_button,omitempty"`
-	ProductId       uint64 `json:"product_id,omitempty"`
-	SplashAdSwitch  bool   `json:"splash_ad_switch,omitempty"`
+	// SplashAdSwitch 是否投放开屏广告位; true:投放，false：不投放
+	SplashAdSwitch bool `json:"splash_ad_switch,omitempty"`
+	// PageGroupDetail 程序化落地页信息; 广告组ID绑定的程序化落地页组信息
 	PageGroupDetail string `json:"page_group_detail,omitempty"`
-	AdType          int    `json:"ad_type,omitempty"`
-	//ExtendSearch        interface{} `json:"extend_search"`
+	// JingleBellID 小铃铛组件id
+	JingleBellID uint64 `json:"jingle_bell_id,omitempty"`
+	// LiveUserID 主播id
+	LiveUserID uint64 `json:"live_user_id,omitempty"`
+	// AdType 广告计划类型 0:信息流，1:搜索
+	AdType int `json:"ad_type,omitempty"`
+	// ExtendSearch 智能扩词开启状态; false：关闭，true：开启
+	ExtendSearch bool `json:"extend_search"`
+	// UnitSource 广告组来源; 0:常规（非托管）、1:托管
+	UnitSource int `json:"unit_source,omitempty"`
+	// CreateTime 创建时间
+	CreateTime  string `json:"create_time,omitempty"`
+	TemplateID  int    `json:"template_id,omitempty"`
+	ComponentID int    `json:"component_id,omitempty"`
+	UseSka      bool   `json:"use_ska,omitempty"`
 }

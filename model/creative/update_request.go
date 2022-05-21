@@ -13,7 +13,7 @@ type UpdateRequest struct {
 	// PhotoID 视频ID
 	PhotoID string `json:"photo_id,omitempty"`
 	// ImageToken 封面图片token; 通过上传图片接口获得，不传值则直接使用视频的首帧作为封面图片，自定义封面的图片宽高要与视频宽高一致
-	ImageToken string `json:"image_token,omitempty"`
+	ImageToken *string `json:"image_token,omitempty"`
 	// ImageTokens 便利贴单图图片创意token; 便利贴/图片/小图图片创意必填，目前只支持一张图片；组图图片创意需要上传3张图片，详细要求见附录
 	ImageTokens []string `json:"image_tokens,omitempty"`
 	// ActionBarText 行动号召按钮文案; 根据计划类型进行设置，详情见附录
@@ -33,11 +33,11 @@ type UpdateRequest struct {
 	// SiteID 安卓下载中间页ID; 可从下方「获取已发布的下载页」接口获取（老建站6.30下线） 或通过「rest/openapi/v2/lp/page/list」获取新建站落地页（魔力建站"view_comps":7） 1.仅支持下载类广告 2.广告组选择的应用类型要为安卓 3.下载页对应的app_id要与广告组选择的app_id一致
 	SiteID uint64 `json:"site_id,omitempty"`
 	// ClickTrackUrl 第三方点击检测链接; 仅当广告组scene_id为1、2、6、7、10时，可选填； 广告组优化目标为激活时，该字段必填（下载类广告投放的应用集成快手Android SDK时除外） 使用Marketing API创建时，监测链接使用以该文档为准
-	ClickTrackUrl string `json:"click_track_url,omitempty"`
+	ClickTrackUrl *string `json:"click_track_url,omitempty"`
 	// ImpressionUrl 第三方开始播放监测链接; 仅当广告组scene_id为3时，可选填； 广告组优化目标为激活时，该字段必填（下载类广告投放的应用集成快手Android SDK时除外） 使用Marketing API创建时，监测链接使用以该文档为准
-	ImpressionUrl string `json:"impression_url,omitempty"`
+	ImpressionUrl *string `json:"impression_url,omitempty"`
 	// AdPhotoPlayedT3sUrl 第三方有效播放监测链接; 仅历史个别账户使用且当广告组scene_id为3时可选，与impression_url不可同时使用
-	AdPhotoPlayedT3sUrl string `json:"ad_photo_played_t3s_url,omitempty"`
+	AdPhotoPlayedT3sUrl *string `json:"ad_photo_played_t3s_url,omitempty"`
 	// CreativeCategory 创意分类; 由创意分类查询接口 获得；必须是叶子结点；与创意标签同时传或同时不传 必填账户可通过接口3.17——接口获取是否必填
 	CreativeCategory int `json:"creative_category,omitempty"`
 	// CreativeTag 创意标签; 与创意分类参数，要么都传，要么都不传；且单个创意的创意标签最多10个；单个创意标签不能为空且不能超过10字符

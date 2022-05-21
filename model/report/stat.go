@@ -62,6 +62,8 @@ type Stat struct {
 	PhotoClickRatio float64 `json:"photo_click_ratio,omitempty"`
 	// Play3sRatio 3s播放率
 	Play3sRatio float64 `json:"play_3s_ratio,omitempty"`
+	// Played3s 有效播放数
+	Played3s int64 `json:"played_three_seconds,omitempty"`
 	// ActionRatio 行为率
 	ActionRatio float64 `json:"action_ratio,omitempty"`
 	// Impression1kCost 平均千次曝光花费（元）
@@ -268,4 +270,6 @@ type Stat struct {
 	EventCreditCardRecheck         int     `json:"event_credit_card_recheck,omitempty"`
 	EventCreditCardRecheckFirstDay int     `json:"event_credit_card_recheck_first_day,omitempty"`
 	EventNoIntention               int     `json:"event_no_intention,omitempty"`
+	// ConversionNum 转化数(回传时间)
+	ConversionNum int64 `json:"conversion_num,omitempty"`
 }
