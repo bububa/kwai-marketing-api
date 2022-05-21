@@ -30,6 +30,10 @@ type ListRequest struct {
 	PageSize int `json:"page_size,omitempty"`
 	// ActionbarClickUrl 第三方点击按钮监测链接
 	ActionbarClickUrl string `json:"actionbar_click_url,omitempty"`
+	// ReviewStatusList 单元审核状态筛选	1：待审核；2：审核通过；3：审核失败；7：待送审
+	ReviewStatusList []int `json:"review_status_list,omitempty"`
+	// PutStatusList 单元投放状态筛选	1：投放；2：暂停；3：删除
+	PutStatusList []int `json:"put_status_list,omitempty"`
 }
 
 // Url implement PostRequest interface

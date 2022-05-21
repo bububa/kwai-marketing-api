@@ -3,15 +3,15 @@ package report
 // Stat 数据报表
 type Stat struct {
 	// CampaignID 广告计划ID
-	CampaignID int64 `json:"campaign_id,omitempty"`
+	CampaignID uint64 `json:"campaign_id,omitempty"`
 	// CampaignName 广告计划名称
 	CampaignName string `json:"campaign_name,omitempty"`
 	// UnitID 广告组ID
-	UnitID int64 `json:"unit_id,omitempty"`
+	UnitID uint64 `json:"unit_id,omitempty"`
 	// UnitName 广告组名称
 	UnitName string `json:"unit_name,omitempty"`
 	// CreativeID 广告创意ID
-	CreativeID int64 `json:"creative_id,omitempty"`
+	CreativeID uint64 `json:"creative_id,omitempty"`
 	// CreativeName 广告创意名称
 	CreativeName string `json:"creative_name,omitempty"`
 	// PhotoID 视频id
@@ -62,6 +62,8 @@ type Stat struct {
 	PhotoClickRatio float64 `json:"photo_click_ratio,omitempty"`
 	// Play3sRatio 3s播放率
 	Play3sRatio float64 `json:"play_3s_ratio,omitempty"`
+	// Played3s 有效播放数
+	Played3s int64 `json:"played_three_seconds,omitempty"`
 	// ActionRatio 行为率
 	ActionRatio float64 `json:"action_ratio,omitempty"`
 	// Impression1kCost 平均千次曝光花费（元）
@@ -268,4 +270,6 @@ type Stat struct {
 	EventCreditCardRecheck         int     `json:"event_credit_card_recheck,omitempty"`
 	EventCreditCardRecheckFirstDay int     `json:"event_credit_card_recheck_first_day,omitempty"`
 	EventNoIntention               int     `json:"event_no_intention,omitempty"`
+	// ConversionNum 转化数(回传时间)
+	ConversionNum int64 `json:"conversion_num,omitempty"`
 }
