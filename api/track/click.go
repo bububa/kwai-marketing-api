@@ -5,7 +5,6 @@ import (
 )
 
 var DEFAULT_CLICK_FIELDS = []string{
-	"request_id",
 	"aid",
 	"advertiser_id",
 	"cid",
@@ -21,7 +20,6 @@ var DEFAULT_CLICK_FIELDS = []string{
 	"ts",
 	"callback",
 	"model",
-	"union_site",
 }
 
 // 点击检测链接
@@ -33,42 +31,38 @@ func Click(baseUrl string, fields []string) string {
 	values := parsedUrl.Query()
 	for _, field := range fields {
 		switch field {
-		case "request_id":
-			values.Set("request_id", "__REQUEST_ID__")
-		case "aid":
-			values.Set("aid", "__AID__")
 		case "advertiser_id":
-			values.Set("advertiser_id", "__ADVERTISER_ID__")
+			values.Set("advertiser_id", "ACCOUNTID")
+		case "aid":
+			values.Set("aid", "AID")
 		case "cid":
-			values.Set("cid", "__CID__")
+			values.Set("cid", "CID")
 		case "campaign_id":
-			values.Set("campaign_id", "__DID__")
+			values.Set("campaign_id", "DID")
 		case "campaign_name":
-			values.Set("campaign_name", "__DNAME__")
+			values.Set("campaign_name", "DNAM")
 		case "csite":
-			values.Set("csite", "__CSITE__")
+			values.Set("csite", "CSITE")
 		case "imei":
-			values.Set("imei", "__IMEI2__")
+			values.Set("imei", "IMEI2")
 		case "idfa":
-			values.Set("idfa", "__IDFA2__")
+			values.Set("idfa", "IDFA2")
 		case "android_id":
-			values.Set("android_id", "__ANDROIDID2__")
+			values.Set("android_id", "ANDROIDID2")
 		case "oaid":
-			values.Set("oaid", "__OAID__")
+			values.Set("oaid", "OAID")
 		case "os":
-			values.Set("os", "__OS__")
+			values.Set("os", "OS")
 		case "ip":
-			values.Set("ip", "__IP__")
+			values.Set("ip", "IP")
 		case "ua":
-			values.Set("ua", "__UA__")
+			values.Set("ua", "UA")
 		case "ts":
-			values.Set("ts", "__TS__")
+			values.Set("ts", "TS")
 		case "callback":
-			values.Set("callback", "__CALLBACK__")
+			values.Set("callback", "CALLBACK")
 		case "model":
-			values.Set("model", "__MODEL__")
-		case "union_site":
-			values.Set("union_site", "__UNION_SITE__")
+			values.Set("model", "MODEL")
 		}
 	}
 	parsedUrl.RawQuery = values.Encode()
