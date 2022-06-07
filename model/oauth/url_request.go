@@ -44,5 +44,5 @@ func (r UrlRequest) Encode() string {
 
 // Url implement GetRequest interface
 func (r UrlRequest) Url() string {
-	return "oauth"
+	return "tools/authorize"
 }
