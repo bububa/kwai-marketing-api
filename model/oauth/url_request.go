@@ -1,10 +1,9 @@
 package oauth
 
 import (
-	"fmt"
+	"encoding/json"
 	"net/url"
 	"strconv"
-	"strings"
 )
 
 // UrlRequest 生成授权链接APIRequest
@@ -27,11 +26,8 @@ func (r UrlRequest) Encode() string {
 	values.Set("app_id", strconv.FormatUint(r.AppID, 10))
 	values.Set("redirect_uri", r.RedirectUri)
 	if len(r.Scope) > 0 {
-		var scopes []string
-		for _, s := range r.Scope {
-			scopes = append(scopes, fmt.Sprintf(`"%s"`, s))
-		}
-		values.Set("scope", strings.Join(scopes, ","))
+		bs, _ := json.Marshal(r.Scope)
+		values.Set("scope", string(bs))
 	}
 	if r.State != "" {
 		values.Set("state", r.State)
