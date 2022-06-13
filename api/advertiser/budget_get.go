@@ -11,8 +11,7 @@ func BudgetGet(clt *core.SDKClient, accessToken string, advertiserID uint64) (*a
 		AdvertiserID: advertiserID,
 	}
 	var resp advertiser.Budget
-	err := clt.Get(accessToken, req, &resp)
-	if err != nil {
+	if err := clt.Post(accessToken, req, &resp); err != nil {
 		return nil, err
 	}
 	return &resp, nil

@@ -1,9 +1,6 @@
 package advertiser
 
-import (
-	"net/url"
-	"strconv"
-)
+import "encoding/json"
 
 // BudgetGetRequest 账户日预算查询APIRequest
 type BudgetGetRequest struct {
@@ -16,9 +13,8 @@ func (r BudgetGetRequest) Url() string {
 	return "v1/advertiser/budget/get"
 }
 
-// Encode implement GetRequest interface
-func (r BudgetGetRequest) Encode() string {
-	values := url.Values{}
-	values.Set("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
-	return values.Encode()
+// Encode implement PostRequest interface
+func (r BudgetGetRequest) Encode() []byte {
+	bs, _ := json.Marshal(r)
+	return bs
 }
