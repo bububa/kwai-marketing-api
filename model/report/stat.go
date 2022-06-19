@@ -272,4 +272,6 @@ type Stat struct {
 	EventNoIntention               int     `json:"event_no_intention,omitempty"`
 	// ConversionNum 转化数(回传时间)
 	ConversionNum int64 `json:"conversion_num,omitempty"`
+	// ConversionRatio 转化率（回传时间归因）
+	ConversionRatio float64 `json:"conversion_ratio,omitempty"`
 }
