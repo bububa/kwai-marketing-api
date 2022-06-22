@@ -18,6 +18,7 @@ type SDKClient struct {
 	appID  uint64
 	secret string
 	debug  bool
+	client *http.Client
 }
 
 // NewSDKClient init sdk client
@@ -25,6 +26,7 @@ func NewSDKClient(appID uint64, secret string) *SDKClient {
 	return &SDKClient{
 		appID:  appID,
 		secret: secret,
+		client: http.DefaultClient,
 	}
 }
 
@@ -41,6 +43,10 @@ func (c *SDKClient) AppID() uint64 {
 // Secret secret getter
 func (c *SDKClient) Secret() string {
 	return c.secret
+}
+
+func (c *SDKClient) SetHttpClient(client *http.Client) {
+	c.client = client
 }
 
 // PostUrl post请求地址
@@ -155,7 +161,7 @@ func (c *SDKClient) Upload(accessToken string, req model.UploadRequest, resp int
 		httpReq.Header.Add("Access-Token", accessToken)
 	}
 
-	httpResp, err := http.DefaultClient.Do(httpReq)
+	httpResp, err := c.client.Do(httpReq)
 	if err != nil {
 		return err
 	}
@@ -189,7 +195,7 @@ func (c *SDKClient) post(accessToken string, reqUrl string, reqBytes []byte, res
 		httpReq.Header.Add("Access-Token", accessToken)
 	}
 	httpReq.Header.Add("Content-Type", "application/json")
-	httpResp, err := http.DefaultClient.Do(httpReq)
+	httpResp, err := c.client.Do(httpReq)
 	if err != nil {
 		return err
 	}
@@ -213,7 +219,7 @@ func (c *SDKClient) get(accessToken string, reqUrl string, resp interface{}) err
 		httpReq.Header.Add("Access-Token", accessToken)
 	}
 	httpReq.Header.Add("Content-Type", "application/json")
-	httpResp, err := http.DefaultClient.Do(httpReq)
+	httpResp, err := c.client.Do(httpReq)
 	if err != nil {
 		return err
 	}
@@ -236,7 +242,7 @@ func (c *SDKClient) getOnBody(accessToken string, reqUrl string, reqBytes []byte
 		httpReq.Header.Add("Access-Token", accessToken)
 	}
 	httpReq.Header.Add("Content-Type", "application/json")
-	httpResp, err := http.DefaultClient.Do(httpReq)
+	httpResp, err := c.client.Do(httpReq)
 	if err != nil {
 		return err
 	}
