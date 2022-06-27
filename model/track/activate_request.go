@@ -29,6 +29,8 @@ type ActivateRequest struct {
 	KeyActionThreshold int `json:"key_action_threshold,omitempty"`
 	// IsDirectMatch 为提升投放效果，快手希望广告主可以将归因至其它渠道的转化数据也回传至快手，帮助优化深度转化模型训练，上报此类转化数据时，需要增加参数“&is_direct_match=false”，表示“该用户看过快手广告，但转化归因到了其它平台”，此类数据不会计入投放报表展现。
 	IsDirectMatch *bool `json:"is_direct_match,omitempty"`
+	// Debug .
+	Debug bool `json:"debug,omitempty"`
 }
 
 // Encode implement GetRequest interface
