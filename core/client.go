@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"mime/multipart"
 	"net/http"
 	"strings"
@@ -100,6 +101,25 @@ func (c *SDKClient) Get(accessToken string, req model.GetRequest, resp interface
 		}
 	}
 	return nil
+}
+
+// GetBytes get bytes api
+func (c *SDKClient) GetBytes(accessToken string, req model.GetRequest) ([]byte, error) {
+	reqUrl := c.GetUrl(req)
+	debug.PrintGetRequest(reqUrl, c.debug)
+	httpReq, err := http.NewRequest("GET", reqUrl, nil)
+	if err != nil {
+		return nil, err
+	}
+	if accessToken != "" {
+		httpReq.Header.Add("Access-Token", accessToken)
+	}
+	httpResp, err := c.client.Do(httpReq)
+	if err != nil {
+		return nil, err
+	}
+	defer httpResp.Body.Close()
+	return ioutil.ReadAll(httpResp.Body)
 }
 
 func (c *SDKClient) GetOnBody(accessToken string, req model.PostRequest, resp interface{}) error {
