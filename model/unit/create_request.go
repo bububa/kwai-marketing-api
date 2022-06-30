@@ -62,8 +62,8 @@ type CreateRequest struct {
 	WebUrlType int `json:"web_url_type,omitempty"`
 	// URL 投放链接; 当计划类型是3/4/5时必填；长度不超过1000字符；计划类型是3（获取电商下单）：金牛商品ID（必须为数字）；计划类型是4（推广品牌活动）：落地页URL；计划类型是5（收集销售线索）：落地页URL；计划类型是5（收集销售线索）：建站ID，通过/rest/openapi/v2/lp/page/list获取。「房地产」「家装建材」「招商加盟」三个二级行业【收集销售线索】目标下隐藏客户自有链接填写入口。
 	URL string `json:"url,omitempty"`
-	// SchemaUrl 调起链接; 提升应用活跃营销目标的调起链接；应用推广下在已经安装app的用户手机上可以拉起app（需要运营加白）
-	SchemaUrl string `json:"schema_url,omitempty"`
+	// SchemaUri 调起链接; 提升应用活跃营销目标的调起链接；应用推广下在已经安装app的用户手机上可以拉起app（需要运营加白）
+	SchemaUri string `json:"schema_uri,omitempty"`
 	// AppID 应用ID; 当计划类型为2时必填，可通过应用列表接口获取应用ID；为9时且detail_unit_type为0、2时必填
 	AppID uint64 `json:"app_id,omitempty"`
 	// ShowMode 创意展现方式; 1 - 轮播；2 - 优选
