@@ -1,8 +1,7 @@
 package file
 
 import (
-	"net/url"
-	"strconv"
+	"encoding/json"
 )
 
 // AdImageListRequest 查询图片接口list接口API Request
@@ -25,18 +24,7 @@ func (r AdImageListRequest) Url() string {
 }
 
 // Encode implement GetRequest interface
-func (r AdImageListRequest) Encode() string {
-	values := &url.Values{}
-	values.Set("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))
-	if r.StartDate != "" && r.EndDate != "" {
-		values.Set("start_date", r.StartDate)
-		values.Set("end_date", r.EndDate)
-	}
-	if r.Page > 0 {
-		values.Set("page", strconv.Itoa(r.Page))
-	}
-	if r.PageSize > 0 {
-		values.Set("page_size", strconv.Itoa(r.PageSize))
-	}
-	return values.Encode()
+func (r AdImageListRequest) Encode() []byte {
+	ret, _ := json.Marshal(r)
+	return ret
 }
