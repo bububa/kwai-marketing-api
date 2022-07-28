@@ -67,8 +67,13 @@ func (c *SDKClient) UploadUrl(req model.UploadRequest) string {
 
 // Post execute post api request
 func (c *SDKClient) Post(accessToken string, req model.PostRequest, resp interface{}) error {
-	var reqResp model.BaseResponse
-	err := c.post(accessToken, c.PostUrl(req), req.Encode(), &reqResp)
+	var reqResp model.Response
+	if v, ok := resp.(model.Response); ok {
+		reqResp = v
+	} else {
+		reqResp = &model.BaseResponse{}
+	}
+	err := c.post(accessToken, c.PostUrl(req), req.Encode(), reqResp)
 	if err != nil {
 		return err
 	}
@@ -76,9 +81,13 @@ func (c *SDKClient) Post(accessToken string, req model.PostRequest, resp interfa
 		return reqResp
 	}
 	if resp != nil {
-		err = json.Unmarshal(reqResp.Data, resp)
-		if err != nil {
-			return err
+		if v, ok := resp.(*model.BaseResponse); ok {
+			err = json.Unmarshal(v.Data, resp)
+			if err != nil {
+				return err
+			}
+		} else {
+			resp = reqResp
 		}
 	}
 	return nil
@@ -253,7 +262,7 @@ func (c *SDKClient) get(accessToken string, reqUrl string, resp interface{}) err
 }
 
 func (c *SDKClient) getOnBody(accessToken string, reqUrl string, reqBytes []byte, resp interface{}) error {
-	debug.PrintGetRequest(reqUrl, c.debug)
+	debug.PrintPostJSONRequest(reqUrl, reqBytes, c.debug)
 	httpReq, err := http.NewRequest("GET", reqUrl, bytes.NewReader(reqBytes))
 	if err != nil {
 		return err
