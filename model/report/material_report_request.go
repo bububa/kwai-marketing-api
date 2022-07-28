@@ -2,7 +2,7 @@ package report
 
 import "encoding/json"
 
-// MaterialReportRequest 广告素材数据APIRequest
+// MaterialReportRequest 广告素材数据API Request
 type MaterialReportRequest struct {
 	ReportRequest
 	// CampaignIDs 广告计划ID集，过滤筛选条件，单次查询数量不超过5000
@@ -32,4 +32,22 @@ func (r MaterialReportRequest) Url() string {
 func (r MaterialReportRequest) Encode() []byte {
 	buf, _ := json.Marshal(r)
 	return buf
+}
+
+// MaterialReportResponse 广告素材数据API Response
+type MaterialReportResponse struct {
+	Code      int    `json:"code,omitempty"`       // 返回码
+	Message   string `json:"message,omitempty"`    // 返回信息
+	RequestId string `json:"request_id,omitempty"` // 请求id
+	ReportResponse
+}
+
+// IsError detect if the response is an error
+func (r MaterialReportResponse) IsError() bool {
+	return r.Code != 0
+}
+
+// Error implement error interface
+func (r MaterialReportResponse) Error() string {
+	return r.Message
 }
