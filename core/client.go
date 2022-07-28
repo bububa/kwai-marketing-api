@@ -81,7 +81,7 @@ func (c *SDKClient) Post(accessToken string, req model.PostRequest, resp interfa
 		return reqResp
 	}
 	if resp != nil {
-		if v, ok := resp.(*model.BaseResponse); ok {
+		if v, ok := reqResp.(*model.BaseResponse); ok {
 			err = json.Unmarshal(v.Data, resp)
 			if err != nil {
 				return err
