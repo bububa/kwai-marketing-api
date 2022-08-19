@@ -97,6 +97,10 @@
     - 获取地域定向 [ region.List(clt *core.SDKClient, accessToken string) (map[string]region.Region, error) ]
     - 获取商圈地域定向 [ region.DistrictList(clt *core.SDKClient, accessToken string, advertiserID int64) (map[string]region.District, error) ]
     - 获取可用咨询组件列表 [ lp.ConsultList(clt *core.SDKClient, accessToken string, req *lp.ConsultListRequest) (*lp.ConsultListResponse, error) ]
+  - 出价建议
+    - 获取广告组出价建议 [ tool.unit.SuggestBidDetail(clt *core.SDKClient, accessToken string, req *unit.SuggestBidDetailRequest) ([]unit.SuggestBidUnit, error) ]
+    - 获取广告组曝光、转化预估 [ tool.unit.BidPredict(clt *core.SDKClient, accessToken string, req *unit.BidPredictRequest) (*unit.BidPredict, error) ]
+    - 获取广告组投放预估曲线 [ tool.unit.BidTrendPredictDetail(clt *core.SDKClient, accessToken string, req *unit.BidTrendPredictDetailRequest) (*unit.BidTrendPredict, error) ]
   - 功能名单
     - 获取创意分类标签白名单客户 [ advertiser.WhiteList(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.WhiteListResponse, error) ]
     - 获取联盟投放白名单 [ advertiser.WhiteList(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.WhiteListResponse, error) ]
