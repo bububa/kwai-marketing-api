@@ -34,7 +34,7 @@ type SuggestBidParam struct {
 
 // Url implement PostRequest interface
 func (r SuggestBidDetailRequest) Url() string {
-	return "/gw/dsp/v1/unit/suggestBid/detail"
+	return "gw/dsp/v1/unit/suggestBid/detail"
 }
 
 // Encode implement PostRequest interface

@@ -11,7 +11,7 @@ type BidTrendPredictDetailRequest struct {
 
 // Url implement PostRequest interface
 func (r BidTrendPredictDetailRequest) Url() string {
-	return "/gw/dsp/v1/unit/bidTrendPredict/detail"
+	return "gw/dsp/v1/unit/bidTrendPredict/detail"
 }
 
 // Encode implement PostRequest interface
