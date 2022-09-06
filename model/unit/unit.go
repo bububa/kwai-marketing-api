@@ -143,7 +143,7 @@ type Unit struct {
 	// SplashAdSwitch 是否投放开屏广告位; true:投放，false：不投放
 	SplashAdSwitch bool `json:"splash_ad_switch,omitempty"`
 	// PageGroupDetail 程序化落地页信息; 广告组ID绑定的程序化落地页组信息
-	PageGroupDetail string `json:"page_group_detail,omitempty"`
+	PageGroupDetail PageGroupDetail `json:"page_group_detail,omitempty"`
 	// JingleBellID 小铃铛组件id
 	JingleBellID uint64 `json:"jingle_bell_id,omitempty"`
 	// LiveUserID 主播id
