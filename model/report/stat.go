@@ -484,4 +484,6 @@ type Stat struct {
 	Event24hStayByConversionRatio float64 `json:"event_24h_stay_by_conversion_ratio,omitempty"`
 	// UnitSource 广告组来源0:常规（非托管）、1:托管
 	UnitSource int `json:"unit_source,omitempty"`
+	// AdShow 广告曝光
+	AdShow float64 `json:"ad_show,omitempty"`
 }
