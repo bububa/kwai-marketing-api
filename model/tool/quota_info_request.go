@@ -11,7 +11,7 @@ type QuotaInfoRequest struct {
 
 // Url implement GetRequest interface
 func (r QuotaInfoRequest) Url() string {
-	return "rest/openapi/gw/dsp/quota/info"
+	return "gw/dsp/quota/info"
 }
 
 // Encode implement GetRequest interface
