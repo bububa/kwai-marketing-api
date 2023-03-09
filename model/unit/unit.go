@@ -154,6 +154,14 @@ type Unit struct {
 	ExtendSearch bool `json:"extend_search"`
 	// UnitSource 广告组来源; 0:常规（非托管）、1:托管
 	UnitSource int `json:"unit_source,omitempty"`
+	// NegativeWord 搜索广告否词，搜索广告新增
+	NegativeWord AdMarketNegativeWordParam `json:"negative_word,omitempty"`
+	// QuickSearch 是否开启快投; 0:关闭、1:开启
+	QuickSearch int `json:"quick_search,omitempty"`
+	// TargetExplore 是否开启搜索人群探索; 0:关闭、1:开启
+	TargetExplore int `json:"target_explore,omitempty"`
+	// SchemaId 微信小程序外部调起链接; 目前只有收集营销线索计划下的联盟广告位该字段才有效
+	SchemaId string `json:"schema_id,omitempty"`
 	// CreateTime 创建时间
 	CreateTime  string `json:"create_time,omitempty"`
 	TemplateID  int    `json:"template_id,omitempty"`
