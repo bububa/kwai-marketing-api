@@ -22,6 +22,8 @@ type Page struct {
 	ConversionTypes []string `json:"conversion_type,omitempty"`
 	// Details JSON 返回值
 	Details interface{} `json:"details,omitempty"`
+	// CoverImgUrl 落地页封面图
+	CoverImgUrl string `json:"cover_img_url,omitempty"`
 }
 
 // Component 落地页包含的组件
