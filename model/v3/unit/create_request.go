@@ -50,7 +50,7 @@ type CreateRequest struct {
 	UrlType int `json:"url_type,omitempty"`
 	//web_uri_type	int	选填	url 类型	当计划类型为收集销售线索、提升应用活跃（campaign.type = 5/7 ）且使用建站落地页时必填；1：广告主自有链接，默认填充值； 2：建站落地页，此时siteId_id 需要填充；3：程序化落地页，此时group_id需要填充（仅收集营销线索下可用） ；4：微信小程序调起链接（仅收集营销线索下且scene_id包含5可用）；
 	WebUriType int `json:"web_uri_type,omitempty"`
-	//url 因为跟方法名重复所以结构体中使用WebUrl	string	选填	投放链接	长度不超过 1000 字符；计划类型是获取电商下单（campaign.type=3)，url_type = 3 时表示手淘落地页，url_type = 4 时表示联盟商选落地页ID，必须为数字；计划类型是 4（推广品牌活动）：落地页 URL；web_uri_type = 1 时表示客户自有链接必填；web_uri_type = 4 时表示小程序的落地页；「房地产」「家装建材」「招商加盟」三个二级行业【收集销售线索】目标下隐藏客户自有链接填写入口。
+	//url 因为跟方法名重create procedural creative error复所以结构体中使用WebUrl	string	选填	投放链接	长度不超过 1000 字符；计划类型是获取电商下单（campaign.type=3)，url_type = 3 时表示手淘落地页，url_type = 4 时表示联盟商选落地页ID，必须为数字；计划类型是 4（推广品牌活动）：落地页 URL；web_uri_type = 1 时表示客户自有链接必填；web_uri_type = 4 时表示小程序的落地页；「房地产」「家装建材」「招商加盟」三个二级行业【收集销售线索】目标下隐藏客户自有链接填写入口。
 	WebUrl string `json:"url,omitempty"`
 	//site_id	long	选填	建站ID/下载中间页ID	当 web_uri_type = 2 时表示建站 ID，必须为数字，通过「/rest/openapi/v2/lp/page/list」 获取。计划类型是2（提升应用安装）且关联应用为安卓时，表示安卓下载中间页ID，通过「/rest/openapi/v2/lp/page/list」 获取 "view_comps = 7" 的建站ID。
 	SiteId uint64 `json:"site_id,omitempty"`
