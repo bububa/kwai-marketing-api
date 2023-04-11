@@ -33,7 +33,9 @@ jobs:
       run: go mod download
 
     - name: Build
-      run: go build -v ./...
+      working-directory: ${{ env.GOPATH }}/${{ env.package }}
+      run: |
+        go build -v ./...
 
     - name: Test
       env:
