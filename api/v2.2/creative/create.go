@@ -2,7 +2,7 @@ package creative
 
 import (
 	"github.com/bububa/kwai-marketing-api/core"
-	"github.com/bububa/kwai-marketing-api/model/v3/creative"
+	"github.com/bububa/kwai-marketing-api/model/v2.2/creative"
 )
 
 // Create 创建创意
