@@ -6,6 +6,8 @@ import "encoding/json"
 type UpdateRequest struct {
 	// AdvertiserID 广告主ID
 	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
+	// CampaignID 广告计划ID
+	CampaignId uint64 `json:"campaign_id,omitempty"`
 	// CampaignName 广告计划名称; 长度为1-100个字符，计划名称不能重复
 	CampaignName string `json:"campaign_name,omitempty"`
 	// Type 计划类型; 2：提升应用安装；3：获取电商下单；4：推广品牌活动；5：收集销售线索；7：提高应用活跃；9：商品库推广（此营销目标下创建的默认为DPA广告）；16：粉丝/直播推广；19：小程序推广
