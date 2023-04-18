@@ -264,7 +264,7 @@ type FansStar struct {
 
 // Url implement PostRequest interface
 func (r CreateRequest) Url() string {
-	return "/gw/dsp/unit/create"
+	return "gw/dsp/unit/create"
 }
 
 // Encode implement PostRequest interface

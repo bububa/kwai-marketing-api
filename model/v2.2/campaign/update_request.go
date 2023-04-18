@@ -37,7 +37,7 @@ type UpdateRequest struct {
 
 // Url implement PostRequest interface
 func (r UpdateRequest) Url() string {
-	return "/gw/dsp/campaign/update"
+	return "gw/dsp/campaign/update"
 }
 
 // Encode implement PostRequest interface

@@ -35,7 +35,7 @@ type AutoBuildNameRule struct {
 }
 // Url implement PostRequest interface
 func (r CreateRequest) Url() string {
-	return "/gw/dsp/campaign/create"
+	return "gw/dsp/campaign/create"
 }
 
 // Encode implement PostRequest interface

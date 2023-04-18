@@ -64,7 +64,7 @@ type NewExposeTag struct {
 
 // Url implement PostRequest interface
 func (r CreateRequest) Url() string {
-	return ""
+	return "gw/dsp/creative/create"
 }
 
 // Encode implement PostRequest interface
