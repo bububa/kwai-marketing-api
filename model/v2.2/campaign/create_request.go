@@ -26,13 +26,6 @@ type CreateRequest struct {
 	AutoBuildNameRule *AutoBuildNameRule `json:"auto_build_name_rule,omitempty"`
 }
 
-// AutoBuildNameRule 自动基建命名规则
-type AutoBuildNameRule struct {
-	// UnitNameRule 广告组名称命名规则; 必须同时包含[日期]和[序号]宏变量，eg: 系统自动搭建_[日期][序号]
-	UnitNameRule string `json:"unit_name_rule,omitempty"`
-	// CreativeNameRule 广告创意名称命名规则; 必须同时包含[日期]和[序号]宏变量，eg: 系统自动搭建_[日期][序号]
-	CreativeNameRule string `json:"creative_name_rule,omitempty"`
-}
 // Url implement PostRequest interface
 func (r CreateRequest) Url() string {
 	return "gw/dsp/campaign/create"
