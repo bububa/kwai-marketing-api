@@ -1,9 +1,9 @@
 package creative
 
 type Creative struct {
-	CampaignID           int64           `json:"campaign_id"`             // 广告计划 ID
-	UnitID               int64           `json:"unit_id"`                 // 广告组 ID
-	CreativeID           int64           `json:"creative_id"`             // 广告创意 ID
+	CampaignID           uint64          `json:"campaign_id"`             // 广告计划 ID
+	UnitID               uint64          `json:"unit_id"`                 // 广告组 ID
+	CreativeID           uint64          `json:"creative_id"`             // 广告创意 ID
 	CreativeName         string          `json:"creative_name"`           // 广告创意名称
 	CreativeMaterialType int             `json:"creative_material_type"`  // 素材类型 0：历史创意未作区分 1：竖版视频 2：横版视频 3：后贴片单图图片创意（历史类型，已下线）4：便利贴单图图片创意 11：开屏视频 12：开屏图片
 	CreativeCategory     int             `json:"creative_category"`       // 创意分类

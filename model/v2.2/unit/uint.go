@@ -3,8 +3,8 @@ package unit
 import "encoding/json"
 
 type Unit struct {
-	CampaignID            int64                     `json:"campaign_id"`             // 广告计划 ID
-	UnitID                int64                     `json:"unit_id"`                 // 广告组 ID
+	CampaignID            uint64                    `json:"campaign_id"`             // 广告计划 ID
+	UnitID                uint64                    `json:"unit_id"`                 // 广告组 ID
 	UnitName              string                    `json:"unit_name"`               // 广告组名称
 	PutStatus             int                       `json:"put_status"`              // 投放状态（操作结果） 1：投放中；2：暂停 3：删除
 	Status                int                       `json:"status"`                  // 广告组状态（优先看看这个状态，计算结果） -1：不限，1：计划已暂停，3：计划超预算，6：余额不足，，11：审核中，12：审核未通过，14：已结束，15：已暂停，17：组超预算，19：未达投放时间，20：有效，22：不在投放时段

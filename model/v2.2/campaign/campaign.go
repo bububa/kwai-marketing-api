@@ -2,7 +2,7 @@ package campaign
 
 // Campaign 包含广告计划信息
 type Campaign struct {
-	CampaignID                     int64             `json:"campaign_id"`                                  // 计划id
+	CampaignID                     uint64            `json:"campaign_id"`                                  // 计划id
 	CampaignName                   string            `json:"campaign_name,omitempty"`                      // 计划名称
 	PutStatus                      int               `json:"put_status,omitempty"`                         // 投放状态（操作结果） 1：投放中；2：暂停；3：删除
 	Status                         int               `json:"status,omitempty"`                             // 计划状态 1：广告计划已暂停；3：广告计划超预算；4：有效；5：广告计划已删除；6：账户余额不足；-2：不限
