@@ -2,7 +2,6 @@ package creative
 
 import "encoding/json"
 
-// 请求参数结构体
 type AdvancedCreativeListRequest struct {
 	AdvertiserID int64   `json:"advertiser_id"`          // 必填，广告主 ID，在获取 access_token 的时候返回
 	UnitIDs      []int64 `json:"unit_ids,omitempty"`     // 选填，广告组 ID 集，不超过一百个

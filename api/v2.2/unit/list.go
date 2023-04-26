@@ -5,7 +5,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/v2.2/unit"
 )
 
-// List 查询广告创意
+// List 查询广告组
 func List(clt *core.SDKClient, accessToken string, req *unit.ListRequest) (*unit.ListResponse, error) {
 	var resp unit.ListResponse
 	err := clt.Post(accessToken, req, &resp)

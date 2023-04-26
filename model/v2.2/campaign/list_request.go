@@ -2,7 +2,6 @@ package campaign
 
 import "encoding/json"
 
-// 请求参数结构体
 type ListRequest struct {
 	AdvertiserID   uint64   `json:"advertiser_id"`              // 广告主 ID，在获取 access_token 的时候返回，必填
 	CampaignID     uint64   `json:"campaign_id,omitempty"`      // 广告计划 ID，过滤筛选条件，若不传或传空则视为无限制条件
