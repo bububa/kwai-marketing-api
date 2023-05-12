@@ -12,3 +12,4 @@ type Item struct {
 	ParentPackageId int64  `json:"parent_package_id"`
 	ChannelId       string `json:"channel_id"`
 }
+
