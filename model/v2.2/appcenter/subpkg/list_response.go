@@ -1,4 +1,4 @@
-package app
+package subpkg
 
 type ListResponse struct {
 	CurrentPage int          `json:"current_page"`
