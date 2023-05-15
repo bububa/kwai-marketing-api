@@ -4,10 +4,10 @@ type ListResponse struct {
 	CurrentPage int          `json:"current_page"`
 	PageSize    int          `json:"page_size"`
 	TotalCount  int          `json:"total_count"`
-	List        []SubpkgItem `json:"list"`
+	List        []Item `json:"list"`
 }
 
-type SubpkgItem struct {
+type Item struct {
 	//account_id	Long		账号ID
 	AccountId int64 `json:"account_id"`
 	//app_detail_img	String		应用详情图片

@@ -12,6 +12,6 @@ func List(clt *core.SDKClient, accessToken string, req *app.ListRequest) ([]app.
 	if err != nil {
 		return nil, err
 	}
-	return resp, nil
+	return resp.List, nil
 }
 
