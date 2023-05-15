@@ -6,10 +6,10 @@ import (
 )
 
 func Create(clt *core.SDKClient, accessToken string, req *subpkg.CreateRequest) (*subpkg.CreateResponse, error) {
-	var resp *subpkg.CreateResponse
-	err := clt.Post(accessToken, req, resp)
+	var resp subpkg.CreateResponse
+	err := clt.Post(accessToken, req, &resp.Item)
 	if err != nil {
-		return resp, err
+		return &resp, err
 	}
-	return resp, nil
+	return &resp, nil
 }
