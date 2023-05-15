@@ -2,7 +2,7 @@ package subpkg
 
 type CreateResponse struct {
 	// CreativeID 创意ID
-	item []Item
+	Item []Item
 }
 
 type Item struct {
