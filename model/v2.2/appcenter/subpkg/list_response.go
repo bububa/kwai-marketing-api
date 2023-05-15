@@ -28,8 +28,8 @@ type SubpkgItem struct {
 	PackageName string `json:"package_name"`
 	//package_size	Long		应用包大小
 	PackageSize int64 `json:"package_size"`
-	//permission_information	String[]		权限信息ID列表
-	PermissionInformation []string `json:"permission_information"`
+	//permission_information	int[]		权限信息ID列表
+	PermissionInformation []int `json:"permission_information"`
 	//platform	String		android或ios
 	Platform string `json:"platform"`
 	//real_app_name	String		应用名称
