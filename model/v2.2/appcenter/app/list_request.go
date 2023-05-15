@@ -1,4 +1,5 @@
 package app
+import "encoding/json"
 
 type ListRequest struct {
 	//advertiser_id	Long		必填	广告主id
