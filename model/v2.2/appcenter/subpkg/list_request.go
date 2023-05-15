@@ -2,7 +2,6 @@ package subpkg
 
 import "encoding/json"
 
-// CreateRequest 创建分包 API Request
 type ListRequest struct {
 	// AdvertiserID 广告主ID
 	AdvertiserID uint64  `json:"advertiser_id,omitempty"`

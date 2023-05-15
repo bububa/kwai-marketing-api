@@ -4,8 +4,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/core"
 	"github.com/bububa/kwai-marketing-api/model/v2.2/appcenter/subpkg"
 )
-// Create 创建创意
-// 【注】联盟广告不支持便利贴图片素材，只有联盟广告支持横版竖版图片素材。
+
 func List(clt *core.SDKClient, accessToken string, req *subpkg.ListRequest) ([]subpkg.Item, error) {
 	var resp subpkg.ListResponse
 	err := clt.Post(accessToken, req, &resp)
