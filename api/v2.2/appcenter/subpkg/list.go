@@ -1,4 +1,4 @@
-package app
+package subpkg
 
 import (
 	"github.com/bububa/kwai-marketing-api/core"
