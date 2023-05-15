@@ -9,7 +9,7 @@ func Create(clt *core.SDKClient, accessToken string, req *subpkg.CreateRequest) 
 	var resp subpkg.CreateResponse
 	err := clt.Post(accessToken, req, &resp)
 	if err != nil {
-		return nil, err
+		return resp, err
 	}
 	return resp, nil
 }
