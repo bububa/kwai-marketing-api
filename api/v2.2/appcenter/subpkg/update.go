@@ -5,13 +5,11 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/v2.2/appcenter/subpkg"
 )
 
-func Update(clt *core.SDKClient, accessToken string, req *subpkg.ListRequest) (*[]subpkg.SubpkgItem, error) {
-	UpdateRequest := subpkg.UpdateRequest{
-		AdvertiserID:    req.AdvertiserID,
-		ParentPackageID: req.ParentPackageID,
-		ChannelID:       req.ChannelID,
-		Count:           req.Count,
-		Type:            req.Type,
+func Update(clt *core.SDKClient, accessToken string, req *subpkg.UpdateRequest) (*subpkg.UpdateResponse, error) {
+	var resp subpkg.UpdateResponse
+	err := clt.Post(accessToken, req, &resp)
+	if err != nil {
+		return &resp, err
 	}
-	return nil, nil
+	return &resp, nil
 }
