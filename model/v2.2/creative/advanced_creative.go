@@ -18,7 +18,7 @@ type AdvancedCreative struct {
 	ViewStatusReason    string      `json:"view_status_reason"`      // 程序化创意状态描述
 	CreateTime          string      `json:"create_time"`             // 创建时间，格式样例："2019-06-11 15:17:25"
 	UpdateTime          string      `json:"update_time"`             // 更新时间，格式样例："2019-06-11 15:17:25"
-	Creatives           []int64     `json:"creatives"`               // 创建后生成的程序化创意 ID
+	Creatives           []Creatives `json:"creatives"`               // 创建后生成的程序化创意 ID
 	PicIDs              []string    `json:"pic_ids"`                 // 图片库图片ID
 	AppGradeType        int         `json:"app_grade_type"`          // 审核分级类型，0：默认；1：审核降级(当创意发生降级时，会限制部分流量无法投放)
 	PicList             []string    `json:"pic_list"`                // 联盟图片（横版/竖版），联盟图片imageToken
@@ -37,4 +37,9 @@ type Photo struct {
 
 type ExposeTag struct {
 	Text string `json:"text"`
+}
+
+type Creatives struct {
+	UnitID     int64 `json:"unit_id"`     // 广告组 ID
+	CreativeID int64 `json:"creative_id"` // 创意 ID
 }
