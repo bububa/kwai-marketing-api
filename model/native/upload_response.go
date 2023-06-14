@@ -1,5 +1,5 @@
 package native
 
 type UploadResponse struct {
-	PhotoID string `json:"photo_id"`
+	PhotoID uint64 `json:"photo_id"`
 }

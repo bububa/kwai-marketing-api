@@ -41,7 +41,7 @@ func (r UploadRequest) Encode() []model.UploadField {
 			Value: shieldBackwardSwitch,
 		},
 		{
-			Key:    "file",
+			Key:    "photo",
 			Value:  fileName,
 			Reader: r.Photo.Reader,
 		},
