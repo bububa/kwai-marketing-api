@@ -1,3 +1,3 @@
 module github.com/bububa/kwai-marketing-api
 
-go 1.20
+go 1.19

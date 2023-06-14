@@ -13,7 +13,7 @@ type UploadRequest struct {
 
 // Url implement UploadRequest interface
 func (r UploadRequest) Url() string {
-	return "gw/dsp/v1/file/ad/video/upload"
+	return "gw/dsp/v1/photo/upload"
 }
 
 // Encode implenent UploadRequest interface
