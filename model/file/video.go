@@ -29,9 +29,9 @@ type Video struct {
 	AdPhotoValuateInfo AdPhotoValuateInfoItem `json:"adPhotoValuateInfo"`
 }
 type AdPhotoValuateInfoItem struct {
-	SimLabel                string      `json:"sim_label"`
-	QualityLabel            string      `json:"quality_label"`
-	QuotaMsg                string      `json:"quota_msg"`
+	SimLabel                string      `json:"simLabel"`
+	QualityLabel            string      `json:"qualityLabel"`
+	QuotaMsg                string      `json:"quotaMsg"`
 	IsDupPhoto              bool        `json:"isDupPhoto"`
 	IsDelayReview           interface{} `json:"isDelayReview"`
 	OptimizationSuggestions string      `json:"optimizationSuggestions"`
