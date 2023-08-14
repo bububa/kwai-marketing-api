@@ -11,6 +11,7 @@ type UploadRequest struct {
 	ShieldBackwardSwitch bool               `json:"shieldBackwardSwitch"` // 上传视频后是否自动同步至快手个人主页，false表示屏蔽，视频不可在个人主页可见，true表示不屏蔽
 	AuthorID             uint64             `json:"authorId"`             // 原生上传至达人的快手号
 	NativePlcSwitch      bool               `json:"nativePlcSwitch"`
+	PhotoCaption         string             `json:"photoCaption"`
 }
 
 // Url implement UploadRequest interface
@@ -53,6 +54,10 @@ func (r UploadRequest) Encode() []model.UploadField {
 		{
 			Key:   "nativePlcSwitch",
 			Value: nativePlcSwitch,
+		},
+		{
+			Key:   "photoCaption",
+			Value: r.PhotoCaption,
 		},
 	}
 }
