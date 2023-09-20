@@ -25,5 +25,16 @@ type Video struct {
 	// Duration 视频时长; 单位毫秒
 	Duration int64 `json:"duration,omitempty"`
 	// Source 视频来源; 0：自上传，1：开眼，2：素造，7：聚星视频
-	Source int `json:"source,omitempty"`
+	Source             int                    `json:"source,omitempty"`
+	AdPhotoValuateInfo AdPhotoValuateInfoItem `json:"adPhotoValuateInfo"`
+}
+type AdPhotoValuateInfoItem struct {
+	SimLabel                string      `json:"simLabel"`
+	QualityLabel            string      `json:"qualityLabel"`
+	QuotaMsg                string      `json:"quotaMsg"`
+	IsDupPhoto              bool        `json:"isDupPhoto"`
+	IsDelayReview           interface{} `json:"isDelayReview"`
+	OptimizationSuggestions string      `json:"optimizationSuggestions"`
+	RunningScore            int         `json:"runningScore"`
+	HitTagCombination       int         `json:"hitTagCombination"`
 }
