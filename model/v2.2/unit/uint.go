@@ -72,8 +72,11 @@ type Unit struct {
 	BackflowForecast      json.RawMessage           `json:"backflow_forecast,omitempty"` // 回流预估数据
 	AdType                int                       `json:"ad_type,omitempty"`           // 广告计划类型
 	UnitSource            int                       `json:"unit_source,omitempty"`       // 广告组来源
-	UpdateTime            string                    `json:"update_time,omitempty"`       // 最后修改时间
-	PackageID             int64                     `json:"package_id,omitempty"`        // 应用包ID
+	// CreateTime 创建时间
+	CreateTime string `json:"create_time,omitempty"`
+	// UdpateTime 最后修改时间
+	UpdateTime string `json:"update_time,omitempty"`
+	PackageID  int64  `json:"package_id,omitempty"` // 应用包ID
 }
 
 type PageReviewDetail struct {
