@@ -1,6 +1,9 @@
 package unit
 
-import "github.com/bububa/kwai-marketing-api/model/target"
+import (
+	"github.com/bububa/kwai-marketing-api/model"
+	"github.com/bububa/kwai-marketing-api/model/target"
+)
 
 // Unit 广告组
 type Unit struct {
@@ -131,7 +134,7 @@ type Unit struct {
 	// OuterID 商品ID; sdpa类型广告组才会存在
 	OuterID string `json:"outer_id,omitempty"`
 	// ProductID 商品ID; sdpa类型广告组才会存在
-	ProductID uint64 `json:"product_id,omitempty"`
+	ProductID model.Uint64 `json:"product_id,omitempty"`
 	// ProductName 商品名称; sdpa类型广告组才会存在
 	ProductName string `json:"product_name,omitempty"`
 	// ProductPrice 商品价格; 单位：元，sdpa类型广告组才会存在
