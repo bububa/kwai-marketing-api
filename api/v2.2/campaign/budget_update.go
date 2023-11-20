@@ -3,7 +3,7 @@ package campaign
 import (
 	"github.com/bububa/kwai-marketing-api/core"
 	"github.com/bububa/kwai-marketing-api/model/v2.2/campaign"
-	"github.com/bububa/kwai-marketing-api/model/v2.2/unit"
+	"github.com/bububa/kwai-marketing-api/model/v2.2/campaign"
 )
 
 // 更新广告组预算
