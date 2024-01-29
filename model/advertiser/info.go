@@ -16,4 +16,6 @@ type Info struct {
 	PrimaryIndustryID uint64 `json:"primary_industry_id,omitempty"`
 	// PrimaryIndustryName 一级行业名称
 	PrimaryIndustryName string `json:"primary_industry_name,omitempty"`
+	// ProductName 产品名称
+	ProductName string `json:"product_name,omitempty"`
 }

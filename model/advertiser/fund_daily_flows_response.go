@@ -23,11 +23,19 @@ type FundDailyFlow struct {
 	// DailyTransferOut 转出
 	DailyTransferOut float64 `json:"daily_transfer_out,omitempty"`
 	// Balance 日终结余
-	Balance       float64 `json:"balance,omitempty"`
-	RealRecharged float64 `json:"real_recharged,omitempty"`
+	Balance float64 `json:"balance,omitempty"`
 	// RealRecharged 充值转入
+	RealRecharged float64 `json:"real_recharged,omitempty"`
 	// ContractRebateRealRecharged 框返转入
 	ContractRebateRealRecharged float64 `json:"contract_rebate_real_recharged,omitempty"`
 	// DirectRebateRealRecharged 激励转入
 	DirectRebateRealRecharged float64 `json:"direct_rebate_real_recharged,omitempty"`
+	// OrderTotalCharged 订单总花费
+	OrderTotalCharged float64 `json:"order_total_charged,omitempty"`
+	// OrderRealCharged 订单充值花费
+	OrderRealCharged float64 `json:"order_real_charged,omitempty"`
+	// OrderContractCharged 订单框返花费
+	OrderContractCharged float64 `json:"order_contract_charged,omitempty"`
+	// OrderDirectCharged 订单激励花费
+	OrderDirectCharged float64 `json:"order_direct_charged,omitempty"`
 }

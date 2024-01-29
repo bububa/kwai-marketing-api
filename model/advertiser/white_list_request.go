@@ -11,12 +11,12 @@ type WhiteListRequest struct {
 	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
-// Url implement PostRequest interface
+// Url implement GetRequest interface
 func (r WhiteListRequest) Url() string {
 	return "v1/advertiser/white_list"
 }
 
-// Encode implement PostRequest interface
+// Encode implement GetRequest interface
 func (r WhiteListRequest) Encode() string {
 	values := &url.Values{}
 	values.Set("advertiser_id", strconv.FormatUint(r.AdvertiserID, 10))

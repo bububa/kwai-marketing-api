@@ -18,6 +18,9 @@
     - 获取广告主信息 [ Info(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Info, error) ]
     - 获取广告账户余额信息 [ FundGet(clt *core.SDKClient, accessToken string, advertiserID int64) (float64, error) ]
     - 获取广告主账户流水信息 [ FundDailyFlows(clt *core.SDK, accessToken string, req *advertiser.FundDailyFlowsRequest) (*advertiser.FundDailyFlowsResponse, error) ] 
+  - 账户罗盘(api/adcompass)
+    - 获取罗盘绑定广告主列 [ Advertisers(clt *core.SDKClient, accessToken string, advertiserID uint64) ([]adcompass.Advertiser, error) ]
+    - 磁力罗盘对外 quota 腾挪接口 [ QuotaTending(clt *core.SDKClient, accessToken string, req *adcompass.QuotaTendingRequest) (string, error)  ]
 - 广告投放
   - 获取各层级信息
     - 获取广告计划信息 [ campaign.List(clt *core.SDKClient, accessToken string, req *campaign.ListRequest) (*campaign.ListResponse, error) ]
