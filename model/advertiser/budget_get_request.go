@@ -8,7 +8,7 @@ type BudgetGetRequest struct {
 	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
-// Url implement GetRequest interface
+// Url implement PostRequest interface
 func (r BudgetGetRequest) Url() string {
 	return "v1/advertiser/budget/get"
 }

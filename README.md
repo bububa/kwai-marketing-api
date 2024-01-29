@@ -22,6 +22,12 @@
     - 获取罗盘绑定广告主列 [ Advertisers(clt *core.SDKClient, accessToken string, advertiserID uint64) ([]adcompass.Advertiser, error) ]
     - 磁力罗盘对外 quota 腾挪接口 [ QuotaTending(clt *core.SDKClient, accessToken string, req *adcompass.QuotaTendingRequest) (string, error)  ]
 - 广告投放
+  - 智能创编 (api/dsp)
+    - 广告计划 (api/dsp/campaign)
+      - 创建广告计划 [ Create(clt *core.SDKClient, accessToken string, req *campaign.CreateRequest) (uint64, error) ]
+      - 修改广告计划 [ Update(clt *core.SDKClient, accessToken string, req *campaign.UpdateRequest) (uint64, error) ]
+      - 获取广告计划信息 [ List(clt *core.SDKClient, accessToken string, req *campaign.ListRequest) (*campaign.ListResponse, error) ]
+      - 修改广告计划状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *campaign.UpdateStatusRequest) ([]uint64, error) ]
   - 获取各层级信息
     - 获取广告计划信息 [ campaign.List(clt *core.SDKClient, accessToken string, req *campaign.ListRequest) (*campaign.ListResponse, error) ]
     - 获取广告组信息 [ unit.List(clt *core.SDKClient, accessToken string, req *unit.ListRequest) (*unit.ListResponse, error) ]

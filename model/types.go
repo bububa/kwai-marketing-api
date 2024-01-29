@@ -1,6 +1,9 @@
 package model
 
-import "strconv"
+import (
+	"encoding/json"
+	"strconv"
+)
 
 // Uint64 support string quoted number in json
 type Uint64 uint64
@@ -63,4 +66,9 @@ func (f64 Float64) Value() float64 {
 
 func (f64 Float64) String(prec int) string {
 	return strconv.FormatFloat(float64(64), 'f', prec, 64)
+}
+
+func JSONMarshal(i interface{}) []byte {
+	b, _ := json.Marshal(i)
+	return b
 }
