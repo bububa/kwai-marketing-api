@@ -65,9 +65,9 @@ type UpdateRequest struct {
 	// GroupID 程序化落地页ID
 	// web_uri_type = 3 时表示程序化落地页ID，必须为数字，通过「/rest/openapi/gw/magicsite/v1/group/list」获取；
 	GroupID uint64 `json:"group_id,omitempty"`
-	// SchemaURL 调起链接
+	// SchemaURI 调起链接
 	// 提升应用活跃营销目标的调起链接；应用推广下在已经安装 app 的用户手机上可以拉起 app（需要运营加白），开屏广告如果营销目标是应用活跃，调起链接必须在品牌开屏白名单中；当 web_uri_type = 4 时，该字段必填，表示带归因参数的小程序启动页面链接，当campaign.type=5时，白名单用户可填。campaign.type=9 时，若该字段非空，使用该链接唤起应用，否者使用商品上的链接直达商品
-	SchemaURL string `json:"schema_url,omitempty"`
+	SchemaURI string `json:"schema_uri,omitempty"`
 	// SchemaID 微信小程序ID
 	// 收集营销线索下，web_uri_type = 4时生效，表示微信小程序ID
 	SchemaID string `json:"schema_id,omitempty"`

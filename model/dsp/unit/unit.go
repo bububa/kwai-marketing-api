@@ -88,9 +88,9 @@ type Unit struct {
 	// PageGroupDetail 程序化落地页信息
 	// 广告组ID绑定的程序化落地页组信息
 	PageGroupDetail *PageGroupDetail `json:"page_group_detail,omitempty"`
-	// SchemaURL 调起链接
+	// SchemaURI 调起链接
 	// 提升应用活跃营销目标的调起链接
-	SchemaURL string `json:"schema_url,omitempty"`
+	SchemaURI string `json:"schema_uri,omitempty"`
 	// SchemaID 微信小程序外部调起链接
 	// 目前只有收集营销线索计划下的联盟广告位该字段才有效
 	SchemaID string `json:"schema_id,omitempty"`
