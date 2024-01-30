@@ -1,4 +1,4 @@
-package advertiser
+package adcompass
 
 import (
 	"encoding/json"
@@ -10,12 +10,12 @@ type AdvertisersRequest struct {
 	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
-// Url implement GetRequest interface
+// Url implement PostRequest interface
 func (r AdvertisersRequest) Url() string {
 	return "gw/uc/v1/advertisers"
 }
 
-// Encode implement GetRequest interface
+// Encode implement PostRequest interface
 func (r AdvertisersRequest) Encode() []byte {
 	buf, _ := json.Marshal(r)
 	return buf

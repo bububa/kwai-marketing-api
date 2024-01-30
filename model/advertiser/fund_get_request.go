@@ -10,12 +10,12 @@ type FundGetRequest struct {
 	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
-// Url implement GetRequest interface
+// Url implement PostRequest interface
 func (r FundGetRequest) Url() string {
 	return "v1/advertiser/fund/get"
 }
 
-// Encode implement GetRequest interface
+// Encode implement PostRequest interface
 func (r FundGetRequest) Encode() []byte {
 	buf, _ := json.Marshal(r)
 	return buf

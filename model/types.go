@@ -1,6 +1,9 @@
 package model
 
-import "strconv"
+import (
+	"encoding/json"
+	"strconv"
+)
 
 // Uint64 support string quoted number in json
 type Uint64 uint64
@@ -44,6 +47,27 @@ func (i64 Int64) String() string {
 	return strconv.FormatInt(int64(i64), 10)
 }
 
+// Int support string quoted number in json
+type Int int
+
+// UnmarshalJSON implement json Unmarshal interface
+func (i *Int) UnmarshalJSON(b []byte) (err error) {
+	if b[0] == '"' && b[len(b)-1] == '"' {
+		b = b[1 : len(b)-1]
+	}
+	v, _ := strconv.Atoi(string(b))
+	*i = Int(v)
+	return
+}
+
+func (i Int) Value() int {
+	return int(i)
+}
+
+func (i Int) String() string {
+	return strconv.Itoa(int(i))
+}
+
 // Float64 support string quoted number in json
 type Float64 float64
 
@@ -63,4 +87,9 @@ func (f64 Float64) Value() float64 {
 
 func (f64 Float64) String(prec int) string {
 	return strconv.FormatFloat(float64(64), 'f', prec, 64)
+}
+
+func JSONMarshal(i interface{}) []byte {
+	b, _ := json.Marshal(i)
+	return b
 }
