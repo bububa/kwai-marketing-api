@@ -1,6 +1,8 @@
 package file
 
-import "encoding/json"
+import (
+	"github.com/bububa/kwai-marketing-api/model"
+)
 
 // AdVideoListRequest 查询视频接口list接口API Request
 type AdVideoListRequest struct {
@@ -18,6 +20,10 @@ type AdVideoListRequest struct {
 	Page int `json:"page,omitempty"`
 	// PageSize 每页行数
 	PageSize int `json:"page_size,omitempty"`
+	// OuterLoopNative 是否查询原生视频：0=查询非原生视频；1=查询原生视频。
+	OuterLoopNative *int `json:"outer_loop_native,omitempty"`
+	// PhotoUserID 视频所属的userId，仅针对原生视频生效，且查询原生视频时必须传递，且仅当视频来源为“本地上传”与“快手客户端（个人主页）”生效。
+	PhotoUserID uint64 `json:"photo_user_id,omitempty"`
 }
 
 // Url implement PostRequest interface
@@ -27,6 +33,13 @@ func (r AdVideoListRequest) Url() string {
 
 // Encode implement PostRequest interface
 func (r AdVideoListRequest) Encode() []byte {
-	ret, _ := json.Marshal(r)
-	return ret
+	return model.JSONMarshal(r)
+}
+
+// AdVideoListResponse 查询视频接口list接口 API Response
+type AdVideoListResponse struct {
+	// TotalCount 图片总数
+	TotalCount int `json:"total_count,omitempty"`
+	// Details 详情
+	Details []Video `json:"details,omitempty"`
 }

@@ -5,9 +5,9 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/file"
 )
 
-// AdVideoUpdate 视频库-批量更新视频功能
-func AdVideoUpdate(clt *core.SDKClient, accessToken string, req *file.AdVideoUpdateRequest) ([]string, error) {
-	var ret file.AdVideoUpdateResponse
+// AdVideoDelete 批量删除视频
+func AdVideoDelete(clt *core.SDKClient, accessToken string, req *file.AdVideoDeleteRequest) ([]string, error) {
+	var ret file.AdVideoDeleteResponse
 	if err := clt.Post(accessToken, req, &ret); err != nil {
 		return nil, err
 	}
