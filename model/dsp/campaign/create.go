@@ -12,12 +12,12 @@ type CreateRequest struct {
 	// Type 营销目标类型
 	// 2：提升应用安装；3：获取电商下单；4：推广品牌活动；5：收集销售线索；7：提高应用活跃；9：商品库推广（此营销目标下创建的默认为DPA广告）；16：粉丝/直播推广；19：小程序推广 30：快手号-短剧推广
 	Type int `json:"type,omitempty"`
-	// DailyBudget 单日预算金额
+	// DayBudget 单日预算金额
 	// 单位：厘，指定 0 表示预算不限，默认为 0；不小于 500 元，不超过 100000000 元，仅支持输入数字；修改预算不得低于该计划当日花费的 120% 和修改前预算的较小者，与 day_budget_schedule 不能同时传，不能低于该计划下任一广告组出价。当 bid_type = 1时，day_budget 或者 budget_schedule 二选一必填
-	DailyBudget int64 `json:"daily_budget,omitempty"`
-	// DailyBudgetSchedule 分日预算
+	DayBudget int64 `json:"day_budget,omitempty"`
+	// DayBudgetSchedule 分日预算
 	// 单位：厘，指定 0 表示预算不限，默认为 0；每天不小于 500 元，不超过 100000000 元，仅支持输入数字；修改预算不得低于该计划当日花费的 120% 和修改前预算的较小者，与 day_budget 不能同时传，均不能低于该计划下任一广告组出价。事例：时间周期为周一到周日，样例："day_budget_schedule":[11110000,22220000,0,0,0,0,0]，优先级高于day_budget。当 bid_type = 1时，day_budget 或者 budget_schedule 二选一必填
-	DailyBudgetSchedule int64 `json:"daily_budget_schedule,omitempty"`
+	DayBudgetSchedule int64 `json:"day_budget_schedule,omitempty"`
 	// AdType 0:信息流，1:搜索；不填默认信息流
 	AdType int `json:"ad_type,omitempty"`
 	// BidType 出价类型; 0:默认1:最大转化（添加后不可修改）

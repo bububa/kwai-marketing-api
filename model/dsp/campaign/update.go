@@ -11,12 +11,12 @@ type UpdateRequest struct {
 	// CampaignName 广告计划名称
 	// 长度为 1-100 个字符，同一个账号下面计划名称不能重复
 	CampaignName string `json:"campaign_name,omitempty"`
-	// DailyBudget 单日预算金额
+	// DayBudget 单日预算金额
 	// 单位：厘，指定 0 表示预算不限，默认为 0；不小于 500 元，不超过 100000000 元，仅支持输入数字；修改预算不得低于该计划当日花费的 120% 和修改前预算的较小者，与 day_budget_schedule 不能同时传，不能低于该计划下任一广告组出价。当 bid_type = 1时，day_budget 或者 budget_schedule 二选一必填
-	DailyBudget int64 `json:"daily_budget,omitempty"`
+	DayBudget int64 `json:"day_budget,omitempty"`
 	// DailyBudgetSchedule 分日预算
 	// 单位：厘，指定 0 表示预算不限，默认为 0；每天不小于 500 元，不超过 100000000 元，仅支持输入数字；修改预算不得低于该计划当日花费的 120% 和修改前预算的较小者，与 day_budget 不能同时传，均不能低于该计划下任一广告组出价。事例：时间周期为周一到周日，样例："day_budget_schedule":[11110000,22220000,0,0,0,0,0]，优先级高于day_budget。当 bid_type = 1时，day_budget 或者 budget_schedule 二选一必填
-	DailyBudgetSchedule int64 `json:"daily_budget_schedule,omitempty"`
+	DayBudgetSchedule int64 `json:"day_budget_schedule,omitempty"`
 	// AutoAdjust 自动调控开关
 	// 0：关闭，1：开启
 	AutoAdjust *int `json:"auto_adjust,omitempty"`
