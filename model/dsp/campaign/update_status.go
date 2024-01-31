@@ -13,7 +13,7 @@ type UpdateStatusRequest struct {
 	CampaignIDs []uint64 `json:"campaign_ids,omitempty"`
 	// PutStatus 操作码
 	// 1-投放、2-暂停、3-删除，传其他数字非法
-	PutStatus []int `json:"put_status,omitempty"`
+	PutStatus int `json:"put_status,omitempty"`
 }
 
 // Url implement PostRequest interface
