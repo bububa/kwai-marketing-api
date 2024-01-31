@@ -1,6 +1,8 @@
 package file
 
-import "encoding/json"
+import (
+	"github.com/bububa/kwai-marketing-api/model"
+)
 
 // AdVideoShareRequest 视频库-推送视频 API Request
 type AdVideoShareRequest struct {
@@ -19,6 +21,21 @@ func (r AdVideoShareRequest) Url() string {
 
 // Encode implement PostRequest interface
 func (r AdVideoShareRequest) Encode() []byte {
-	ret, _ := json.Marshal(r)
-	return ret
+	return model.JSONMarshal(r)
+}
+
+// AdVideoShareResponse 视频库-推送视频 API Response
+type AdVideoShareResponse struct {
+	// Details Response details
+	Details []AdVideoShareDetail `json:"details,omitempty"`
+}
+
+// AdVideoShareDetail 视频库-推送视频 API Response Detail
+type AdVideoShareDetail struct {
+	// AdvertiserID 账号ID
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
+	// PhotoID 分享生成新的photoId
+	PhotoID string `json:"photo_id,omitempty"`
+	// OriginalPhotoID 原始photoId
+	OriginalPhotoID string `json:"original_photo_id,omitempty"`
 }

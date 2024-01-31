@@ -1,6 +1,8 @@
 package file
 
-import "encoding/json"
+import (
+	"github.com/bububa/kwai-marketing-api/model"
+)
 
 // AdVideoGetRequest 获取视频信息get接口 API Request
 type AdVideoGetRequest struct {
@@ -17,6 +19,5 @@ func (r AdVideoGetRequest) Url() string {
 
 // Encode implement PostRequest interface
 func (r AdVideoGetRequest) Encode() []byte {
-	ret, _ := json.Marshal(r)
-	return ret
+	return model.JSONMarshal(r)
 }

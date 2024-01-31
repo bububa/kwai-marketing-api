@@ -24,6 +24,9 @@ type AdVideoUploadRequestV2 struct {
 	Sync int `json:"sync,omitempty"`
 	// ShieldBackwardSwitch 上传视频后是否自动同步至快手个人主页; false表示后端屏蔽，视频不可profile页可见， true表示不屏蔽。
 	ShieldBackwardSwitch bool `json:"shield_backward_switch,omitempty"`
+	// NativePicSwitch 原生投放时视频挂载plc组件（建议设置为true，有机会获得更多流量曝光）
+	// false 表示不挂载plc true表示挂载，非白名单用户必须挂载plc，设置为true，平台将把根据推广目标生成的PLC组件挂载至该次本地上传的视频上。
+	NativePicSwitch bool `json:"native_pic_switch,omitempty"`
 }
 
 // Url implement UploadRequest interface
@@ -41,6 +44,10 @@ func (r AdVideoUploadRequestV2) Encode() []model.UploadField {
 	if r.ShieldBackwardSwitch {
 		shieldBackwardSwitch = "true"
 	}
+	nativePicSwitch := "false"
+	if r.NativePicSwitch {
+		nativePicSwitch = "true"
+	}
 	fields := []model.UploadField{
 		{
 			Key:   "advertiser_id",
@@ -57,6 +64,10 @@ func (r AdVideoUploadRequestV2) Encode() []model.UploadField {
 		{
 			Key:   "shield_backward_switch",
 			Value: shieldBackwardSwitch,
+		},
+		{
+			Key:   "native_pic_switch",
+			Value: nativePicSwitch,
 		},
 		{
 			Key:   "signature",

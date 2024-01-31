@@ -24,3 +24,9 @@ func (r AdVideoUpdateRequest) Encode() []byte {
 	ret, _ := json.Marshal(r)
 	return ret
 }
+
+// AdVideoUpdateResponse 视频库-批量更新视频功能 API Response
+type AdVideoUpdateResponse struct {
+	// PhotoIDs 视频 ids
+	PhotoIDs []string `json:"photo_ids,omitempty"`
+}
