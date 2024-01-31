@@ -1,6 +1,8 @@
 package report
 
-import "encoding/json"
+import (
+	"github.com/bububa/kwai-marketing-api/model"
+)
 
 // MaterialReportRequest 广告素材数据API Request
 type MaterialReportRequest struct {
@@ -14,9 +16,9 @@ type MaterialReportRequest struct {
 	// CreativeIDs 广告创意ID集，过滤筛选条件，单次查询数量不超过5000
 	CreativeIDs []uint64 `json:"creative_ids,omitempty"`
 	// PhotoIDs 视频ID集，过滤筛选条件，单次查询数量不超过5000
-	PhotoIDs []uint64 `json:"photo_ids,omitempty"`
+	PhotoIDs []string `json:"photo_ids,omitempty"`
 	// CoverIDs 封面ID集，过滤筛选条件，单次查询数量不超过5000
-	CoverIDs []uint64 `json:"cover_ids,omitempty"`
+	CoverIDs []string `json:"cover_ids,omitempty"`
 	// CreativeMaterialType 素材类型：1 - 竖版视频; 2 - 横版视频; 3 - 便利贴;5 -竖版图片; 6- 横版图片; 9-小图；10-组图
 	CreativeMaterialType int `json:"creative_material_type,omitempty"`
 	// ViewType 报表类型：5 - 视频报表 7 - 封面报表 8 - 便利贴报表;16-图片报表；
@@ -30,8 +32,7 @@ func (r MaterialReportRequest) Url() string {
 
 // Encode implement PostRequest interface
 func (r MaterialReportRequest) Encode() []byte {
-	buf, _ := json.Marshal(r)
-	return buf
+	return model.JSONMarshal(r)
 }
 
 // MaterialReportResponse 广告素材数据API Response
