@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"net/http"
 
@@ -32,7 +32,7 @@ func Activate(req *track.ActivateRequest) error {
 		Result int `json:"result,omitempty"`
 	}
 	if req.Debug {
-		if body, err := ioutil.ReadAll(httpResp.Body); err != nil {
+		if body, err := io.ReadAll(httpResp.Body); err != nil {
 			return err
 		} else {
 			body2 := body
