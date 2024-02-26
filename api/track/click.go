@@ -5,6 +5,7 @@ import (
 )
 
 var DEFAULT_CLICK_FIELDS = []string{
+	"request_id",
 	"aid",
 	"advertiser_id",
 	"cid",
