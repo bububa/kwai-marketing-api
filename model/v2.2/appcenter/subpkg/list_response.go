@@ -45,5 +45,6 @@ type SubpkgItem struct {
 	//use_sdk	Integer		是否接入快手广告监测SDK	0-未接入，1-已接入
 	UseSdk int `json:"use_sdk"`
 	//version_code
-	VersionCode int `json:"version_code"`
+	VersionCode int    `json:"version_code"`
+	ChannelID   string `json:"channel_id"`
 }
