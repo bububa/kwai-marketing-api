@@ -8,14 +8,42 @@ type ListResponse struct {
 }
 
 type SubpkgItem struct {
-	PackageID        int64  `json:"package_id"`         // 包ID
-	ChannelID        string `json:"channel_id"`         // 渠道号(分包号)
-	Description      string `json:"description"`        // 分包描述
-	RealAppVersion   string `json:"real_app_version"`   // 应用版本信息
-	SubPackageStatus int    `json:"sub_package_status"` // 应用分包状态: 1-审核中，2-审核失败，3-待发布，4-已发布，5-已下架 6-创建中，7-更新中，8-构建失败
-	CanUpdate        bool   `json:"can_update"`         // 是否可更新: 仅分包管理列表时有效，表示应用分包是否可以更新
-	UpdateTime       int64  `json:"update_time"`        // 更新时间: 仅分包管理列表时有效，表示应用分包的更新时间
-	CanRecycle       *bool  `json:"can_recycle"`        // 是否可恢复: 仅分包回收站列表时有效，表示应用分包是否可以恢复
-	DeleteTime       *int64 `json:"delete_time"`        // 删除时间: 仅分包回收站列表时有效，表示应用分包的删除时间
-	ParentPackageID  int64  `json:"parent_package_id"`  // 分包的母包ID
+	//account_id	Long		账号ID
+	AccountId int64 `json:"account_id"`
+	//app_detail_img	String		应用详情图片
+	AppDetailImg string `json:"app_detail_img"`
+	//app_icon_url	String		应用图标链接
+	AppIconUrl string `json:"app_icon_url"`
+	//app_id	Long		应用ID
+	AppId int64 `json:"app_id"`
+	//app_privacy_url	String		应用隐私政策链接
+	AppPrivacyUrl string `json:"app_privacy_url"`
+	//ios_app_id	String		解析出的iosAppID
+	IosAppId string `json:"ios_app_id"`
+	//offline_app_stores	String		下架的应用商店	"huawei","oppo","vivo","xiaomi","meizu","smartisan"
+	OfflineAppStores string `json:"offline_app_stores"`
+	//package_id	Long		应用包ID
+	PackageId int64 `json:"package_id"`
+	//package_name	String		应用包名
+	PackageName string `json:"package_name"`
+	//package_size	Long		应用包大小
+	PackageSize int64 `json:"package_size"`
+	//permission_information	int[]		权限信息ID列表
+	PermissionInformation []int `json:"permission_information"`
+	//platform	String		android或ios
+	Platform string `json:"platform"`
+	//real_app_name	String		应用名称
+	RealAppName string `json:"real_app_name"`
+	//real_app_version	String		应用版本信息
+	RealAppVersion string `json:"real_app_version"`
+	//source_type	Integer		应用来源	1-我创建的 2-共享给我的
+	SourceType int `json:"source_type"`
+	//update_time	Long		更新时间	单位：毫秒
+	UpdateTime int64 `json:"update_time"`
+	//url	String		应用下载地址
+	Url string `json:"url"`
+	//use_sdk	Integer		是否接入快手广告监测SDK	0-未接入，1-已接入
+	UseSdk int `json:"use_sdk"`
+	//version_code
+	VersionCode int `json:"version_code"`
 }
