@@ -27,6 +27,8 @@ type GetMonitorURLsResponse struct {
 
 // BatchUpdateMonitorURLsRequest 监测链接批量更新接口 API Request
 type BatchUpdateMonitorURLsRequest struct {
+	// AdvertiserID 广告主ID
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// UnitMonitorURLs 监测链接详情
 	UnitMonitorURLs []UnitMonitorURL `json:"unit_monitor_urls,omitempty"`
 }
