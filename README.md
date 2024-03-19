@@ -35,6 +35,8 @@
       - 修改广告组预算 [ UpdateDayBudget(clt *core.SDKClient, accessToken string, req *unit.UpdateDayBudgetRequest) error ]
       - 修改广告组状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *unit.UpdateStatusRequest) ([]int64, error) ]
       - 修改广告组出价 [ UpdateBid(clt *core.SDKClient, accessToken string, req *unit.UpdateBidRequest) error ]
+      - 批量获取监测链接接口 [ GetMonitorURLs(clt *core.SDKClient, accessToken string, req *unit.GetMonitorURLsRequest) ([]unit.UnitMonitorURL, error) ]
+      - 监测链接批量更新接口 [ BatchUpdateMonitorURLs(clt *core.SDKClient, accessToken string, req *unit.BatchUpdateMonitorURLsRequest) ([]unit.UnitMonitorURL, error) ]
     - 广告创意 (api/dsp/creative)
       - 创建自定义创意 [ Create(clt *core.SDKClient, accessToken string, req *creative.CreateRequest) (uint64, error) ]
       - 创建程序化创意 [ AdvancedCreativeCreate(clt *core.SDKClient, accessToken string, req *creative.AdvancedCreativeCreateRequest) (uint64, error) ]
