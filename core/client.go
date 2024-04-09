@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"mime/multipart"
 	"net/http"
 	"strings"
@@ -128,7 +127,7 @@ func (c *SDKClient) GetBytes(accessToken string, req model.GetRequest) ([]byte, 
 		return nil, err
 	}
 	defer httpResp.Body.Close()
-	return ioutil.ReadAll(httpResp.Body)
+	return io.ReadAll(httpResp.Body)
 }
 
 func (c *SDKClient) GetOnBody(accessToken string, req model.PostRequest, resp interface{}) error {

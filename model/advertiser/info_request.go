@@ -10,14 +10,13 @@ type InfoRequest struct {
 	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 }
 
-// Url implement GetRequest interface
+// Url implement PostRequest interface
 func (r InfoRequest) Url() string {
 	return "v1/advertiser/info"
 }
 
+// Encode implement PostRequest interface
 func (r InfoRequest) Encode() []byte {
 	ret, _ := json.Marshal(r)
 	return ret
 }
-
-

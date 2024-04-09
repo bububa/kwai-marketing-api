@@ -1,0 +1,22 @@
+package adcompass
+
+import (
+	"encoding/json"
+)
+
+// AdvertisersRequest 广告罗盘请求信息
+type AdvertisersRequest struct {
+	// AdvertiserID 广告主ID
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
+}
+
+// Url implement PostRequest interface
+func (r AdvertisersRequest) Url() string {
+	return "gw/uc/v1/advertisers"
+}
+
+// Encode implement PostRequest interface
+func (r AdvertisersRequest) Encode() []byte {
+	buf, _ := json.Marshal(r)
+	return buf
+}

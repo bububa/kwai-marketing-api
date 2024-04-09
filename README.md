@@ -18,7 +18,35 @@
     - 获取广告主信息 [ Info(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Info, error) ]
     - 获取广告账户余额信息 [ FundGet(clt *core.SDKClient, accessToken string, advertiserID int64) (float64, error) ]
     - 获取广告主账户流水信息 [ FundDailyFlows(clt *core.SDK, accessToken string, req *advertiser.FundDailyFlowsRequest) (*advertiser.FundDailyFlowsResponse, error) ] 
+  - 账户罗盘(api/adcompass)
+    - 获取罗盘绑定广告主列 [ Advertisers(clt *core.SDKClient, accessToken string, advertiserID uint64) ([]adcompass.Advertiser, error) ]
+    - 磁力罗盘对外 quota 腾挪接口 [ QuotaTending(clt *core.SDKClient, accessToken string, req *adcompass.QuotaTendingRequest) (string, error)  ]
 - 广告投放
+  - 智能创编 (api/dsp)
+    - 广告计划 (api/dsp/campaign)
+      - 创建广告计划 [ Create(clt *core.SDKClient, accessToken string, req *campaign.CreateRequest) (uint64, error) ]
+      - 修改广告计划 [ Update(clt *core.SDKClient, accessToken string, req *campaign.UpdateRequest) (uint64, error) ]
+      - 获取广告计划信息 [ List(clt *core.SDKClient, accessToken string, req *campaign.ListRequest) (*campaign.ListResponse, error) ]
+      - 修改广告计划状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *campaign.UpdateStatusRequest) ([]uint64, error) ]
+    - 广告组 (api/dsp/unit)
+      - 创建广告组 [ Create(clt *core.SDKClient, accessToken string, req *unit.CreateRequest) (uint64, error) ]
+      - 修改广告组 [ Update(clt *core.SDKClient, accessToken string, req *unit.UpdateRequest) (uint64, error) ]
+      - 查询广告组 [ List(clt *core.SDKClient, accessToken string, req *unit.ListRequest) (*unit.ListResponse, error) ]
+      - 修改广告组预算 [ UpdateDayBudget(clt *core.SDKClient, accessToken string, req *unit.UpdateDayBudgetRequest) error ]
+      - 修改广告组状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *unit.UpdateStatusRequest) ([]int64, error) ]
+      - 修改广告组出价 [ UpdateBid(clt *core.SDKClient, accessToken string, req *unit.UpdateBidRequest) error ]
+      - 批量获取监测链接接口 [ GetMonitorURLs(clt *core.SDKClient, accessToken string, req *unit.GetMonitorURLsRequest) ([]unit.UnitMonitorURL, error) ]
+      - 监测链接批量更新接口 [ BatchUpdateMonitorURLs(clt *core.SDKClient, accessToken string, req *unit.BatchUpdateMonitorURLsRequest) ([]unit.UnitMonitorURL, error) ]
+    - 广告创意 (api/dsp/creative)
+      - 创建自定义创意 [ Create(clt *core.SDKClient, accessToken string, req *creative.CreateRequest) (uint64, error) ]
+      - 创建程序化创意 [ AdvancedCreativeCreate(clt *core.SDKClient, accessToken string, req *creative.AdvancedCreativeCreateRequest) (uint64, error) ]
+      - 修改自定义创意 [ Update(clt *core.SDKClient, accessToken string, req *creative.UpdateRequest) (uint64, error) ]
+      - 修改程序化创意 [ AdvancedCreativeUpdate(clt *core.SDKClient, accessToken string, req *creative.AdvancedCreativeUpdateRequest) (uint64, error) ]
+      - 批量修改自定义创意 [ BatchUpdate(clt *core.SDKClient, accessToken string, req *creative.BatchUpdateRequest) (*creative.BatchUpdateResponse, error) ]
+      - 查询自定义创意 [ List(clt *core.SDKClient, accessToken string, req *creative.ListRequest) (*creative.ListResponse, error) ]
+      - 查询程序化创意 [ AdvancedCreativeList(clt *core.SDKClient, accessToken string, req *creative.AdvancedCreativeListRequest) (*creative.AdvancedCreativeListResponse, error) ]
+      - 修改创意状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *creative.UpdateStatusRequest) ([]uint64, error) ]
+      - 创意体验 [ Preview(clt *core.SDKClient, accessToken string, req *creative.PreviewRequest) error ]
   - 获取各层级信息
     - 获取广告计划信息 [ campaign.List(clt *core.SDKClient, accessToken string, req *campaign.ListRequest) (*campaign.ListResponse, error) ]
     - 获取广告组信息 [ unit.List(clt *core.SDKClient, accessToken string, req *unit.ListRequest) (*unit.ListResponse, error) ]
@@ -128,3 +156,8 @@
 - 数据上报管理 (api/track)
   - 转化回传 [ Activate(req *track.ActivateRequest) error ]
   - 点击检测链接 [ Click(baseUrl string, fields []string) string ]
+
+
+# Reference
+[API文档](https://developers.e.kuaishou.com/docs)
+

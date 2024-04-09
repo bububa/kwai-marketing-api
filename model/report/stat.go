@@ -318,8 +318,6 @@ type Stat struct {
 	EventIntentionConfirmed int64 `json:"event_intention_confirmed,omitempty"`
 	// EventWechatConnected 微信加粉数
 	EventWechatConnected int64 `json:"event_wechat_connected,omitempty"`
-	// EventOrderSubmit 提交订单数
-	EventOrderSubmit int64 `json:"event_order_submit,omitempty"`
 	// EventOrderSuccessed 有效线索成交数
 	EventOrderSuccessed int64 `json:"event_order_successed,omitempty"`
 	// EventPhoneCardActivate 电话卡激活数
@@ -486,4 +484,28 @@ type Stat struct {
 	UnitSource int `json:"unit_source,omitempty"`
 	// AdShow 广告曝光
 	AdShow float64 `json:"ad_show,omitempty"`
+	// T7PaidAmt 7日累计付费金额（元）
+	T7PaidAmt float64 `json:"t7_paid_amt,omitempty"`
+	// MinigameIaaPurchaseAmountFirstDay  当日广告LTV
+	MinigameIaaPurchaseAmountFirstDay float64 `json:"minigame_iaa_purchase_amount_first_day,omitempty"`
+	// MinigameIaaPurchaseThreeDayByConversion 激活后三日广告LTV
+	MinigameIaaPurchaseThreeDayByConversion float64 `json:"minigame_iaa_purchase_three_day_by_conversion,omitempty"`
+	// MinigameIaaPurchaseAmountWeekByConversion 激活后七日广告LTV
+	MinigameIaaPurchaseAmountWeekByConversion float64 `json:"minigame_iaa_purchase_amount_week_by_conversion,omitempty"`
+	// MinigameIaaPurchaseAmountFirstDayRoi 当日广告变现ROI
+	MinigameIaaPurchaseAmountFirstDayRoi float64 `json:"minigame_iaa_purchase_amount_first_day_roi,omitempty"`
+	// MinigameIaaPurchaseAmountThreeDayByConversionRoi 激活后三日广告变现ROI
+	MinigameIaaPurchaseAmountThreeDayByConversionRoi float64 `json:"minigame_iaa_purchase_amount_three_day_by_conversion_roi,omitempty"`
+	// MinigameIaaPurchaseAmountWeekByConversionRoi 激活后七日广告变现ROI
+	MinigameIaaPurchaseAmountWeekByConversionRoi float64 `json:"minigame_iaa_purchase_amount_week_by_conversion_roi,omitempty"`
+	// SupplementConversionCnt 补充激活事件数
+	SupplementConversionCnt float64 `json:"supplement_conversion_cnt,omitempty"`
+	// EventOrderSubmitCost 订单提交成本
+	EventOrderSubmitCost float64 `json:"eventOrderSubmitCost,omitempty"`
+	// EventOrderSubmit 订单提交数
+	EventOrderSubmit float64 `json:"eventOrderSubmit,omitempty"`
+	// DirectSubmit1dCost 表单提交成本
+	DirectSubmit1dCost float64 `json:"directSubmit1dCost,omitempty"`
+	// EventDrawCreditLine 用信数
+	EventDrawCreditLine float64 `json:"eventDrawCreditLine,omitempty"`
 }

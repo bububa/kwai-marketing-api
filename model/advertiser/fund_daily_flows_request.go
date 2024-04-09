@@ -18,12 +18,12 @@ type FundDailyFlowsRequest struct {
 	PageSize int `json:"page_size,omitempty"`
 }
 
-// Url implement GetRequest interface
+// Url implement PostRequest interface
 func (r FundDailyFlowsRequest) Url() string {
 	return "v1/advertiser/fund/daily_flows"
 }
 
-// Encode implement GetRequest interface
+// Encode implement PostRequest interface
 func (r FundDailyFlowsRequest) Encode() []byte {
 	buf, _ := json.Marshal(r)
 	return buf

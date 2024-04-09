@@ -16,6 +16,9 @@ type Image struct {
 	Signature string `json:"signature,omitempty"`
 	// ImageToken 图片token 创建创意时使用
 	ImageToken string `json:"image_token,omitempty"`
-	// PicId 图片库图片ID
-	PicId string `json:"pic_id,omitempty"`
+	// PicType 图片类型
+	// 0-默认，5-竖版，6-横版，12-开屏，16-图集
+	PicType int `json:"pic_type,omitempty"`
+	// PicID 图片库图片ID
+	PicID string `json:"pic_id,omitempty"`
 }
