@@ -146,6 +146,10 @@
     - 查询定向模板接口 [ target.TemplateList(clt *core.SDKClient, accessToken string, req *target.TemplateListRequest) (*target.TemplateListResponse, error) ]
     - 修改定向模板 [ target.TemplateUpdate(clt *core.SDKClient, accessToken string, req *target.TemplateUpdateRequest) (*target.Template, error) ]
     - 删除定向模板 [ target.TemplateDelete(clt *core.SDKClient, accessToken string, req *target.TemplateDeleteRequest) error ]
+  - 直播推广 (api/dsp/jingbell)
+    - 小铃铛推送 [ jingbel.Share(clt *core.SDKClient, accessToken string, req *jingbell.ShareRequest) error ]
+  - 原生广告投放工具 (api/dsp/native)
+    - 开启原生扩量开关接口 [ OpenAccountNative(clt *core.SDKClient, accessToken string, req *native.OpenAccountNativeRequest) error ]
 - DMP人群管理(api/dmp)
   - 人群包上传接口 [ PopulationUpload(clt *core.SDKClient, accessToken string, req *dmp.PopulationUploadRequest) (*dmp.Population, error) ]
   - 人群包更新接口 [ PopulationUpdate(clt *core.SDKClient, accessToken string, req *dmp.PopulationUpdateRequest) (*dmp.Population, error) ]

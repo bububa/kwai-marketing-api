@@ -83,4 +83,7 @@ type AdvancedCreative struct {
 	// Recommendation plc自定义文案
 	// 开启原生时可用
 	Recommendation string `json:"recommendation,omitempty"`
+	// OpenAccountNative 是否为原生扩量
+	// 0：否 1：是
+	OpenAccountNative int `json:"open_account_native,omitempty"`
 }

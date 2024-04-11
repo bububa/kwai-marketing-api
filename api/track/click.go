@@ -15,6 +15,7 @@ var DEFAULT_CLICK_FIELDS = []string{
 	"idfa",
 	"android_id",
 	"oaid",
+	"caid",
 	"os",
 	"ip",
 	"ua",
@@ -54,6 +55,8 @@ func Click(baseUrl string, fields []string) string {
 			values.Set("android_id", "__ANDROIDID2__")
 		case "oaid":
 			values.Set("oaid", "__OAID2__")
+		case "caid":
+			values.Set("caid", "__KENYID_CAA__")
 		case "os":
 			values.Set("os", "OS")
 		case "ip":

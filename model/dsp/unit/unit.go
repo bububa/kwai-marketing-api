@@ -237,6 +237,9 @@ type Unit struct {
 	// ULink Universal Link 链接
 	// 仅在计划 campaignType=7 提升应用活跃时使用，输入后IOS将优先调起该链接，不超过2000字符
 	ULink string `json:"u_link,omitempty"`
+	// UnitMaterialType 广告标的物类型
+	// campaignType = 19（快手小程序/小游戏推广）时（释义同mini_app_type字段）表示：1：快手小程序；2：快手小游戏；campaignType = 32（微信小程序/小游戏推广）时表示：3：微信小程序；4：微信小游戏
+	UnitMaterialType int `json:"unit_material_type,omitempty"`
 }
 
 // DpaUnitParam DPA 相关商品信息
