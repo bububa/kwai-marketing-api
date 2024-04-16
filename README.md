@@ -111,6 +111,7 @@
     - 视频库-批量更新视频功能 [ AdVideoUpdate(clt *core.SDKClient, accessToken string, req *file.AdVideoUpdateRequest) error ]
     - 视频库-删除视频标签 [ AdVideoTagDelete(clt *core.SDKClient, accessToken string, req *file.AdVideoTagDeleteRequest) error ]
     - 视频关联创意数查询 [ AdVideoRelateCreatives(clt *core.SDKClient, accessToken string, req *file.AdVideoRelateCreativesRequest) ([]file.AdVideoRelatedCreatives, error) ]
+    - 查询账户共享视频库按钮是否开启 [ dsp.video.QueryAutoShareSwitch(clt *core.SDKClient, accessToken string, req *video.QueryAutoShareSwitchRequest) (*video.QueryAutoShareSwitchResponse, error) ]
 - 工具
   - 查询工具
     - 获取可选的深度转化目标 [ unit.OcpcConversionInfos(clt *core.SDKClient, accessToken string, req *unit.OcpcConversionInfosRequest) (*unit.OcpcConversionInfosResponse, error) ]
