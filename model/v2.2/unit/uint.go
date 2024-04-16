@@ -3,27 +3,28 @@ package unit
 import "encoding/json"
 
 type Unit struct {
-	CampaignID            uint64                    `json:"campaign_id"`             // 广告计划 ID
-	UnitID                uint64                    `json:"unit_id"`                 // 广告组 ID
-	UnitName              string                    `json:"unit_name"`               // 广告组名称
-	PutStatus             int                       `json:"put_status"`              // 投放状态（操作结果） 1：投放中；2：暂停 3：删除
-	Status                int                       `json:"status"`                  // 广告组状态（优先看看这个状态，计算结果） -1：不限，1：计划已暂停，3：计划超预算，6：余额不足，，11：审核中，12：审核未通过，14：已结束，15：已暂停，17：组超预算，19：未达投放时间，20：有效，22：不在投放时段
-	ReviewDetail          string                    `json:"review_detail"`           // 审核拒绝理由
-	StudyStatus           int                       `json:"study_status"`            // 学习期 1:学习中,2:学习成功,3:学习失败
-	CompensateStatus      int                       `json:"compensate_status"`       // 赔付状态 0=不需要赔付(不需要展示赔付标志)，1=成本保障生效中，2=成本保证确认中，3=已赔付完成，4=已失效
-	BidType               int                       `json:"bid_type"`                // 出价类型 1：CPM，2：CPC，6：OCPC(使用 OCPC 代表 OCPX)，10：OCPM，20：eCPC
-	Bid                   int64                     `json:"bid"`                     // 出价 单位：厘
-	CPABid                int64                     `json:"cpa_bid"`                 // OCPC 出价 单位：厘
-	OCPXActionType        int                       `json:"ocpx_action_type"`        // 优化目标 0：未知，2：点击转化链接，10：曝光，11：点击，31：下载完成，53：提交线索，109：电话卡激活，137：量房，180：激活，190: 付费，191：首日 ROI，348：有效线索，383: 授信，384: 完件 715：微信复制;739:7 日付费次数;774:7 日ROI;810:激活付费
-	DeepConversionType    int                       `json:"deep_conversion_type"`    // 深度转化目标 3:付费，7:次日留存，10:完件, 11:授信；13:添加购物车；14:提交订单；15:购买；44：有效线索；92：付费 roi；181：激活后24H次日留存；0：无；
-	DeepConversionBid     int64                     `json:"deep_conversion_bid"`     //深度转化目标出价
-	EnhanceConversionType int                       `json:"enhance_conversion_type"` // 增强目标
-	ROIRatio              float64                   `json:"roi_ratio"`               // 付费 ROI 系数，优化目标为「首日 ROI」时必填：ROI 系数取值范围 ( 0,100 ] 最多支持到三位小数（如：0.066）
-	SceneID               []int                     `json:"scene_id"`                // 广告位，1：优选广告位；2：按场景选择广告位-信息流广告（旧广告位，包含上下滑大屏广告）6：上下滑大屏广告；7：信息流广告（不包含上下滑大屏广告）24：激励视频；11：快看点场景
-	UnitType              int                       `json:"unit_type"`               // 创意制作方式，4: 自定义; 7：程序化创意 2.0
-	BeginTime             string                    `json:"begin_time"`              // 投放开始时间，格式：yyyy-MM-dd
-	EndTime               *string                   `json:"end_time,omitempty"`      // 投放结束时间，格式：yyyy-MM-dd, 排期不限为 null
-	Schedule              interface{}               `json:"schedule,omitempty"`
+	CampaignID            uint64                    `json:"campaign_id"`                 // 广告计划 ID
+	UnitID                uint64                    `json:"unit_id"`                     // 广告组 ID
+	UnitName              string                    `json:"unit_name"`                   // 广告组名称
+	PutStatus             int                       `json:"put_status"`                  // 投放状态（操作结果） 1：投放中；2：暂停 3：删除
+	Status                int                       `json:"status"`                      // 广告组状态（优先看看这个状态，计算结果） -1：不限，1：计划已暂停，3：计划超预算，6：余额不足，，11：审核中，12：审核未通过，14：已结束，15：已暂停，17：组超预算，19：未达投放时间，20：有效，22：不在投放时段
+	ReviewDetail          string                    `json:"review_detail"`               // 审核拒绝理由
+	StudyStatus           int                       `json:"study_status"`                // 学习期 1:学习中,2:学习成功,3:学习失败
+	CompensateStatus      int                       `json:"compensate_status"`           // 赔付状态 0=不需要赔付(不需要展示赔付标志)，1=成本保障生效中，2=成本保证确认中，3=已赔付完成，4=已失效
+	BidType               int                       `json:"bid_type"`                    // 出价类型 1：CPM，2：CPC，6：OCPC(使用 OCPC 代表 OCPX)，10：OCPM，20：eCPC
+	Bid                   int64                     `json:"bid"`                         // 出价 单位：厘
+	CPABid                int64                     `json:"cpa_bid"`                     // OCPC 出价 单位：厘
+	OCPXActionType        int                       `json:"ocpx_action_type"`            // 优化目标 0：未知，2：点击转化链接，10：曝光，11：点击，31：下载完成，53：提交线索，109：电话卡激活，137：量房，180：激活，190: 付费，191：首日 ROI，348：有效线索，383: 授信，384: 完件 715：微信复制;739:7 日付费次数;774:7 日ROI;810:激活付费
+	DeepConversionType    int                       `json:"deep_conversion_type"`        // 深度转化目标 3:付费，7:次日留存，10:完件, 11:授信；13:添加购物车；14:提交订单；15:购买；44：有效线索；92：付费 roi；181：激活后24H次日留存；0：无；
+	DeepConversionBid     int64                     `json:"deep_conversion_bid"`         //深度转化目标出价
+	EnhanceConversionType int                       `json:"enhance_conversion_type"`     // 增强目标
+	ROIRatio              float64                   `json:"roi_ratio"`                   // 付费 ROI 系数，优化目标为「首日 ROI」时必填：ROI 系数取值范围 ( 0,100 ] 最多支持到三位小数（如：0.066）
+	SceneID               []int                     `json:"scene_id"`                    // 广告位，1：优选广告位；2：按场景选择广告位-信息流广告（旧广告位，包含上下滑大屏广告）6：上下滑大屏广告；7：信息流广告（不包含上下滑大屏广告）24：激励视频；11：快看点场景
+	UnitType              int                       `json:"unit_type"`                   // 创意制作方式，4: 自定义; 7：程序化创意 2.0
+	BeginTime             string                    `json:"begin_time"`                  // 投放开始时间，格式：yyyy-MM-dd
+	EndTime               *string                   `json:"end_time,omitempty"`          // 投放结束时间，格式：yyyy-MM-dd, 排期不限为 null
+	Schedule              interface{}               `json:"schedule,omitempty"`          // 投放时段，历史字段，即将废弃
+	ScheduleTime          string                    `json:"schedule_time,omitempty"`     // 投放时段，24*7 的字符串，0 为不投放，1 为投放，例如：0010000000001....0000
 	DayBudget             int64                     `json:"day_budget"`                  // 单日预算，单位：厘
 	DayBudgetSchedule     []int64                   `json:"day_budget_schedule"`         // 分日预算，单位：厘，单日预算和分日预算同时存在时，以分日预算为准，优先级高于day_budget
 	ConvertID             int                       `json:"convert_id"`                  // 转化目标
