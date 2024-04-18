@@ -95,6 +95,8 @@
     - 广告素材数据 [ CreativeReport(clt *core.SDKClient, accessToken string, req *report.MaterialReportRequest) (*report.ReportResponse, error) ]
     - 人群分析数据 [ AudienceReport(clt *core.SDKClient, accessToken string, req *report.AudienceReportRequest) (*report.ReportResponse, error) ]
     - 小店通转化数据 [ MerchantDeatailReport(clt *core.SDKClient, accessToken string, req *report.MerchantDetailReportRequest) (*report.MerchantDetailReportResponse, error) ]
+    - 关键词报表 [ WordInfoReport(clt *core.SDKClient, accessToken string, req *report.WordInfoReportRequest) (*report.ReportResponse, error) ]
+    - 搜索词报表 [ QueryWordReport(clt *core.SDKClient, accessToken string, req *report.QueryWordReportRequest) (*report.ReportResponse, error) ]
 - 素材管理(api/file)
   - 图片素材
     - 上传图片v1接口 [ AdImageUploadV1(clt *core.SDKClient, accessToken string, req *file.AdImageUploadRequestV1) (*file.Image, error) ]
@@ -151,6 +153,16 @@
     - 小铃铛推送 [ jingbel.Share(clt *core.SDKClient, accessToken string, req *jingbell.ShareRequest) error ]
   - 原生广告投放工具 (api/dsp/native)
     - 开启原生扩量开关接口 [ OpenAccountNative(clt *core.SDKClient, accessToken string, req *native.OpenAccountNativeRequest) error ]
+  - 评论管理 (api/comment)
+    - 评论列表数据查询 [ List(clt *core.SDKClient, accessToken string, req *comment.ListRequest) (*comment.ListResponse, error) ]
+    - 回复评论 [ Reply(clt *core.SDKClient, accessToken string, req *comment.ReplyRequest) ([]comment.ReplyResult, error) ]
+    - 评论树查询 [ Tree(clt *core.SDKClient, accessToken string, req *comment.TreeRequest) (*comment.TreeResponse, error) ]
+    - 屏蔽评论 [ Shield(clt *core.SDKClient, accessToken string, req *comment.ShieldRequest) error ]
+    - 增加屏蔽评论信息 [ ShieldInfoCreate(clt *core.SDKClient, accessToken string, req *comment.ShieldInfoCreateRequest) ([]uint64, error) ]
+    - 删除屏蔽评论信息 [ ShieldInfoDelete(clt *core.SDKClient, accessToken string, req *comment.ShieldInfoDeleteRequest) error ]
+    - 获取屏蔽评论信息列表 [ ShieldInfoList(clt *core.SDKClient, accessToken string, req *comment.ShieldInfoListRequest) (*comment.ShieldInfoListResponse, error) ]
+    - 评论置顶 [ SetTop(clt *core.SDKClient, accessToken string, req *comment.SetTopRequest) (uint64, error) ]
+    - 取消评论置顶 [ CancelTop(clt *core.SDKClient, accessToken string, req *comment.CancelTopRequest) (uint64, error) ]
 - DMP人群管理(api/dmp)
   - 人群包上传接口 [ PopulationUpload(clt *core.SDKClient, accessToken string, req *dmp.PopulationUploadRequest) (*dmp.Population, error) ]
   - 人群包更新接口 [ PopulationUpdate(clt *core.SDKClient, accessToken string, req *dmp.PopulationUpdateRequest) (*dmp.Population, error) ]
