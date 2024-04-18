@@ -18,6 +18,8 @@ type ReportRequest struct {
 	TemporalGranularity model.TemporalGranularityType `json:"temporal_granularity,omitempty"`
 	// ReportDims "adScene"：按广告场景；不传/传空/传空数组：不限
 	ReportDims []string `json:"report_dims,omitempty"`
+	// SelectedColumn 自定义列，支持列名及其关联字段详见：https://docs.qingque.cn/d/home/eZQB-fLBIZLvGG50L7vFkHL3J?identityId=1oE314hFZmG
+	SelectedColumn []string `json:"selected_column,omitempty"`
 	// Page 请求的页码，默认为 1
 	Page int `json:"page,omitempty"`
 	// PageSize 每页行数，默认为20，最大支持2000

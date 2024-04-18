@@ -14,6 +14,12 @@ type Stat struct {
 	CreativeID uint64 `json:"creative_id,omitempty"`
 	// CreativeName 广告创意名称
 	CreativeName string `json:"creative_name,omitempty"`
+	// WordInfoID 推广关键词ID
+	WordInfoID uint64 `json:"word_info_id,omitempty"`
+	// Word 关键词文本
+	Word string `json:"word,omitempty"`
+	// MatchType 匹配方式：1:精确匹配,2:短语匹配,3:广泛匹配
+	MatchType int `json:"match_type,omitempty"`
 	// PhotoID 视频id
 	PhotoID string `json:"photo_id,omitempty"`
 	// PhotoUrl 视频链接
