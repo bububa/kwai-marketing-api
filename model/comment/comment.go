@@ -1,5 +1,7 @@
 package comment
 
+import "github.com/bububa/kwai-marketing-api/model"
+
 // Comment 评论
 type Comment struct {
 	// CommentID 评论 ID
@@ -9,7 +11,7 @@ type Comment struct {
 	// CommentAuthorID 评论发布者 UserID
 	CommentAuthorID uint64 `json:"comment_author_id,omitempty"`
 	// PhotoID 视频 ID
-	PhotoID uint64 `json:"photo_id,omitempty"`
+	PhotoID model.Uint64 `json:"photo_id,omitempty"`
 	// PhotoAuthorID 视频作者 UserID
 	PhotoAuthorID uint64 `json:"photo_author_id,omitempty"`
 	// CommentLevel 评论层级
@@ -48,7 +50,7 @@ type CommentReply struct {
 	// ReplyToCommentID 回复的评论 ID
 	ReplyToCommentID uint64 `json:"reply_to_comment_id,omitempty"`
 	// PhotoID 视频 ID
-	PhotoID uint64 `json:"photo_id,omitempty"`
+	PhotoID model.Uint64 `json:"photo_id,omitempty"`
 	// PhotoAuthorID 视频作者 UserID
 	PhotoAuthorID uint64 `json:"photo_author_id,omitempty"`
 	// ReplyToUserID 被回复的用户 UserID
