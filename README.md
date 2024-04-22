@@ -84,6 +84,12 @@
     - 获取高级创意列表 [ AdvCardList(clt *core.SDKClient, accessToken string, req *asset.AdvCardListRequest) (*asset.AdvCardListResponse, error) ]
     - 创建高级创意接口 [ AdvCardCreate(clt *core.SDKClient, accessToken string, req *asset.AdvCardCreateRequest) ([]int64, error) ]
     - 删除高级创意接口 [ AdvCardRemove(clt *core.SDKClient, accessToken string, req *asset.AdvCardRemoveRequest) ([]int64, error) ]
+  - 搜索广告工具
+    - 关键词管理 (api/wordinfo)
+      - 获取关键词列表 [ List(clt *core.SDKClient, accessToken string, req *wordinfo.ListRequest) (*wordinfo.ListResponse, error) ]
+      - 创建关键词 [ Create(clt *core.SDKClient, accessToken string, req *wordinfo.CreateRequest) (*wordinfo.CreateResponse, error) ]
+      - 修改关键词匹配方式 [ UpdateMatchType(clt *core.SDKClient, accessToken string, req *wordinfo.UpdateMatchTypeRequest) ([]uint64, error) ]
+      - 修改关键词投放状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *wordinfo.UpdateStatusRequest) ([]uint64, error) ]
 - 数据报表
   - 广告数据报表 (api/report)
     - 代理商数据 [ AgentReport(clt *core.SDKClient, accessToken string, req *report.AgentReportRequest) (*report.AgentReportResponse, error) ]
