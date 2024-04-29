@@ -16,6 +16,10 @@ type AdVideoListRequest struct {
 	StartDate string `json:"start_date,omitempty"`
 	// EndDate 结束时间
 	EndDate string `json:"end_date,omitempty"`
+	// UpdateStartDate 更新开始时间	与 update_end_date 同时传或同时不传； 过滤筛选条件，格式为"yyyy-MM-dd"
+	UpdateStartDate string `json:"update_start_date,omitempty"`
+	// UpdateEndDate 更新结束时间	与 update_start_date 同时传或同时不传； 过滤筛选条件，格式为"yyyy-MM-dd"
+	UpdateEndDate string `json:"update_end_date,omitempty"`
 	// Page 请求的页码数
 	Page int `json:"page,omitempty"`
 	// PageSize 每页行数
