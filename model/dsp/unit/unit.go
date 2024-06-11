@@ -61,7 +61,7 @@ type Unit struct {
 	EndTime *string `json:"end_time,omitempty"`
 	// Schedule 投放时段
 	// 不投放的时段为 null，详请见下方，历史字段，即将废弃
-	Schedule *string `json:"schedule,omitempty"`
+	Schedule *UnitSchedule `json:"schedule,omitempty"`
 	// ScheduleTime 投放时段
 	// 24*7 的字符串，0 为不投放，1 为投放，例如：0010000000001....0000
 	ScheduleTime string `json:"schedule_time,omitempty"`
@@ -367,4 +367,22 @@ type BackflowForcast struct {
 	BackflowPayment float64 `json:"backflow_payment,omitempty"`
 	// BackflowROI 回流首日预估 ROI
 	BackflowROI float64 `json:"backflow_roi,omitempty"`
+}
+
+// UnitSchedule 投放时段
+type UnitSchedule struct {
+	// Mon 周一时间段
+	Mon []int `json:"mon,omitempty"`
+	// Tues 周二时间段
+	Tues []int `json:"tues,omitempty"`
+	// Wed 周三时间段
+	Wed []int `json:"wed,omitempty"`
+	// Thur 周四时间段
+	Thur []int `json:"thur,omitempty"`
+	// Fri 周五时间段
+	Fri []int `json:"fri,omitempty"`
+	// Sat 周六时间段
+	Sat []int `json:"sat,omitempty"`
+	// Sun 周日时间段
+	Sun []int `json:"sun,omitempty"`
 }
