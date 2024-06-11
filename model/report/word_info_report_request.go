@@ -17,7 +17,7 @@ type WordInfoReportRequest struct {
 
 // Url implement PostRequest interface
 func (r WordInfoReportRequest) Url() string {
-	return "v1/report/word_info_report"
+	return "gw/dsp/v1/report/word_info_report"
 }
 
 // Encode implement PostRequest interface

@@ -19,7 +19,7 @@ type QueryWordReportRequest struct {
 
 // Url implement PostRequest interface
 func (r QueryWordReportRequest) Url() string {
-	return "v1/report/query_word_report"
+	return "gw/dsp/v1/report/query_word_report"
 }
 
 // Encode implement PostRequest interface
