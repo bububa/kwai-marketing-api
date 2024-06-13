@@ -16,6 +16,10 @@ type TaskParams struct {
 	UnitIDs []uint64 `json:"unit_ids,omitempty"`
 	// CreativeIDs 广告创意 ID 集
 	CreativeIDs []uint64 `json:"creative_ids,omitempty"`
+	// WordInfoIDs 推广关键词ID集，过滤筛选条件，单次查询数量不超过 5000,推广关键词ID集可通过获取关键词列表接口获取
+	WordInfoIDs []uint64 `json:"word_info_ids,omitempty"`
+	// Query 用户搜索词，过滤筛选条件，单次查询数量不超过5000
+	Query []string `json:"query,omitempty"`
 	// PhotoIDs 视频ID集 仅 view_type=5、7、8 可使用
 	PhotoIDs []string `json:"photo_ids,omitempty"`
 	// CoverIDs 封面ID集 仅 view_type=5、7、8 可使用
@@ -26,6 +30,8 @@ type TaskParams struct {
 	ReportDims []string `json:"report_dims,omitempty"`
 	// TemporalGranularity 时间粒度 “DAILY”：天粒度；“HOURLY”：小时粒度；默认按天粒度进行聚合
 	TemporalGranularity model.TemporalGranularityType `json:"temporal_granularity,omitempty"`
+	// SelectedColumns 自定义列	仅view_type=21或25支持使用，支持列名及其关联字段详见：https://docs.qingque.cn/d/home/eZQB-fLBIZLvGG50L7vFkHL3J?identityId=1oE314hFZmG
+	SelectedColumns []string `json:"selected_columns,omitempty"`
 }
 
 type Task struct {
@@ -40,5 +46,5 @@ type Task struct {
 	// TaskStatus 任务状态 0：新建，1：处理中，2：处理成功，3：处理失败
 	TaskStatus int `json:"task_status,omitempty"`
 	// FileSize 文件大小 字节数
-	FileSize int `json:"file_size,omitempty"`
+	FileSize int64 `json:"file_size,omitempty"`
 }
