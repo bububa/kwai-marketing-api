@@ -4,10 +4,16 @@ package page
 type Page struct {
 	// ID 落地页 ID
 	ID int64 `json:"id,omitempty"`
-	// Comps 落地页包含的组件列表
-	Comps []Component `json:"comps,omitempty"`
 	// URL 落地页 URL
 	URL string `json:"url,omitempty"`
+	// Type 组件类型
+	Type int `json:"type,omitempty"`
+	// Name 组件名称
+	Name string `json:"name,omitempty"`
+	// PageComponentType 落地页组件类型 34: 微信小游戏； 35：微信小程序
+	PageComponentType []int `json:"page_component_type,omitempty"`
+	// AuditStatus 审核状态：1 草稿 ，2 审核中，3 审核通过，4 审核拒绝
+	AuditStatus int `json:"audit_status,omitempty"`
 	// FictionID 落地页绑定的小说 ID
 	FictionID int64 `json:"fiction_id,omitempty"`
 	// BizType 落地页类型，0：站内；1：联盟；2：站内&联盟通投
@@ -24,6 +30,8 @@ type Page struct {
 	Details interface{} `json:"details,omitempty"`
 	// CoverImgUrl 落地页封面图
 	CoverImgUrl string `json:"cover_img_url,omitempty"`
+	// Comps 落地页包含的组件列表
+	Comps []Component `json:"comps,omitempty"`
 }
 
 // Component 落地页包含的组件
@@ -34,6 +42,8 @@ type Component struct {
 	Type int `json:"type,omitempty"`
 	// Name 组件名称
 	Name string `json:"name,omitempty"`
+	// SubType 组件子类型
+	SubType int `json:"sub_type,omitempty"`
 	// Props 组件属性，仅当 Type 为 7 时有用, 其他类型没有这个属性
 	Props map[string]interface{} `json:"props,omitempty"`
 	// WechatGameID 小游戏类型对应的 ID，Type 为 34 时有用
