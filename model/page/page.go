@@ -3,7 +3,7 @@ package page
 // Page 魔力建站落地页
 type Page struct {
 	// ID 落地页 ID
-	ID int64 `json:"id,omitempty"`
+	ID uint64 `json:"id,omitempty"`
 	// URL 落地页 URL
 	URL string `json:"url,omitempty"`
 	// Type 组件类型
@@ -15,7 +15,7 @@ type Page struct {
 	// AuditStatus 审核状态：1 草稿 ，2 审核中，3 审核通过，4 审核拒绝
 	AuditStatus int `json:"audit_status,omitempty"`
 	// FictionID 落地页绑定的小说 ID
-	FictionID int64 `json:"fiction_id,omitempty"`
+	FictionID uint64 `json:"fiction_id,omitempty"`
 	// BizType 落地页类型，0：站内；1：联盟；2：站内&联盟通投
 	BizType int `json:"biz_type,omitempty"`
 	// CreateTime 创建时间，格式：yyyy-MM-dd hh:MM:ss
@@ -37,7 +37,7 @@ type Page struct {
 // Component 落地页包含的组件
 type Component struct {
 	// ID 组件 ID
-	ID int64 `json:"id,omitempty"`
+	ID uint64 `json:"id,omitempty"`
 	// Type 组件类型，0: 图片；1: 文本；2: 表单；3: 按钮；4: 轮播图；5: 视频；6: 地图；7: 应用下载；16: 空白组件；34: 小游戏；
 	Type int `json:"type,omitempty"`
 	// Name 组件名称
@@ -47,7 +47,7 @@ type Component struct {
 	// Props 组件属性，仅当 Type 为 7 时有用, 其他类型没有这个属性
 	Props map[string]interface{} `json:"props,omitempty"`
 	// WechatGameID 小游戏类型对应的 ID，Type 为 34 时有用
-	WechatGameID int64 `json:"wechat_game_id,omitempty"`
+	WechatGameID uint64 `json:"wechat_game_id,omitempty"`
 	// ButtonText 小游戏类型对应的按钮文案，Type 为 34 时有用
 	ButtonText string `json:"button_text,omitempty"`
 	// GameName 小游戏的名称，Type 为 34 时有用

@@ -5,7 +5,7 @@ import "encoding/json"
 // ListRequest 获取魔力建站落地页信息列表 API Request
 type ListRequest struct {
 	// AdvertiserID 广告主 ID，在获取 access_token 的时候返回
-	AdvertiserID int64 `json:"advertiser_id,omitempty"`
+	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// PageComponentType 落地页组件类型 34: 微信小游戏； 35：微信小程序
 	PageComponentType []int `json:"page_component_type,omitempty"`
 	// PageName 落地页名称
@@ -13,7 +13,7 @@ type ListRequest struct {
 	// ViewComps 包含的组件类型, 多个类型之间是或的关系，0: 图片；1: 文本；2: 表单；3: 按钮；4: 轮播图；5: 视频；6: 地图；7: 应用下载；16: 空白组件；34：小游戏
 	ViewComps []int `json:"view_comps,omitempty"`
 	// ComponentRefIDs 组件中线索通ID（如：小游戏ID），和view_comps类型对应，如：查询含有小游戏id的落地页，view_comps=34;component_ref_ids=123
-	ComponentRefIDs []int64 `json:"component_ref_ids,omitempty"`
+	ComponentRefIDs []uint64 `json:"component_ref_ids,omitempty"`
 	// FictionIDs 小说 ID 列表，仅对小说行业可选
 	FictionIDs []string `json:"fiction_ids,omitempty"`
 	// IsPageGroup 是否可创建程序化落地页组，仅对查询可创建程序化的落地页列表有效
