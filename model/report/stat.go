@@ -1,5 +1,7 @@
 package report
 
+import "github.com/bububa/kwai-marketing-api/model"
+
 // Stat 数据报表
 type Stat struct {
 	// CampaignID 广告计划ID
@@ -19,7 +21,7 @@ type Stat struct {
 	// Word 关键词文本
 	Word string `json:"word,omitempty"`
 	// MatchType 匹配方式：1:精确匹配,2:短语匹配,3:广泛匹配
-	MatchType int `json:"match_type,omitempty"`
+	MatchType model.MatchType `json:"match_type,omitempty"`
 	// PhotoID 视频id
 	PhotoID string `json:"photo_id,omitempty"`
 	// PhotoUrl 视频链接
