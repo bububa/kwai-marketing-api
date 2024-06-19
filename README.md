@@ -120,6 +120,10 @@
     - 视频库-删除视频标签 [ AdVideoTagDelete(clt *core.SDKClient, accessToken string, req *file.AdVideoTagDeleteRequest) error ]
     - 视频关联创意数查询 [ AdVideoRelateCreatives(clt *core.SDKClient, accessToken string, req *file.AdVideoRelateCreativesRequest) ([]file.AdVideoRelatedCreatives, error) ]
     - 查询账户共享视频库按钮是否开启 [ dsp.video.QueryAutoShareSwitch(clt *core.SDKClient, accessToken string, req *video.QueryAutoShareSwitchRequest) (*video.QueryAutoShareSwitchResponse, error) ]
+- 建站管理(api/page)
+  - 获取魔力建站落地页组信息列表 [ List(clt *core.SDKClient, accessToken string, req *page.ListRequest) (*page.ListResponse, error) ]
+  - 批量转赠 [ BatchGive(clt *core.SDKClient, accessToken string, req *page.BatchGiveRequest) error ]
+  - 魔力建站落地页更新CID信息 [ CidInfoUpdate(clt *core.SDKClient, accessToken string, req *page.CidInfoUpdateRequest) (uint64, error) ]
 - 工具
   - 查询工具
     - 获取可选的深度转化目标 [ unit.OcpcConversionInfos(clt *core.SDKClient, accessToken string, req *unit.OcpcConversionInfosRequest) (*unit.OcpcConversionInfosResponse, error) ]

@@ -23,7 +23,7 @@ type Stat struct {
 	// MatchType 匹配方式：1:精确匹配,2:短语匹配,3:广泛匹配
 	MatchType model.MatchType `json:"match_type,omitempty"`
 	// PhotoID 视频id
-	PhotoID uint64 `json:"photo_id,omitempty"`
+	PhotoID model.Uint64 `json:"photo_id,omitempty"`
 	// PhotoUrl 视频链接
 	PhotoUrl string `json:"photo_url,omitempty"`
 	// ImageToken 封面id
