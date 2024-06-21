@@ -18,6 +18,8 @@ type SubpkgItem struct {
 	AppId int64 `json:"app_id"`
 	//app_privacy_url	String		应用隐私政策链接
 	AppPrivacyUrl string `json:"app_privacy_url"`
+	//channel_id String 渠道号(分包号)
+	ChannelId string `json:"channel_id"`
 	//ios_app_id	String		解析出的iosAppID
 	IosAppId string `json:"ios_app_id"`
 	//offline_app_stores	String		下架的应用商店	"huawei","oppo","vivo","xiaomi","meizu","smartisan"
