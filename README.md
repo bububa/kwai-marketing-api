@@ -13,6 +13,7 @@
   - 生成授权链接 [ Url(clt *core.SDKClient, req *oauth.UrlRequest) string ]
   - 获取AccessToken [ AccessToken(clt *core.SDKClient, authCode String) (*oauth.AccessTokenResponse, error) ]
   - 刷新Token [ RefreshToken(clt *core.SDKClient, refreshToken string) (*oauth.AccessTokenResponse, error)]
+  - 拉取token下授权广告账户接口 [ ApprovalList(clt *core.SDKClient, accessToken string) ([]uint64, error) ]
 - 账号服务
   - 广告主 (api/advertiser)
     - 获取广告主信息 [ Info(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Info, error) ]
