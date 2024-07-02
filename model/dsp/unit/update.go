@@ -40,7 +40,7 @@ type UpdateRequest struct {
 	BeginTime string `json:"begin_time,omitempty"`
 	// EndTime 投放结束时间
 	// 格式为 yyyy-MM-dd，不传值表示从今天开始长期投放，传值表示设置开始时间和结束时间，且投放结束时间需大于等于投放开始时间，开屏如果选择按开始时间和结束时间投放，时间(end_time - begin_time)必须超过三天
-	EndTime string `json:"end_time,omitempty"`
+	EndTime *string `json:"end_time,omitempty"`
 	// ScheduleTime 投放时间段
 	// 格式为 24*7 位字符串，且都为 0 和 1，以一个小时为最小粒度，从周一零点开始至周日 24 点结束；0 为不投放，1 为投放，不传/全传 1/全传 0 视为全时段投放
 	ScheduleTime string `json:"schedule_time,omitempty"`
