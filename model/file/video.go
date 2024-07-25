@@ -2,6 +2,8 @@ package file
 
 // Video 视频素材
 type Video struct {
+	// Cursor 游标查询返回游标
+	Cursor int64 `json:"cursor"`
 	// PhotoID 视频ID
 	PhotoID string `json:"photo_id,omitempty"`
 	// Width 视频宽度
