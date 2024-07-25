@@ -10,14 +10,14 @@ type VideoListByCursorRequest struct {
 	// AdvertiserID 广告主ID
 	AdvertiserID uint64 `json:"advertiser_id,omitempty"`
 	// Cursor 游标
-	Cursor *int64 `json:"new_status,omitempty"`
+	Cursor *int64 `json:"cursor,omitempty"`
 	// Limit 请求的页码数
-	Limit int `json:"page,omitempty"`
+	Limit int `json:"limit,omitempty"`
 }
 
 // Url implement PostRequest interface
 func (r VideoListByCursorRequest) Url() string {
-	return "v1/file/ad/video/list"
+	return "gw/dsp/video/listByCursor"
 }
 
 // Encode implement PostRequest interface
