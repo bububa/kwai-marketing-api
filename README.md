@@ -8,20 +8,19 @@
 [![GitHub license](https://img.shields.io/github/license/bububa/kwai-marketing-api.svg)](https://github.com/bububa/kwai-marketing-api/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/bububa/kwai-marketing-api.svg)](https://GitHub.com/bububa/kwai-marketing-api/releases/)
 
-
 - Oauth2 授权 (api/oauth)
   - 生成授权链接 [ Url(clt *core.SDKClient, req *oauth.UrlRequest) string ]
   - 获取AccessToken [ AccessToken(clt *core.SDKClient, authCode String) (*oauth.AccessTokenResponse, error) ]
   - 刷新Token [ RefreshToken(clt *core.SDKClient, refreshToken string) (*oauth.AccessTokenResponse, error)]
-  - 拉取token下授权广告账户接口 [ ApprovalList(clt *core.SDKClient, accessToken string) ([]uint64, error) ]
+  - 拉取token下授权广告账户接口 [ ApprovalList(clt \*core.SDKClient, accessToken string) ([]uint64, error) ]
 - 账号服务
   - 广告主 (api/advertiser)
     - 获取广告主信息 [ Info(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Info, error) ]
     - 获取广告账户余额信息 [ FundGet(clt *core.SDKClient, accessToken string, advertiserID int64) (float64, error) ]
-    - 获取广告主账户流水信息 [ FundDailyFlows(clt *core.SDK, accessToken string, req *advertiser.FundDailyFlowsRequest) (*advertiser.FundDailyFlowsResponse, error) ] 
+    - 获取广告主账户流水信息 [ FundDailyFlows(clt *core.SDK, accessToken string, req *advertiser.FundDailyFlowsRequest) (*advertiser.FundDailyFlowsResponse, error) ]
   - 账户罗盘(api/adcompass)
-    - 获取罗盘绑定广告主列 [ Advertisers(clt *core.SDKClient, accessToken string, advertiserID uint64) ([]adcompass.Advertiser, error) ]
-    - 磁力罗盘对外 quota 腾挪接口 [ QuotaTending(clt *core.SDKClient, accessToken string, req *adcompass.QuotaTendingRequest) (string, error)  ]
+    - 获取罗盘绑定广告主列 [ Advertisers(clt \*core.SDKClient, accessToken string, advertiserID uint64) ([]adcompass.Advertiser, error) ]
+    - 磁力罗盘对外 quota 腾挪接口 [ QuotaTending(clt *core.SDKClient, accessToken string, req *adcompass.QuotaTendingRequest) (string, error) ]
 - 广告投放
   - 智能创编 (api/dsp)
     - 广告计划 (api/dsp/campaign)
@@ -131,13 +130,13 @@
     - 获取可选的定向标签 [ tool.TargetingTagsList(clt *core.SDKClient, accessToken string, req *tool.TargetingTagsListRequest) (*tool.TargetingTag, error) ]
     - 获取可选的应用定向 [ tool.AppSearch(clt *core.SDKClient, accessToken string, req *tool.AppSearchRequest) (*tool.TargetingApp, error) ]
     - 获取可选的推荐封面 [ tool.KeyFrame(clt *core.SDKClient, accessToken string, req *tool.KeyFrameRequest) ([]string, error) ]
-    - 获取可选的动态词包 [ tool.CreativeWordList(clt *core.SDKClient, accessToken string, advertiserID int64) ([]tool.CreativeWord, error) ]
+    - 获取可选的动态词包 [ tool.CreativeWordList(clt \*core.SDKClient, accessToken string, advertiserID int64) ([]tool.CreativeWord, error) ]
     - 获取行动号召按钮 [ creative.ActionBarTextList(clt *core.SDKClient, accessToken string, req *creative.ActionBarTextListRequest) ([]string, error) ]
-    - 获取可选的封面贴纸样式 [ tool.CreativeWordStyles(clt *core.SDKClient, accessToken string, advertiserID int64) ([]tool.CreativeWordStyle, error) ]
+    - 获取可选的封面贴纸样式 [ tool.CreativeWordStyles(clt \*core.SDKClient, accessToken string, advertiserID int64) ([]tool.CreativeWordStyle, error) ]
     - 获取可用的转化目标 [ tool.ConvertList(clt *core.SDKClient, accessToken string, req *tool.ConvertListRequest) (*tool.ConvertListResponse, error) ]
     - 获取可选白名单接口 [ advertiser.WhiteList(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.WhiteListResponse, error) ]
-    - 获取地域定向 [ region.List(clt *core.SDKClient, accessToken string) (map[string]region.Region, error) ]
-    - 获取商圈地域定向 [ region.DistrictList(clt *core.SDKClient, accessToken string, advertiserID int64) (map[string]region.District, error) ]
+    - 获取地域定向 [ region.List(clt \*core.SDKClient, accessToken string) (map[string]region.Region, error) ]
+    - 获取商圈地域定向 [ region.DistrictList(clt \*core.SDKClient, accessToken string, advertiserID int64) (map[string]region.District, error) ]
     - 获取可用咨询组件列表 [ lp.ConsultList(clt *core.SDKClient, accessToken string, req *lp.ConsultListRequest) (*lp.ConsultListResponse, error) ]
   - 出价建议
     - 获取广告组出价建议 [ tool.unit.SuggestBidDetail(clt *core.SDKClient, accessToken string, req *unit.SuggestBidDetailRequest) ([]unit.SuggestBidUnit, error) ]
@@ -181,11 +180,37 @@
   - 人群包删除接口 [ PopulationDelete(clt *core.SDKClient, accessToken string, req *dmp.PopulationDeleteRequest) error ]
   - 人群包跨账户推送 [ PopulationAccountsPush(clt *core.SDKClient, accessToken string, req *dmp.PopulationAccountsPushRequest) (*dmp.PopulationAccountsPushResponse, error) ]
   - 人群包上线接口 [ PopulationPush(clt *core.SDKClient, accessToken string, req *dmp.PopulationPushRequest) error ]
+- 应用管理 (api/appcenter)
+  - 文件上传 (api/appcenter/upload)
+    - 上传 APK 文件 [ Apk(clt *core.SDKClient, accessToken string, req *upload.ApkRequest) (string, error) ]
+    - 上传图片 [ Pic(clt *core.SDKClient, accessToken string, req *upload.PicRequest) (string, error) ]
+  - 应用创编
+    - 创建 Android 应用 [ CreateAndroid(clt *core.SDKClient, accessToken string, req *app.CreateAndroidRequest) (*app.App, error) ]
+    - 创建 iOS 应用 [ CreateIos(clt *core.SDKClient, accessToken string, req *app.CreateIosRequest) (*app.App, error) ]
+    - 编辑 Android 应用 [ UpdateAndroid(clt *core.SDKClient, accessToken string, req *app.UpdateAndroidRequest) (*app.App, error) ]
+    - 更新 iOS 应用 [ UpdateIos(clt *core.SDKClient, accessToken string, req *app.UpdateIosRequest) (*app.App, error) ]
+  - 应用查询For单元投放
+    - 获取新版应用发布列表【单元创编】[ app.ReleaseList(clt *core.SDKClient, accessToken string, req *app.ReleaseListRequest) (*app.ListResponse, error) ]
+    - 获取新版分包发布列表【单元创编】 [ subpkg.ReleaseList(clt *core.SDKClient, accessToken string, req *subpkg.ReleaseListRequest) (*subpkg.ListResponse, error) ]
+  - 应用查询For应用中心
+    - 获取应用列表 [ app.List(clt *core.SDKClient, accessToken string, req *app.ListRequest) (*app.ListResponse, error) ]
+    - 获取应用详情 [ app.Detail(clt *core.SDKClient, accessToken string, req *app.DetailRequest) (*app.App, error) ]
+  - 应用操作
+    - iOS 应用上报更新 [ app.IosUpdate(clt *core.SDKClient, accessToken string, req *app.IosUpdateRequest) error ]
+    - 发布应用 [ app.Release(clt *core.SDKClient, accessToken string, req *app.ReleaseRequest) (*app.App, error) ]
+    - 应用上架 [ app.Online(clt *core.SDKClient, accessToken string, req *app.OnlineRequest) error ]
+    - 应用下架 [ app.Offline(clt *core.SDKClient, accessToken string, req *app.OfflineRequest) error ]
+    - 应用商店上下架 [ app.OfflineAppStores(clt *core.SDKClient, accessToken string, req *app.OfflineAppStoresRequest) error ]
+  - 应用分包
+    - 新建应用分包 [ subpkg.Add(clt *core.SDKClient, accessToken string, req *subpkg.AddRequest) ([]subpkg.SubPackage, error) ]
+    - 更新/恢复/删除应用分包 [ subpkg.Mod(clt *core.SDKClient, accessToken string, req *subpkg.ModRequest) error ]
+    - 修改应用分包备注 [ subpkg.Description(clt *core.SDKClient, accessToken string, req *subpkg.DescriptionRequest) error ]
+    - 获取分包管理/回收站列表 [ subpkg.List(clt *core.SDKClient, accessToken string, req *subpkg.ListRequest) (*subpkg.ListResponse, error) ]
+    - 分包失败重新构建 [ app.RetryBuildSubPackage(clt *core.SDKClient, accessToken string, req *app.RetryBuildSubPackageRequest) (int, error) ]
 - 数据上报管理 (api/track)
   - 转化回传 [ Activate(req *track.ActivateRequest) error ]
   - 点击检测链接 [ Click(baseUrl string, fields []string) string ]
 
-
 # Reference
-[API文档](https://developers.e.kuaishou.com/docs)
 
+[API文档](https://developers.e.kuaishou.com/docs)

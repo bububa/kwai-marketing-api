@@ -1,6 +1,6 @@
 package report
 
-import "encoding/json"
+import "github.com/bububa/kwai-marketing-api/model"
 
 // WordInfoReportRequest 关键词报表 API Request
 type WordInfoReportRequest struct {
@@ -22,6 +22,5 @@ func (r WordInfoReportRequest) Url() string {
 
 // Encode implement PostRequest interface
 func (r WordInfoReportRequest) Encode() []byte {
-	buf, _ := json.Marshal(r)
-	return buf
+	return model.JSONMarshal(r)
 }

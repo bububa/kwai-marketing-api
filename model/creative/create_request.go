@@ -1,6 +1,6 @@
 package creative
 
-import "encoding/json"
+import "github.com/bububa/kwai-marketing-api/model"
 
 // CreateRequest 创建创意API Request
 type CreateRequest struct {
@@ -59,6 +59,5 @@ func (r CreateRequest) Url() string {
 
 // Encode implement PostRequest interface
 func (r CreateRequest) Encode() []byte {
-	ret, _ := json.Marshal(r)
-	return ret
+	return model.JSONMarshal(r)
 }

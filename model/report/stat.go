@@ -22,6 +22,10 @@ type Stat struct {
 	Word string `json:"word,omitempty"`
 	// MatchType 匹配方式：1:精确匹配,2:短语匹配,3:广泛匹配
 	MatchType model.MatchType `json:"match_type,omitempty"`
+	// Query 搜索词
+	Query string `json:",omitempty"`
+	// TriggerType 触发方式：1:精确匹配,2:短语匹配,3:广泛匹配
+	TriggerType int `json:"trigger_type,omitempty"`
 	// PhotoID 视频id
 	PhotoID model.Uint64 `json:"photo_id,omitempty"`
 	// PhotoUrl 视频链接
