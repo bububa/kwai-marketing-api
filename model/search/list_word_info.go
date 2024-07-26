@@ -1,6 +1,6 @@
 package search
 
-import "github.com/bububa/oceanengine/marketing-api/util"
+import "github.com/bububa/kwai-marketing-api/model"
 
 // WordInfoListRequest 获取关键词列表
 type WordInfoListRequest struct {
@@ -17,7 +17,7 @@ func (r WordInfoListRequest) Url() string {
 
 // Encode implement GetRequest interface
 func (r WordInfoListRequest) Encode() []byte {
-	return util.JSONMarshal(r)
+	return model.JSONMarshal(r)
 }
 
 type WordInfoListResponse struct {
