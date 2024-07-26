@@ -1,6 +1,6 @@
 package campaign
 
-import "encoding/json"
+import "github.com/bububa/kwai-marketing-api/model"
 
 // UpdateRequest 更新广告计划 API Request
 type UpdateRequest struct {
@@ -26,13 +26,14 @@ type UpdateRequest struct {
 	AutoBuild int `json:"auto_build,omitempty"`
 	// AutoBuildNameRule 自动基建命名规则; 仅在auto_build为1时，此字段生效，开启自动基建时必填命名规则，组、创意命名规则均必须同时包含[日期]和[序号]宏变量【注：白名单功能】
 	AutoBuildNameRule *AutoBuildNameRule `json:"auto_build_name_rule,omitempty"`
-	//auto_manage	int	选填	是	智能投放开关	0：关闭，1：开启。【注：此字段修改为关闭时，需同时关闭 auto_adjust、auto_build 字段。此字段修改为开启时，该计划下必须存在在投广告组且campaign_ocpx_action_type、campaign_deep_conversion_type必须设置为与任一在投广告组优化目标和深层优化目标值一致，白名单功能】
+	// auto_manage	int	选填	是	智能投放开关	0：关闭，1：开启。【注：此字段修改为关闭时，需同时关闭 auto_adjust、auto_build 字段。此字段修改为开启时，该计划下必须存在在投广告组且campaign_ocpx_action_type、campaign_deep_conversion_type必须设置为与任一在投广告组优化目标和深层优化目标值一致，白名单功能】
 	AutoManage int `json:"auto_manage,omitempty"`
-	//campaign_ocpx_action_type	int	选填	是	智能投放优化目标	auto_manage 设置为开启时可填，必须与该计划下任一广告组的优化目标保持一致
+	// campaign_ocpx_action_type	int	选填	是	智能投放优化目标	auto_manage 设置为开启时可填，必须与该计划下任一广告组的优化目标保持一致
 	CampaignOcpxActionType int `json:"campaign_ocpx_action_type,omitempty"`
-	//campaign_deep_conversion_type	int	选填	是	智能投放深度优化目标	auto_manage 设置为开启时可填，必须与该计划下任一广告组的深度优化目标保持一致
+	// campaign_deep_conversion_type	int	选填	是	智能投放深度优化目标	auto_manage 设置为开启时可填，必须与该计划下任一广告组的深度优化目标保持一致
 	CampaignDeepConversionType int `json:"campaign_deep_conversion_type,omitempty"`
-	PutStatus                  int `json:"put_status,omitempty"`
+	// PutStatus 1-投放、2-暂停、3-删除，传其他数字非法
+	PutStatus int `json:"put_status,omitempty"`
 }
 
 // Url implement PostRequest interface
@@ -42,6 +43,5 @@ func (r UpdateRequest) Url() string {
 
 // Encode implement PostRequest interface
 func (r UpdateRequest) Encode() []byte {
-	ret, _ := json.Marshal(r)
-	return ret
+	return model.JSONMarshal(r)
 }
