@@ -13,6 +13,7 @@
   - 生成授权链接 [ Url(clt *core.SDKClient, req *oauth.UrlRequest) string ]
   - 获取AccessToken [ AccessToken(clt *core.SDKClient, authCode String) (*oauth.AccessTokenResponse, error) ]
   - 刷新Token [ RefreshToken(clt *core.SDKClient, refreshToken string) (*oauth.AccessTokenResponse, error)]
+  - 拉取token下授权广告账户接口 [ ApprovalList(clt *core.SDKClient, accessToken string) ([]uint64, error) ]
 - 账号服务
   - 广告主 (api/advertiser)
     - 获取广告主信息 [ Info(clt *core.SDKClient, accessToken string, advertiserID int64) (*advertiser.Info, error) ]
@@ -84,6 +85,12 @@
     - 获取高级创意列表 [ AdvCardList(clt *core.SDKClient, accessToken string, req *asset.AdvCardListRequest) (*asset.AdvCardListResponse, error) ]
     - 创建高级创意接口 [ AdvCardCreate(clt *core.SDKClient, accessToken string, req *asset.AdvCardCreateRequest) ([]int64, error) ]
     - 删除高级创意接口 [ AdvCardRemove(clt *core.SDKClient, accessToken string, req *asset.AdvCardRemoveRequest) ([]int64, error) ]
+  - 搜索广告工具
+    - 关键词管理 (api/wordinfo)
+      - 获取关键词列表 [ List(clt *core.SDKClient, accessToken string, req *wordinfo.ListRequest) (*wordinfo.ListResponse, error) ]
+      - 创建关键词 [ Create(clt *core.SDKClient, accessToken string, req *wordinfo.CreateRequest) (*wordinfo.CreateResponse, error) ]
+      - 修改关键词匹配方式 [ UpdateMatchType(clt *core.SDKClient, accessToken string, req *wordinfo.UpdateMatchTypeRequest) ([]uint64, error) ]
+      - 修改关键词投放状态 [ UpdateStatus(clt *core.SDKClient, accessToken string, req *wordinfo.UpdateStatusRequest) ([]uint64, error) ]
 - 数据报表
   - 广告数据报表 (api/report)
     - 代理商数据 [ AgentReport(clt *core.SDKClient, accessToken string, req *report.AgentReportRequest) (*report.AgentReportResponse, error) ]
@@ -95,6 +102,8 @@
     - 广告素材数据 [ CreativeReport(clt *core.SDKClient, accessToken string, req *report.MaterialReportRequest) (*report.ReportResponse, error) ]
     - 人群分析数据 [ AudienceReport(clt *core.SDKClient, accessToken string, req *report.AudienceReportRequest) (*report.ReportResponse, error) ]
     - 小店通转化数据 [ MerchantDeatailReport(clt *core.SDKClient, accessToken string, req *report.MerchantDetailReportRequest) (*report.MerchantDetailReportResponse, error) ]
+    - 关键词报表 [ WordInfoReport(clt *core.SDKClient, accessToken string, req *report.WordInfoReportRequest) (*report.ReportResponse, error) ]
+    - 搜索词报表 [ QueryWordReport(clt *core.SDKClient, accessToken string, req *report.QueryWordReportRequest) (*report.ReportResponse, error) ]
 - 素材管理(api/file)
   - 图片素材
     - 上传图片v1接口 [ AdImageUploadV1(clt *core.SDKClient, accessToken string, req *file.AdImageUploadRequestV1) (*file.Image, error) ]
@@ -111,6 +120,11 @@
     - 视频库-批量更新视频功能 [ AdVideoUpdate(clt *core.SDKClient, accessToken string, req *file.AdVideoUpdateRequest) error ]
     - 视频库-删除视频标签 [ AdVideoTagDelete(clt *core.SDKClient, accessToken string, req *file.AdVideoTagDeleteRequest) error ]
     - 视频关联创意数查询 [ AdVideoRelateCreatives(clt *core.SDKClient, accessToken string, req *file.AdVideoRelateCreativesRequest) ([]file.AdVideoRelatedCreatives, error) ]
+    - 查询账户共享视频库按钮是否开启 [ dsp.video.QueryAutoShareSwitch(clt *core.SDKClient, accessToken string, req *video.QueryAutoShareSwitchRequest) (*video.QueryAutoShareSwitchResponse, error) ]
+- 建站管理(api/page)
+  - 获取魔力建站落地页组信息列表 [ List(clt *core.SDKClient, accessToken string, req *page.ListRequest) (*page.ListResponse, error) ]
+  - 批量转赠 [ BatchGive(clt *core.SDKClient, accessToken string, req *page.BatchGiveRequest) error ]
+  - 魔力建站落地页更新CID信息 [ CidInfoUpdate(clt *core.SDKClient, accessToken string, req *page.CidInfoUpdateRequest) (uint64, error) ]
 - 工具
   - 查询工具
     - 获取可选的深度转化目标 [ unit.OcpcConversionInfos(clt *core.SDKClient, accessToken string, req *unit.OcpcConversionInfosRequest) (*unit.OcpcConversionInfosResponse, error) ]
@@ -146,6 +160,20 @@
     - 查询定向模板接口 [ target.TemplateList(clt *core.SDKClient, accessToken string, req *target.TemplateListRequest) (*target.TemplateListResponse, error) ]
     - 修改定向模板 [ target.TemplateUpdate(clt *core.SDKClient, accessToken string, req *target.TemplateUpdateRequest) (*target.Template, error) ]
     - 删除定向模板 [ target.TemplateDelete(clt *core.SDKClient, accessToken string, req *target.TemplateDeleteRequest) error ]
+  - 直播推广 (api/dsp/jingbell)
+    - 小铃铛推送 [ jingbel.Share(clt *core.SDKClient, accessToken string, req *jingbell.ShareRequest) error ]
+  - 原生广告投放工具 (api/dsp/native)
+    - 开启原生扩量开关接口 [ OpenAccountNative(clt *core.SDKClient, accessToken string, req *native.OpenAccountNativeRequest) error ]
+  - 评论管理 (api/comment)
+    - 评论列表数据查询 [ List(clt *core.SDKClient, accessToken string, req *comment.ListRequest) (*comment.ListResponse, error) ]
+    - 回复评论 [ Reply(clt *core.SDKClient, accessToken string, req *comment.ReplyRequest) ([]comment.ReplyResult, error) ]
+    - 评论树查询 [ Tree(clt *core.SDKClient, accessToken string, req *comment.TreeRequest) (*comment.TreeResponse, error) ]
+    - 屏蔽评论 [ Shield(clt *core.SDKClient, accessToken string, req *comment.ShieldRequest) error ]
+    - 增加屏蔽评论信息 [ ShieldInfoCreate(clt *core.SDKClient, accessToken string, req *comment.ShieldInfoCreateRequest) ([]uint64, error) ]
+    - 删除屏蔽评论信息 [ ShieldInfoDelete(clt *core.SDKClient, accessToken string, req *comment.ShieldInfoDeleteRequest) error ]
+    - 获取屏蔽评论信息列表 [ ShieldInfoList(clt *core.SDKClient, accessToken string, req *comment.ShieldInfoListRequest) (*comment.ShieldInfoListResponse, error) ]
+    - 评论置顶 [ SetTop(clt *core.SDKClient, accessToken string, req *comment.SetTopRequest) (uint64, error) ]
+    - 取消评论置顶 [ CancelTop(clt *core.SDKClient, accessToken string, req *comment.CancelTopRequest) (uint64, error) ]
 - DMP人群管理(api/dmp)
   - 人群包上传接口 [ PopulationUpload(clt *core.SDKClient, accessToken string, req *dmp.PopulationUploadRequest) (*dmp.Population, error) ]
   - 人群包更新接口 [ PopulationUpdate(clt *core.SDKClient, accessToken string, req *dmp.PopulationUpdateRequest) (*dmp.Population, error) ]

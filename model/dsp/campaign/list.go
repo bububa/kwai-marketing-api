@@ -35,7 +35,7 @@ type ListRequest struct {
 
 // Url implement PostRequest interface
 func (r ListRequest) Url() string {
-	return "dsp/campaign/list"
+	return "gw/dsp/campaign/list"
 }
 
 // Encode implement PostRequest interface

@@ -1,0 +1,29 @@
+package report
+
+import "encoding/json"
+
+// QueryWordReportRequest 搜索词报表 API Request
+type QueryWordReportRequest struct {
+	ReportRequest
+	// UnitID 广告组 ID，过滤筛选条件。不可同时筛选unit_id和word_info_ids
+	UnitID uint64 `json:"unit_id,omitempty"`
+	// UnitIDs 广告组 ID 集，过滤筛选条件，单次查询数量不超过 5000
+	UnitIDs []uint64 `json:"unit_ids,omitempty"`
+	// WordInfoIDs 推广关键词ID集，过滤筛选条件，单次查询数量不超过 5000。推广关键词ID集可通过获取关键词列表接口获取
+	WordInfoIDs []uint64 `json:"word_ids,omitempty"`
+	// Query 搜索词，过滤筛选条件，单次查询数量不超过5000
+	Query string `json:"query,omitempty"`
+	// ExtendInfo 	扩展查询选项,输入extendSearch可以查询智能扩词数据
+	ExtendInfo []string `json:"extend_info,omitempty"`
+}
+
+// Url implement PostRequest interface
+func (r QueryWordReportRequest) Url() string {
+	return "gw/dsp/v1/report/query_word_report"
+}
+
+// Encode implement PostRequest interface
+func (r QueryWordReportRequest) Encode() []byte {
+	buf, _ := json.Marshal(r)
+	return buf
+}

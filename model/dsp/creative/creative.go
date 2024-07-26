@@ -121,6 +121,9 @@ type Creative struct {
 	// CreativeMode 创意生成模式
 	// 0：默认-普通模式 1：AIGC生成
 	CreativeMode int `json:"creative_mode,omitempty"`
+	// OpenAccountNative 是否为原生扩量
+	// 0：否 1：是
+	OpenAccountNative int `json:"open_account_native,omitempty"`
 }
 
 // DisplayInfo 广告展示信息

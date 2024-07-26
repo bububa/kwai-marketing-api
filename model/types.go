@@ -10,6 +10,9 @@ type Uint64 uint64
 
 // UnmarshalJSON implement json Unmarshal interface
 func (u64 *Uint64) UnmarshalJSON(b []byte) (err error) {
+	if len(b) == 0 {
+		return nil
+	}
 	if b[0] == '"' && b[len(b)-1] == '"' {
 		b = b[1 : len(b)-1]
 	}
@@ -31,6 +34,9 @@ type Int64 int64
 
 // UnmarshalJSON implement json Unmarshal interface
 func (i64 *Int64) UnmarshalJSON(b []byte) (err error) {
+	if len(b) == 0 {
+		return nil
+	}
 	if b[0] == '"' && b[len(b)-1] == '"' {
 		b = b[1 : len(b)-1]
 	}
@@ -52,6 +58,9 @@ type Int int
 
 // UnmarshalJSON implement json Unmarshal interface
 func (i *Int) UnmarshalJSON(b []byte) (err error) {
+	if len(b) == 0 {
+		return nil
+	}
 	if b[0] == '"' && b[len(b)-1] == '"' {
 		b = b[1 : len(b)-1]
 	}
@@ -73,6 +82,9 @@ type Float64 float64
 
 // UnmarshalJSON implement json Unmarshal interface
 func (f64 *Float64) UnmarshalJSON(b []byte) (err error) {
+	if len(b) == 0 {
+		return nil
+	}
 	if b[0] == '"' && b[len(b)-1] == '"' {
 		b = b[1 : len(b)-1]
 	}
@@ -92,4 +104,56 @@ func (f64 Float64) String(prec int) string {
 func JSONMarshal(i interface{}) []byte {
 	b, _ := json.Marshal(i)
 	return b
+}
+
+type MatchType int
+
+// UnmarshalJSON implement json Unmarshal interface
+func (m *MatchType) UnmarshalJSON(b []byte) (err error) {
+	if len(b) == 0 {
+		return nil
+	}
+	if b[0] == '"' && b[len(b)-1] == '"' {
+		b = b[1 : len(b)-1]
+	}
+	if i, err := strconv.ParseFloat(string(b), 64); err == nil {
+		*m = MatchType(i)
+	} else {
+		switch string(b) {
+		case "精确匹配":
+			*m = MatchType(1)
+		case "短语匹配":
+			*m = MatchType(2)
+		case "广泛匹配":
+			*m = MatchType(3)
+		}
+	}
+	return
+}
+
+// UnmarshalCSV implement json Unmarshal interface
+func (m *MatchType) UnmarshalCSV(b string) (err error) {
+	if len(b) == 0 {
+		return nil
+	}
+	if b[0] == '"' && b[len(b)-1] == '"' {
+		b = b[1 : len(b)-1]
+	}
+	if i, err := strconv.ParseFloat(b, 64); err == nil {
+		*m = MatchType(i)
+	} else {
+		switch b {
+		case "精确匹配":
+			*m = MatchType(1)
+		case "短语匹配":
+			*m = MatchType(2)
+		case "广泛匹配":
+			*m = MatchType(3)
+		}
+	}
+	return
+}
+
+func (m MatchType) Value() int {
+	return int(m)
 }

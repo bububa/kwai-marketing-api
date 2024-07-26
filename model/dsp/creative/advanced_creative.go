@@ -27,6 +27,8 @@ type AdvancedCreative struct {
 	// ClickURL 第三方点击检测链接
 	// 不能超过 1024 字符 ocpx_action_type 是 180 并且应用没有接入 sdk，监测链接必填； 计划 type 是 2（推广应用安装），ocpx_action_type 是注册（396）、付费（190）、完件（384）、授信（383），并且没有接入 sdk，监测链接必填
 	ClickURL string `json:"click_url,omitempty"`
+	// ImpressionURL 第三方开始播放监测链接
+	ImpressionURL string `json:"impression_url,omitempty"`
 	// ActionbarClickURL 第三方 ActionBar 点击监控链接，命中有效触点白名单表示有效触点监测链接（限：快手主站/极速版场景）
 	// 部分客户使用 actionbar_click_url 不为空时，click_url 必填，不能超过 1024 字符
 	ActionbarClickURL string `json:"actionbar_click_url,omitempty"`
@@ -83,4 +85,7 @@ type AdvancedCreative struct {
 	// Recommendation plc自定义文案
 	// 开启原生时可用
 	Recommendation string `json:"recommendation,omitempty"`
+	// OpenAccountNative 是否为原生扩量
+	// 0：否 1：是
+	OpenAccountNative int `json:"open_account_native,omitempty"`
 }

@@ -61,7 +61,7 @@ type Unit struct {
 	EndTime *string `json:"end_time,omitempty"`
 	// Schedule 投放时段
 	// 不投放的时段为 null，详请见下方，历史字段，即将废弃
-	Schedule *string `json:"schedule,omitempty"`
+	Schedule *UnitSchedule `json:"schedule,omitempty"`
 	// ScheduleTime 投放时段
 	// 24*7 的字符串，0 为不投放，1 为投放，例如：0010000000001....0000
 	ScheduleTime string `json:"schedule_time,omitempty"`
@@ -237,6 +237,9 @@ type Unit struct {
 	// ULink Universal Link 链接
 	// 仅在计划 campaignType=7 提升应用活跃时使用，输入后IOS将优先调起该链接，不超过2000字符
 	ULink string `json:"u_link,omitempty"`
+	// UnitMaterialType 广告标的物类型
+	// campaignType = 19（快手小程序/小游戏推广）时（释义同mini_app_type字段）表示：1：快手小程序；2：快手小游戏；campaignType = 32（微信小程序/小游戏推广）时表示：3：微信小程序；4：微信小游戏
+	UnitMaterialType int `json:"unit_material_type,omitempty"`
 }
 
 // DpaUnitParam DPA 相关商品信息
@@ -364,4 +367,22 @@ type BackflowForcast struct {
 	BackflowPayment float64 `json:"backflow_payment,omitempty"`
 	// BackflowROI 回流首日预估 ROI
 	BackflowROI float64 `json:"backflow_roi,omitempty"`
+}
+
+// UnitSchedule 投放时段
+type UnitSchedule struct {
+	// Mon 周一时间段
+	Mon []int `json:"mon,omitempty"`
+	// Tues 周二时间段
+	Tues []int `json:"tues,omitempty"`
+	// Wed 周三时间段
+	Wed []int `json:"wed,omitempty"`
+	// Thur 周四时间段
+	Thur []int `json:"thur,omitempty"`
+	// Fri 周五时间段
+	Fri []int `json:"fri,omitempty"`
+	// Sat 周六时间段
+	Sat []int `json:"sat,omitempty"`
+	// Sun 周日时间段
+	Sun []int `json:"sun,omitempty"`
 }
