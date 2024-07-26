@@ -48,6 +48,8 @@ type CreateRequest struct {
 	OuterLoopNative int `json:"outer_loop_native,omitempty"`
 	//kol_user_type	int	选填	原生达人用户类型	2服务号原生，3聚星达人原生，当outer_loop_native为1时此项必填
 	KolUserType int `json:"kol_user_type,omitempty"`
+	//kol_user_id 原生投放目标达人ID	 开启原生场景下必传，即当outer_loop_native=1时此项必填
+	KolUserId int64 `json:"kol_user_id,omitempty"`
 	//high_light_flash	int	选填	高光创意状态	0：关闭 1：开启
 	HighLightFlash int `json:"high_light_flash,omitempty"`
 	//splash_photo_ids	sting[]	选填	开屏视频 id	creative_material_type 为 11 时必填，使用上传视频接口时返回的 photo_id；即素材类型是开屏视频时，必须传入全尺寸的 4 条视频，具体参考素材层级接口
@@ -72,5 +74,3 @@ func (r CreateRequest) Encode() []byte {
 	ret, _ := json.Marshal(r)
 	return ret
 }
-
-

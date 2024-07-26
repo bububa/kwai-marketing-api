@@ -5,6 +5,7 @@ import (
 	"github.com/bububa/kwai-marketing-api/model/report"
 )
 
+
 // WordInfoReport 关键词报表
 func WordInfoReport(clt *core.SDKClient, accessToken string, req *report.WordInfoReportRequest) (*report.ReportResponse, error) {
 	var resp report.ReportResponse
