@@ -57,5 +57,5 @@ type AdDpaLibraryViewSneak struct {
 	// CreateTime 商品库创建时间 毫秒时间戳
 	CreateTime int64 `json:"create_time,omitempty"`
 	// BizID 商品库业务类型 0-未知, 1-主站, 2-联盟, 3-通用
-	BizID []int `json:"biz_id,omitempty"`
+	BizID int `json:"biz_id,omitempty"`
 }
