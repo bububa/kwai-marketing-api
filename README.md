@@ -154,6 +154,17 @@
     - 创建应用 [ file.AdAppCreate(clt *core.SDKClient, accessToken string, req *file.AdAppCreateRequest) (*file.App, error) ]
     - 修改应用 [ file.AdAppUpdate(clt *core.SDKClient, accessToken string, req *file.AdAppUpdateRequest) (*file.App, error) ]
     - 获取应用列表 [ file.AdAppList(clt *core.SDKClient, accessToken string, req *file.AdAppListRequest) (*file.AdAppListResponse, error) ]
+  - 定向模版(新) (api/dsp/target)
+    - 查询定向模板 [ TemplateDetails(clt *core.SDKClient, accessToken string, req *target.TemplateDetailsRequest) (*target.TemplateDetailsResponse, error) ]
+    - 创建定向模板 [ TemplateCreate(clt *core.SDKClient, accessToken string, req *target.TemplateCreateRequest) (uint64, error) ]
+    - 更新定向模板 [ TemplateUpdate(clt *core.SDKClient, accessToken string, req *target.TemplateUpdateRequest) (uint64, error) ]
+    - 删除定向模板 [ TemplateDelete(clt *core.SDKClient, accessToken string, req *target.TemplateDeleteRequest) (uint64, error) ]
+    - 根据店铺名称查询商圈信息 [ OptionDistanceList(clt *core.SDKClient, accessToken string, req *target.OptionDistanceListRequest) (*target.OptionDistanceListResponse, error) ]
+    - 定向模板同步 [ TemplateUnitSync(clt *core.SDKClient, accessToken string, req *target.TemplateUnitSyncRequest) (*target.TemplateUnitSyncResponse, error) ]
+    - 模板同步失败查询 [ TemplateSyncHistory(clt *core.SDKClient, accessToken string, req *target.TemplateSyncHistoryRequest) (*target.TemplateSyncHistoryResponse, error) ]
+    - 查询模板关联的广告列表接口 [ TemplateRelatedUnitList(clt *core.SDKClient, accessToken string, req *target.TemplateRelatedUnitListRequest) (*target.TemplateRelatedUnitListResponse, error) ]
+    - 查询待升级模板列表 [ TemplateUpgradeList(clt *core.SDKClient, accessToken string, req *target.TemplateUpgradeListRequest) ([]target.TemplateUpgradeItem, error) ]
+    - 模板升级 [ TemplateUpgrade(clt *core.SDKClient, accessToken string, req *target.TemplateUpgradeRequest) (int64, error) ]
   - 定向模版
     - 创建定向模板 [ target.TemplateCreate(clt *core.SDKClient, accessToken string, req *target.TemplateCreateRequest) (*target.Template, error) ]
     - 查询定向模板接口 [ target.TemplateList(clt *core.SDKClient, accessToken string, req *target.TemplateListRequest) (*target.TemplateListResponse, error) ]
