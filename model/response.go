@@ -10,10 +10,10 @@ type Response interface {
 
 // BaseResponse shared response data struct
 type BaseResponse struct {
-	Code      int             `json:"code,omitempty"`       // 返回码
 	Message   string          `json:"message,omitempty"`    // 返回信息
-	Data      json.RawMessage `json:"data,omitempty"`       // JSON返回值
 	RequestId string          `json:"request_id,omitempty"` // 请求id
+	Data      json.RawMessage `json:"data,omitempty"`       // JSON返回值
+	Code      int             `json:"code,omitempty"`       // 返回码
 }
 
 // IsError detect if the response is an error

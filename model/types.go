@@ -157,3 +157,13 @@ func (m *MatchType) UnmarshalCSV(b string) (err error) {
 func (m MatchType) Value() int {
 	return int(m)
 }
+
+// PageInfo 分页信息
+type PageInfo struct {
+	// PageSize 页大小
+	PageSize int `json:"page_size,omitempty"`
+	// CurrentPage 当前页码
+	CurrentPage int `json:"current_page,omitempty"`
+	// TotalCount 总记录数
+	TotalCount int `json:"total_count,omitempty"`
+}

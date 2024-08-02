@@ -218,6 +218,17 @@
     - 修改应用分包备注 [ subpkg.Description(clt *core.SDKClient, accessToken string, req *subpkg.DescriptionRequest) error ]
     - 获取分包管理/回收站列表 [ subpkg.List(clt *core.SDKClient, accessToken string, req *subpkg.ListRequest) (*subpkg.ListResponse, error) ]
     - 分包失败重新构建 [ app.RetryBuildSubPackage(clt *core.SDKClient, accessToken string, req *app.RetryBuildSubPackageRequest) (int, error) ]
+- 商品库 (api/dsp/dpa)
+  - 查询 DPA 模板信息 [ TemplateList(clt *core.SDKClient, accessToken string, req *dpa.TemplateListRequest) (*dpa.TemplateListResponse, error) ]
+  - 获取商品库类目树 [ CategoryList(clt *core.SDKClient, accessToken string, req *dpa.CategoryListRequest) (*dpa.CategoryListResponse, error) ]
+  - 获取商品库列表 [ LibraryList(clt *core.SDKClient, accessToken string, req *dpa.LibraryListRequest) (*dpa.LibraryListResponse, error) ]
+  - 创建商品 [ ProductBatchCreate(clt *core.SDKClient, accessToken string, req *dpa.ProductBatchCreateRequest) ([]dpa.ProductUpdateResult, error) ]
+  - 更新商品 [ ProductBatchUpdate(clt *core.SDKClient, accessToken string, req *dpa.ProductBatchUpdateRequest) ([]dpa.ProductUpdateResult, error) ]
+  - 获取商品列表 [ ProductBatchQuery(clt *core.SDKClient, accessToken string, req *dpa.ProductBatchQueryRequest) (*dpa.ProductBatchQueryResponse, error) ]
+  - 获取商品列表(游标) [ ProductCursorQuery(clt *core.SDKClient, accessToken string, req *dpa.ProductCursorQueryRequest) (*dpa.ProductCursorQueryResponse, error) ]
+  - 获取SDPA创意视频模板 [ CreativeTemplateList(clt *core.SDKClient, accessToken string, req *dpa.CreativeTemplateListRequest) (*dpa.CreativeTemplateListResponse, error) ]
+  - 批量模板合成SDPA创意视频 [ CreativeVideoGenerate(clt *core.SDKClient, accessToken string, req *dpa.CreativeVideoGenerateRequest) ([]dpa.GenerateVideoResult, error) ]
+  - CID服务商投放SDPA接口 [ SecretCidLink(clt *core.SDKClient, accessToken string, req *dpa.SecretCidLinkRequest) error ]
 - 数据上报管理 (api/track)
   - 转化回传 [ Activate(req *track.ActivateRequest) error ]
   - 点击检测链接 [ Click(baseUrl string, fields []string) string ]
