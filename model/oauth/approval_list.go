@@ -29,6 +29,20 @@ func (r ApprovalListRequest) Encode() []byte {
 
 // ApprovalListResponse 拉取token下授权广告账户接口 API Response
 type ApprovalListResponse struct {
-	// Details 查询获得的广告主 ID
-	Details []uint64 `json:"details,omitempty"`
+	Message string `json:"message,omitempty"` // 返回信息
+	Data    struct {
+		// Details 查询获得的广告主 ID
+		Details []uint64 `json:"details,omitempty"`
+	} `json:"data,omitempty"` // JSON返回值
+	Code int `json:"code,omitempty"` // 返回码
+}
+
+// IsError detect if the response is an error
+func (r *ApprovalListResponse) IsError() bool {
+	return r.Code != 1
+}
+
+// Error implement error interface
+func (r *ApprovalListResponse) Error() string {
+	return r.Message
 }

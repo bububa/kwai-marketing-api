@@ -19,5 +19,5 @@ func ApprovalList(clt *core.SDKClient, accessToken string, pageNo int, pageSize 
 	if err != nil {
 		return nil, err
 	}
-	return resp.Details, nil
+	return resp.Data.Details, nil
 }
