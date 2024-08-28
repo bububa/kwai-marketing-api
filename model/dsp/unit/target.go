@@ -44,7 +44,7 @@ type Target struct {
 	// AppIDs APP 行为-按 APP 名称
 	// id 不能重复且必须准确，具体 id 可通过下方应用接口获取，建议不超过 10 个，否则可能出现报错；仅包含安卓数据，若操作系统定向 IOS 则无效；不能同时选择 app_interest。该定向仅支持快手站内广告位，不支持联盟广告位。
 	AppIDs []uint64 `json:"app_ids,omitempty"`
-	// FilterConvertedLevel 过滤已转化人群纬度
+	// FilterConvertedLevel 过滤已转化人群纬度	0：不限 1：广告组 2：广告计划 3：本账户 4：公司主体 5：APP 6:运营自定义产品名 7:企微号
 	// 搜索广告、联盟广告、小店通不支持。优化目标不支持【封面曝光数】和【封面点击数】非应用下载类推广不支持过滤【APP】纬度。0(默认)：不限；1：广告组 2：广告计划；3：本账户；4：公司主体；5：APP；6:运营自定义产品名
 	FilterConvertedLevel int `json:"filter_converted_level,omitempty"`
 	// Population 人群包定向

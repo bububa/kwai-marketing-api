@@ -1,6 +1,7 @@
 package oauth
 
 import (
+	"context"
 	"strings"
 
 	"github.com/bububa/kwai-marketing-api/core"
@@ -8,7 +9,7 @@ import (
 )
 
 // Url 生成授权链接
-func Url(clt *core.SDKClient, req *oauth.UrlRequest) string {
+func Url(ctx context.Context, clt *core.SDKClient, req *oauth.UrlRequest) string {
 	req.AppID = clt.AppID()
 	var builder strings.Builder
 	builder.WriteString(core.OAUTH_URL)

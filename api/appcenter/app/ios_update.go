@@ -1,6 +1,7 @@
 package app
 
 import (
+	"context"
 	"errors"
 
 	"github.com/bububa/kwai-marketing-api/core"
@@ -8,9 +9,9 @@ import (
 )
 
 // IosUpdate iOS 应用上报更新
-func IosUpdate(clt *core.SDKClient, accessToken string, req *app.IosUpdateRequest) error {
+func IosUpdate(ctx context.Context, clt *core.SDKClient, accessToken string, req *app.IosUpdateRequest) error {
 	var resp app.IosUpdateResponse
-	if err := clt.Post(accessToken, req, &resp); err != nil {
+	if err := clt.Post(ctx, accessToken, req, &resp); err != nil {
 		return err
 	}
 	if !resp.Result {
