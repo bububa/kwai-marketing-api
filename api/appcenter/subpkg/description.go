@@ -1,6 +1,7 @@
 package subpkg
 
 import (
+	"context"
 	"errors"
 
 	"github.com/bububa/kwai-marketing-api/core"
@@ -8,9 +9,9 @@ import (
 )
 
 // Description 【应用中心】修改应用分包备注
-func Description(clt *core.SDKClient, accessToken string, req *subpkg.DescriptionRequest) error {
+func Description(ctx context.Context, clt *core.SDKClient, accessToken string, req *subpkg.DescriptionRequest) error {
 	var resp subpkg.ModResponse
-	if err := clt.Post(accessToken, req, &resp); err != nil {
+	if err := clt.Post(ctx, accessToken, req, &resp); err != nil {
 		return err
 	}
 	if !resp.Result {

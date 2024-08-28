@@ -2,23 +2,46 @@ package core
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"fmt"
 	"io"
 	"mime/multipart"
 	"net/http"
 	"strings"
+	"sync"
+	"time"
 
 	"github.com/bububa/kwai-marketing-api/core/internal/debug"
 	"github.com/bububa/kwai-marketing-api/model"
 )
 
+var (
+	onceInit   sync.Once
+	httpClient *http.Client
+)
+
+func defaultHttpClient() *http.Client {
+	onceInit.Do(func() {
+		transport := http.DefaultTransport.(*http.Transport).Clone()
+		transport.MaxIdleConns = 100
+		transport.MaxConnsPerHost = 100
+		transport.MaxIdleConnsPerHost = 100
+		httpClient = &http.Client{
+			Transport: transport,
+			Timeout:   time.Second * 60,
+		}
+	})
+	return httpClient
+}
+
 // SDKClient api client
 type SDKClient struct {
-	appID  uint64
-	secret string
-	debug  bool
 	client *http.Client
+	tracer *Otel
+	secret string
+	appID  uint64
+	debug  bool
 }
 
 // NewSDKClient init sdk client
@@ -26,7 +49,7 @@ func NewSDKClient(appID uint64, secret string) *SDKClient {
 	return &SDKClient{
 		appID:  appID,
 		secret: secret,
-		client: http.DefaultClient,
+		client: defaultHttpClient(),
 	}
 }
 
@@ -49,6 +72,10 @@ func (c *SDKClient) SetHttpClient(client *http.Client) {
 	c.client = client
 }
 
+func (c *SDKClient) WithTracer(namespace string) {
+	c.tracer = NewOtel(namespace, c.AppID())
+}
+
 // PostUrl post请求地址
 func (c *SDKClient) PostUrl(req model.PostRequest) string {
 	return fmt.Sprintf("%s/%s", BASE_URL, req.Url())
@@ -65,14 +92,14 @@ func (c *SDKClient) UploadUrl(req model.UploadRequest) string {
 }
 
 // Post execute post api request
-func (c *SDKClient) Post(accessToken string, req model.PostRequest, resp interface{}) error {
+func (c *SDKClient) Post(ctx context.Context, accessToken string, req model.PostRequest, resp interface{}) error {
 	var reqResp model.Response
 	if v, ok := resp.(model.Response); ok {
 		reqResp = v
 	} else {
 		reqResp = &model.BaseResponse{}
 	}
-	err := c.post(accessToken, c.PostUrl(req), req.Encode(), reqResp)
+	err := c.post(ctx, accessToken, c.PostUrl(req), req.Encode(), reqResp)
 	if err != nil {
 		return err
 	}
@@ -93,9 +120,9 @@ func (c *SDKClient) Post(accessToken string, req model.PostRequest, resp interfa
 }
 
 // Get execute get api request
-func (c *SDKClient) Get(accessToken string, req model.GetRequest, resp interface{}) error {
+func (c *SDKClient) Get(ctx context.Context, accessToken string, req model.GetRequest, resp interface{}) error {
 	var reqResp model.BaseResponse
-	err := c.get(accessToken, c.GetUrl(req), &reqResp)
+	err := c.get(ctx, accessToken, c.GetUrl(req), &reqResp)
 	if err != nil {
 		return err
 	}
@@ -112,27 +139,32 @@ func (c *SDKClient) Get(accessToken string, req model.GetRequest, resp interface
 }
 
 // GetBytes get bytes api
-func (c *SDKClient) GetBytes(accessToken string, req model.GetRequest) ([]byte, error) {
+func (c *SDKClient) GetBytes(ctx context.Context, accessToken string, req model.GetRequest) ([]byte, error) {
 	reqUrl := c.GetUrl(req)
 	debug.PrintGetRequest(reqUrl, c.debug)
-	httpReq, err := http.NewRequest("GET", reqUrl, nil)
+	httpReq, err := http.NewRequestWithContext(ctx, http.MethodGet, reqUrl, nil)
 	if err != nil {
 		return nil, err
 	}
 	if accessToken != "" {
 		httpReq.Header.Add("Access-Token", accessToken)
 	}
-	httpResp, err := c.client.Do(httpReq)
-	if err != nil {
-		return nil, err
-	}
-	defer httpResp.Body.Close()
-	return io.ReadAll(httpResp.Body)
+	var ret []byte
+	c.WithSpan(ctx, httpReq, nil, nil, func(httpReq *http.Request, resp interface{}) (*http.Response, error) {
+		httpResp, err := c.client.Do(httpReq)
+		if err != nil {
+			return httpResp, err
+		}
+		defer httpResp.Body.Close()
+		ret, err = io.ReadAll(httpResp.Body)
+		return httpResp, err
+	})
+	return ret, nil
 }
 
-func (c *SDKClient) GetOnBody(accessToken string, req model.PostRequest, resp interface{}) error {
+func (c *SDKClient) GetOnBody(ctx context.Context, accessToken string, req model.PostRequest, resp interface{}) error {
 	var reqResp model.BaseResponse
-	err := c.getOnBody(accessToken, c.PostUrl(req), req.Encode(), &reqResp)
+	err := c.getOnBody(ctx, accessToken, c.PostUrl(req), req.Encode(), &reqResp)
 	if err != nil {
 		return err
 	}
@@ -149,7 +181,7 @@ func (c *SDKClient) GetOnBody(accessToken string, req model.PostRequest, resp in
 }
 
 // Upload multipart/form-data post
-func (c *SDKClient) Upload(accessToken string, req model.UploadRequest, resp interface{}) error {
+func (c *SDKClient) Upload(ctx context.Context, accessToken string, req model.UploadRequest, resp interface{}) error {
 	var buf bytes.Buffer
 	mw := multipart.NewWriter(&buf)
 	params := req.Encode()
@@ -180,7 +212,7 @@ func (c *SDKClient) Upload(accessToken string, req model.UploadRequest, resp int
 	mw.Close()
 	reqUrl := c.UploadUrl(req)
 	debug.PrintPostMultipartRequest(reqUrl, mp, c.debug)
-	httpReq, err := http.NewRequest("POST", reqUrl, &buf)
+	httpReq, err := http.NewRequestWithContext(ctx, http.MethodPost, reqUrl, &buf)
 	if err != nil {
 		return err
 	}
@@ -189,14 +221,9 @@ func (c *SDKClient) Upload(accessToken string, req model.UploadRequest, resp int
 		httpReq.Header.Add("Access-Token", accessToken)
 	}
 
-	httpResp, err := c.client.Do(httpReq)
-	if err != nil {
-		return err
-	}
-	defer httpResp.Body.Close()
 	var reqResp model.BaseResponse
-	err = debug.DecodeJSONHttpResponse(httpResp.Body, &reqResp, c.debug)
-	if err != nil {
+	bs, _ := json.Marshal(mp)
+	if err := c.WithSpan(ctx, httpReq, reqResp, bs, c.fetch); err != nil {
 		debug.PrintError(err, c.debug)
 		return err
 	}
@@ -213,9 +240,9 @@ func (c *SDKClient) Upload(accessToken string, req model.UploadRequest, resp int
 }
 
 // post data through api
-func (c *SDKClient) post(accessToken string, reqUrl string, reqBytes []byte, resp interface{}) error {
+func (c *SDKClient) post(ctx context.Context, accessToken string, reqUrl string, reqBytes []byte, resp interface{}) error {
 	debug.PrintPostJSONRequest(reqUrl, reqBytes, c.debug)
-	httpReq, err := http.NewRequest("POST", reqUrl, bytes.NewReader(reqBytes))
+	httpReq, err := http.NewRequestWithContext(ctx, http.MethodPost, reqUrl, bytes.NewReader(reqBytes))
 	if err != nil {
 		return err
 	}
@@ -223,23 +250,13 @@ func (c *SDKClient) post(accessToken string, reqUrl string, reqBytes []byte, res
 		httpReq.Header.Add("Access-Token", accessToken)
 	}
 	httpReq.Header.Add("Content-Type", "application/json")
-	httpResp, err := c.client.Do(httpReq)
-	if err != nil {
-		return err
-	}
-	defer httpResp.Body.Close()
-	err = debug.DecodeJSONHttpResponse(httpResp.Body, resp, c.debug)
-	if err != nil {
-		debug.PrintError(err, c.debug)
-		return err
-	}
-	return nil
+	return c.WithSpan(ctx, httpReq, resp, reqBytes, c.fetch)
 }
 
 // get data through api
-func (c *SDKClient) get(accessToken string, reqUrl string, resp interface{}) error {
+func (c *SDKClient) get(ctx context.Context, accessToken string, reqUrl string, resp interface{}) error {
 	debug.PrintGetRequest(reqUrl, c.debug)
-	httpReq, err := http.NewRequest("GET", reqUrl, nil)
+	httpReq, err := http.NewRequestWithContext(ctx, http.MethodGet, reqUrl, nil)
 	if err != nil {
 		return err
 	}
@@ -247,22 +264,12 @@ func (c *SDKClient) get(accessToken string, reqUrl string, resp interface{}) err
 		httpReq.Header.Add("Access-Token", accessToken)
 	}
 	httpReq.Header.Add("Content-Type", "application/json")
-	httpResp, err := c.client.Do(httpReq)
-	if err != nil {
-		return err
-	}
-	defer httpResp.Body.Close()
-	err = debug.DecodeJSONHttpResponse(httpResp.Body, resp, c.debug)
-	if err != nil {
-		debug.PrintError(err, c.debug)
-		return err
-	}
-	return nil
+	return c.WithSpan(ctx, httpReq, resp, nil, c.fetch)
 }
 
-func (c *SDKClient) getOnBody(accessToken string, reqUrl string, reqBytes []byte, resp interface{}) error {
+func (c *SDKClient) getOnBody(ctx context.Context, accessToken string, reqUrl string, reqBytes []byte, resp interface{}) error {
 	debug.PrintPostJSONRequest(reqUrl, reqBytes, c.debug)
-	httpReq, err := http.NewRequest("GET", reqUrl, bytes.NewReader(reqBytes))
+	httpReq, err := http.NewRequestWithContext(ctx, http.MethodGet, reqUrl, bytes.NewReader(reqBytes))
 	if err != nil {
 		return err
 	}
@@ -270,15 +277,26 @@ func (c *SDKClient) getOnBody(accessToken string, reqUrl string, reqBytes []byte
 		httpReq.Header.Add("Access-Token", accessToken)
 	}
 	httpReq.Header.Add("Content-Type", "application/json")
+	return c.WithSpan(ctx, httpReq, resp, reqBytes, c.fetch)
+}
+
+func (c *SDKClient) fetch(httpReq *http.Request, resp interface{}) (*http.Response, error) {
 	httpResp, err := c.client.Do(httpReq)
 	if err != nil {
-		return err
+		return httpResp, err
 	}
 	defer httpResp.Body.Close()
-	err = debug.DecodeJSONHttpResponse(httpResp.Body, resp, c.debug)
-	if err != nil {
+	if err = debug.DecodeJSONHttpResponse(httpResp.Body, resp, c.debug); err != nil {
 		debug.PrintError(err, c.debug)
+		return httpResp, err
+	}
+	return httpResp, nil
+}
+
+func (c *SDKClient) WithSpan(ctx context.Context, req *http.Request, resp interface{}, payload []byte, fn func(*http.Request, interface{}) (*http.Response, error)) error {
+	if c.tracer == nil {
+		_, err := fn(req, resp)
 		return err
 	}
-	return nil
+	return c.tracer.WithSpan(ctx, req, resp, payload, fn)
 }

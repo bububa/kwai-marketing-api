@@ -1,6 +1,7 @@
 package app
 
 import (
+	"context"
 	"errors"
 
 	"github.com/bububa/kwai-marketing-api/core"
@@ -8,9 +9,9 @@ import (
 )
 
 // Online 【应用中心】应用上架
-func Online(clt *core.SDKClient, accessToken string, req *app.OnlineRequest) error {
+func Online(ctx context.Context, clt *core.SDKClient, accessToken string, req *app.OnlineRequest) error {
 	var resp app.OnlineOfflineResponse
-	if err := clt.Post(accessToken, req, &resp); err != nil {
+	if err := clt.Post(ctx, accessToken, req, &resp); err != nil {
 		return err
 	}
 	if !resp.Result {
