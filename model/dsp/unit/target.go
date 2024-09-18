@@ -16,7 +16,7 @@ type Target struct {
 	Age *Age `json:"age,omitempty"`
 	// AgeRange 固定年龄段
 	// 与 age 不能同时传；【18：表示 18-23 岁】；【24：表示 24-30 岁】；【31：表示 31-40 岁】；【41：表示 41-49 岁】；【50：表示 50-100 岁】
-	AgeRange []int `json:"age_range,omitempty"`
+	AgesRange []int `json:"ages_range,omitempty"`
 	// Gender 性别
 	// 1：女性, 2：男性，0 表示不限
 	Gender *int `json:"gender,omitempty"`
