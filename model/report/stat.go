@@ -529,11 +529,11 @@ type Stat struct {
 	// T7PaidAmt 7日累计付费金额（元）
 	T7PaidAmt float64 `json:"t7_paid_amt,omitempty"`
 	// MinigameIaaPurchaseAmountFirstDay  当日广告LTV
-	MinigameIaaPurchaseAmountFirstDay int64 `json:"minigame_iaa_purchase_amount_first_day,omitempty"`
+	MinigameIaaPurchaseAmountFirstDay float64 `json:"minigame_iaa_purchase_amount_first_day,omitempty"`
 	// MinigameIaaPurchaseThreeDayByConversion 激活后三日广告LTV
 	MinigameIaaPurchaseThreeDayByConversion int64 `json:"minigame_iaa_purchase_three_day_by_conversion,omitempty"`
 	// MinigameIaaPurchaseAmountWeekByConversion 激活后七日广告LTV
-	MinigameIaaPurchaseAmountWeekByConversion int64 `json:"minigame_iaa_purchase_amount_week_by_conversion,omitempty"`
+	MinigameIaaPurchaseAmountWeekByConversion float64 `json:"minigame_iaa_purchase_amount_week_by_conversion,omitempty"`
 	// MinigameIaaPurchaseAmountFirstDayRoi 当日广告变现ROI
 	MinigameIaaPurchaseAmountFirstDayRoi float64 `json:"minigame_iaa_purchase_amount_first_day_roi,omitempty"`
 	// MinigameIaaPurchaseAmountThreeDayByConversionRoi 激活后三日广告变现ROI
