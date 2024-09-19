@@ -430,10 +430,6 @@ type Stat struct {
 	EventPayPurchaseAmountThreeDayByConversion float64 `json:"event_pay_purchase_amount_three_day_by_conversion,omitempty"`
 	// EventPayPurchaseAmountWeekByConversion 激活后7日付费金额
 	EventPayPurchaseAmountWeekByConversion float64 `json:"event_pay_purchase_amount_week_by_conversion,omitempty"`
-	// EventThreeDayStayByConversion 3日留存
-	EventThreeDayStayByConversion int64 `json:"event_three_day_stay_by_conversion,omitempty"`
-	// EventWeekStayByConversion 7日留存
-	EventWeekStayByConversion int64 `json:"event_week_stay_by_conversion,omitempty"`
 	// EventPayPurchaseAmountOneDayByConversion 激活后24h付费金额(激活时间)
 	EventPayPurchaseAmountOneDayByConversion float64 `json:"event_pay_purchase_amount_one_day_by_conversion,omitempty"`
 	// EventPayPurchaseAmountOneDay 激活后24h付费金额(回传时间)
@@ -446,24 +442,22 @@ type Stat struct {
 	ConversionNumByImpression7d int64 `json:"conversion_num_by_impression_7d,omitempty"`
 	// DeepConversionNumByImpression7d 深度转化数(计费时间)
 	DeepConversionNumByImpression7d int64 `json:"deep_conversion_num_by_impression_7d,omitempty"`
-	// Event24Stay 活后24h次日留存数（回传时间）
-	Event24Stay int64 `json:"event_24_stay,omitempty"`
-	// Event24StayByConversion 激活后24h次日留存数（激活时间）
-	Event24StayByConversion int64 `json:"event_24_stay_by_conversion,omitempty"`
+	// Event24hStay 活后24h次日留存数（回传时间）
+	Event24hStay int64 `json:"event_24h_stay,omitempty"`
+	// Event24hStayByConversion 激活后24h次日留存数（激活时间）
+	Event24hStayByConversion int64 `json:"event_24h_stay_by_conversion,omitempty"`
 	// EventPayWeekByConversionCost 7日付费次数成本
 	EventPayWeekByConversionCost float64 `json:"event_pay_week_by_conversion_cost,omitempty"`
 	// EventPayPurchaseAmountThreeDayByConversionRoi 激活后3日ROI
 	EventPayPurchaseAmountThreeDayByConversionRoi float64 `json:"event_pay_purchase_amount_three_day_by_conversion_roi,omitempty"`
 	// EventPayPurchaseAmountWeekByConversionRoi 激活后7日ROI
 	EventPayPurchaseAmountWeekByConversionRoi float64 `json:"event_pay_purchase_amount_week_by_conversion_roi,omitempty"`
-	// EventThreeDayStayByConversionCost 3日留存成本
-	EventThreeDayStayByConversionCost float64 `json:"event_three_day_stay_by_conversion_cost,omitempty"`
-	// EventThreeDayStayByConversionRatio 3日留存率
-	EventThreeDayStayByConversionRatio float64 `json:"event_three_day_stay_by_conversion_ratio,omitempty"`
-	// EventWeekStayByConversionCost 7日留存成本
-	EventWeekStayByConversionCost float64 `json:"event_week_stay_by_conversion_cost,omitempty"`
-	// EventWeekStayByConversionRatio 7日留存率
-	EventWeekStayByConversionRatio float64 `json:"event_week_stay_by_conversion_ratio,omitempty"`
+	// EventWeekStay 自然日7日留存数（激活时间）
+	EventWeekStay int64 `json:"event_week_stay,omitempty"`
+	// EventWeekStayCost 自然日7日留存成本（激活时间）
+	EventWeekStayCost float64 `json:"event_week_stay_cost,omitempty"`
+	// EventWeekStayRatio 自然日7日留存率（激活时间）
+	EventWeekStayRatio float64 `json:"event_week_stay_ratio,omitempty"`
 	// ConversionNumCost 转化成本（回传时间归因）
 	ConversionNumCost float64 `json:"conversion_num_cost,omitempty"`
 	// ConversionRatio 转化率（回传时间归因）
@@ -492,18 +486,54 @@ type Stat struct {
 	Event24hStayByConversionCost float64 `json:"event_24h_stay_by_conversion_cost,omitempty"`
 	// Event24hStayByConversionRatio 激活后24h次日留存率（激活时间）
 	Event24hStayByConversionRatio float64 `json:"event_24h_stay_by_conversion_ratio,omitempty"`
+	// EventTwoDayStayByConversion 自然日2日留存数（回传时间）
+	EventTwoDayStayByConversion int64 `json:"event_two_day_stay_by_conversion,omitempty"`
+	// EventTwoDayStayByConversionCost 自然日2日留存成本（回传时间）
+	EventTwoDayStayByConversionCost float64 `json:"event_two_day_stay_by_conversion_cost,omitempty"`
+	// EventTwoDayStayByConversionRatio 自然日2日留存率（回传时间）
+	EventTwoDayStayByConversionRatio float64 `json:"event_two_day_stay_by_conversion_ratio,omitempty"`
+	// EventThreeDayStayByConversion 自然日3日留存数（回传时间）
+	EventThreeDayStayByConversion int64 `json:"event_three_day_stay_by_conversion,omitempty"`
+	// EventThreeDayStayByConversionCost 3日留存成本
+	EventThreeDayStayByConversionCost float64 `json:"event_three_day_stay_by_conversion_cost,omitempty"`
+	// EventThreeDayStayByConversionRatio 3日留存率
+	EventThreeDayStayByConversionRatio float64 `json:"event_three_day_stay_by_conversion_ratio,omitempty"`
+	// EventFourDayStayByConversion 自然日4日留存数（回传时间）
+	EventFourDayStayByConversion int64 `json:"event_four_day_stay_by_conversion,omitempty"`
+	// EventFourDayStayByConversionCost 自然日4日留存成本（回传时间）
+	EventFourDayStayByConversionCost float64 `json:"event_four_day_stay_by_conversion_cost,omitempty"`
+	// EventFourDayStayByConversionRatio 自然日4日留存率（回传时间）
+	EventFourDayStayByConversionRatio float64 `json:"event_four_day_stay_by_conversion_ratio,omitempty"`
+	// EventFiveDayStayByConversion 自然日5日留存数（回传时间）
+	EventFiveDayStayByConversion int64 `json:"event_five_day_stay_by_conversion,omitempty"`
+	// EventFiveDayStayByConversionCost 自然日5日留存成本（回传时间）
+	EventFiveDayStayByConversionCost float64 `json:"event_five_day_stay_by_conversion_cost,omitempty"`
+	// EventFiveDayStayByConversionRatio 自然日5日留存率（回传时间）
+	EventFiveDayStayByConversionRatio float64 `json:"event_five_day_stay_by_conversion_ratio,omitempty"`
+	// EventSixDayStayByConversion 自然日6日留存数（回传时间）
+	EventSixDayStayByConversion int64 `json:"event_six_day_stay_by_conversion,omitempty"`
+	// EventSixDayStayByConversionCost 自然日6日留存成本（回传时间）
+	EventSixDayStayByConversionCost float64 `json:"event_six_day_stay_by_conversion_cost,omitempty"`
+	// EventSixDayStayByConversionRatio 自然日6日留存率（回传时间）
+	EventSixDayStayByConversionRatio float64 `json:"event_six_day_stay_by_conversion_ratio,omitempty"`
+	// EventWeekStayByConversion 7日留存
+	EventWeekStayByConversion int64 `json:"event_week_stay_by_conversion,omitempty"`
+	// EventWeekStayByConversionCost 7日留存成本
+	EventWeekStayByConversionCost float64 `json:"event_week_stay_by_conversion_cost,omitempty"`
+	// EventWeekStayByConversionRatio 7日留存率
+	EventWeekStayByConversionRatio float64 `json:"event_week_stay_by_conversion_ratio,omitempty"`
 	// UnitSource 广告组来源0:常规（非托管）、1:托管
 	UnitSource int `json:"unit_source,omitempty"`
 	// AdShow 广告曝光
-	AdShow float64 `json:"ad_show,omitempty"`
+	AdShow int64 `json:"ad_show,omitempty"`
 	// T7PaidAmt 7日累计付费金额（元）
 	T7PaidAmt float64 `json:"t7_paid_amt,omitempty"`
 	// MinigameIaaPurchaseAmountFirstDay  当日广告LTV
-	MinigameIaaPurchaseAmountFirstDay float64 `json:"minigame_iaa_purchase_amount_first_day,omitempty"`
+	MinigameIaaPurchaseAmountFirstDay int64 `json:"minigame_iaa_purchase_amount_first_day,omitempty"`
 	// MinigameIaaPurchaseThreeDayByConversion 激活后三日广告LTV
-	MinigameIaaPurchaseThreeDayByConversion float64 `json:"minigame_iaa_purchase_three_day_by_conversion,omitempty"`
+	MinigameIaaPurchaseThreeDayByConversion int64 `json:"minigame_iaa_purchase_three_day_by_conversion,omitempty"`
 	// MinigameIaaPurchaseAmountWeekByConversion 激活后七日广告LTV
-	MinigameIaaPurchaseAmountWeekByConversion float64 `json:"minigame_iaa_purchase_amount_week_by_conversion,omitempty"`
+	MinigameIaaPurchaseAmountWeekByConversion int64 `json:"minigame_iaa_purchase_amount_week_by_conversion,omitempty"`
 	// MinigameIaaPurchaseAmountFirstDayRoi 当日广告变现ROI
 	MinigameIaaPurchaseAmountFirstDayRoi float64 `json:"minigame_iaa_purchase_amount_first_day_roi,omitempty"`
 	// MinigameIaaPurchaseAmountThreeDayByConversionRoi 激活后三日广告变现ROI
@@ -511,13 +541,61 @@ type Stat struct {
 	// MinigameIaaPurchaseAmountWeekByConversionRoi 激活后七日广告变现ROI
 	MinigameIaaPurchaseAmountWeekByConversionRoi float64 `json:"minigame_iaa_purchase_amount_week_by_conversion_roi,omitempty"`
 	// SupplementConversionCnt 补充激活事件数
-	SupplementConversionCnt float64 `json:"supplement_conversion_cnt,omitempty"`
+	SupplementConversionCnt int64 `json:"supplement_conversion_cnt,omitempty"`
 	// EventOrderSubmitCost 订单提交成本
 	EventOrderSubmitCost float64 `json:"eventOrderSubmitCost,omitempty"`
 	// EventOrderSubmit 订单提交数
-	EventOrderSubmit float64 `json:"eventOrderSubmit,omitempty"`
+	EventOrderSubmit int64 `json:"eventOrderSubmit,omitempty"`
 	// DirectSubmit1dCost 表单提交成本
 	DirectSubmit1dCost float64 `json:"directSubmit1dCost,omitempty"`
 	// EventDrawCreditLine 用信数
-	EventDrawCreditLine float64 `json:"eventDrawCreditLine,omitempty"`
+	EventDrawCreditLine int64 `json:"eventDrawCreditLine,omitempty"`
+	// EventMultiPaySevenDayByConversion 多次付费人数
+	EventMultiPaySevenDayByConversion int64 `json:"event_multi_pay_seven_day_by_conversion,omitempty"`
+	// EventMultiPaySevenDayByConversionCost 多次付费人成本
+	EventMultiPaySevenDayByConversionCost float64 `json:"event_multi_pay_seven_day_by_conversion_cost,omitempty"`
+	// EventEffectiveCustomerAcqusitionCnt 有效获客数（回传）
+	EventEffectiveCustomerAcqusitionCnt int64 `json:"event_effective_customer_acqusition_cnt,omitempty"`
+	// EventEffectiveCustomerAcqusitionCost 有效获客成本（回传）
+	EventEffectiveCustomerAcqusitionCost float64 `json:"event_effective_customer_acqusition_cost,omitempty"`
+	// EventEffectiveCustomerAcqusitionRatio 有效获客率（回传）
+	EventEffectiveCustomerAcqusitionRatio float64 `json:"event_effective_customer_acqusition_ratio,omitempty"`
+	// Jinjian0dCnt T0完件数
+	Jinjian0dCnt int64 `json:"jinjian_0d_cnt,omitempty"`
+	// Jinjian3dCnt T3完件数
+	Jinjian3dCnt int64 `json:"jinjian_3d_cnt,omitempty"`
+	// Jinjian0dCntCost T0完件成本
+	Jinjian0dCntCost float64 `json:"jinjian_0d_cnt_cost,omitempty"`
+	// Jinjian3dCntCost T3完件成本
+	Jinjian3dCntCost float64 `json:"jinjian_3d_cnt_cost,omitempty"`
+	// CreditGrant0dCnt T0授信数
+	CreditGrant0dCnt int64 `json:"credit_grant_0d_cnt,omitempty"`
+	// CreditGrant3dCnt T3授信数
+	CreditGrant3dCnt int64 `json:"credit_grant_3d_cnt,omitempty"`
+	// CreditGrant0dCntCost T0授信成本
+	CreditGrant0dCntCost float64 `json:"credit_grant_0d_cnt_cost,omitempty"`
+	// CreditGrant3dCntCost T3授信成本
+	CreditGrant3dCntCost float64 `json:"credit_grant_3d_cnt_cost,omitempty"`
+	// CreditGrant0dCntRatio T0完件授信率
+	CreditGrant0dCntRatio float64 `json:"credit_grant_0d_cnt_ratio,omitempty"`
+	// CreditGrant3dCntRatio T3完件授信通过率
+	CreditGrant3dCntRatio float64 `json:"credit_grant_3d_cnt_ratio,omitempty"`
+	// KeyInappAction0dCnt T0全量授信数
+	KeyInappAction0dCnt int64 `json:"key_inapp_action_0d_cnt,omitempty"`
+	// KeyInappAction3dCnt T3全量授信数
+	KeyInappAction3dCnt int64 `json:"key_inapp_action_3d_cnt,omitempty"`
+	// KeyInappAction0dCntCost T0全量授信成本
+	KeyInappAction0dCntCost float64 `json:"key_inapp_action_0d_cnt_cost,omitempty"`
+	// KeyInappAction3dCntCost T3全量授信成本
+	KeyInappAction3dCntCost float64 `json:"key_inapp_action_3d_cnt_cost,omitempty"`
+	// KeyInappAction0dCntRatio T0全量授信率
+	KeyInappAction0dCntRatio float64 `json:"key_inapp_action_0d_cnt_ratio,omitempty"`
+	// KeyInappAction3dCntRatio T3全量授信通过率
+	KeyInappAction3dCntRatio float64 `json:"key_inapp_action_3d_cnt_ratio,omitempty"`
+	// DrawCreditLine0dCnt T0用信数
+	DrawCreditLine0dCnt int64 `json:"draw_credit_line_0d_cnt,omitempty"`
+	// DrawCreditLine0dCntCost T0用信成本
+	DrawCreditLine0dCntCost float64 `json:"draw_credit_line_0d_cnt_cost,omitempty"`
+	// DrawCreditLine0dCntRatio T0授信用信率
+	DrawCreditLine0dCntRatio float64 `json:"draw_credit_line_0d_cnt_ratio,omitempty"`
 }
