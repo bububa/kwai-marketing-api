@@ -551,7 +551,7 @@ type Stat struct {
 	// EventDrawCreditLine 用信数
 	EventDrawCreditLine int64 `json:"eventDrawCreditLine,omitempty"`
 	// EventMultiPaySevenDayByConversion 多次付费人数
-	EventMultiPaySevenDayByConversion int64 `json:"event_multi_pay_seven_day_by_conversion,omitempty"`
+	EventMultiPaySevenDayByConversion float64 `json:"event_multi_pay_seven_day_by_conversion,omitempty"`
 	// EventMultiPaySevenDayByConversionCost 多次付费人成本
 	EventMultiPaySevenDayByConversionCost float64 `json:"event_multi_pay_seven_day_by_conversion_cost,omitempty"`
 	// EventEffectiveCustomerAcqusitionCnt 有效获客数（回传）
