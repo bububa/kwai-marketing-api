@@ -525,7 +525,7 @@ type Stat struct {
 	// UnitSource 广告组来源0:常规（非托管）、1:托管
 	UnitSource int `json:"unit_source,omitempty"`
 	// AdShow 广告曝光
-	AdShow int64 `json:"ad_show,omitempty"`
+	AdShow float64 `json:"ad_show,omitempty"`
 	// T7PaidAmt 7日累计付费金额（元）
 	T7PaidAmt float64 `json:"t7_paid_amt,omitempty"`
 	// MinigameIaaPurchaseAmountFirstDay  当日广告LTV
