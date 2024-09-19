@@ -29,20 +29,8 @@ func (r ApprovalListRequest) Encode() []byte {
 
 // ApprovalListResponse 拉取token下授权广告账户接口 API Response
 type ApprovalListResponse struct {
-	Message string `json:"message,omitempty"` // 返回信息
-	Data    struct {
-		// Details 查询获得的广告主 ID
-		Details []uint64 `json:"details,omitempty"`
-	} `json:"data,omitempty"` // JSON返回值
-	Code int `json:"code,omitempty"` // 返回码
-}
-
-// IsError detect if the response is an error
-func (r *ApprovalListResponse) IsError() bool {
-	return r.Code != 1
-}
-
-// Error implement error interface
-func (r *ApprovalListResponse) Error() string {
-	return r.Message
+	// Details 查询获得的广告主 ID
+	Details []uint64 `json:"details,omitempty"`
+	// 本次查询对应分页是否大于总页数，true-当前分页大于总分页，无需继续向后查询；false-当前分页小于等于总页数，需要查询。
+	IsEnd bool `json:"isEnd,omitempty"`
 }
